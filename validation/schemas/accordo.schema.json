@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "accordo",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["accordo"]
+    },
+    "base": {
+      "type": "string",
+      "enum": ["DO", "DO#", "REb", "RE", "RE#", "MIb", "MI", "FA", "FA#", "SOLb", "SOL", "SOL#", "LAb", "LA", "LA#", "SIb", "SI"]
+    },
+    "extra": {
+      "type": "object",
+      "properties": {
+        "alterazione": {
+          "type": "string"
+        },
+        "slash": {
+          "type": "object",
+          "properties": {
+            "nome": {
+              "type": "string",
+              "enum": ["DO", "DO#", "REb", "RE", "RE#", "MIb", "MI", "FA", "FA#", "SOLb", "SOL", "SOL#", "LAb", "LA", "LA#", "SIb", "SI"]
+            },
+            "intervallo": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": ["type", "base"],
+  "additionalProperties": false
+}

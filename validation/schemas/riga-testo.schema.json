@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "riga-testo",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["riga-testo", "stanza-breve"]
+    },
+    "contenuto": {
+      "type": "string"
+    },
+    "commento": {
+      "$ref": "commento.schema.json"
+    }
+  },
+  "required": ["type", "contenuto"],
+  "additionalProperties": false
+}
