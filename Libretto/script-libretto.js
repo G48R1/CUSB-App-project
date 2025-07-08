@@ -1,5 +1,5 @@
-import { joinPath } from "/App/config/utils.js";
-import { INDICE_CANTI_DIR } from "/App/config/config.js";
+import { joinPath } from "../App/config/utils.js";
+import { INDICE_CANTI_DIR } from "../App/config/config.js";
 
 // Attendi che il DOM sia caricato
 document.addEventListener('DOMContentLoaded', () => {

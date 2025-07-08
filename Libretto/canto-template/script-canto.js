@@ -1,6 +1,6 @@
-import { Canto } from "/App/Canto.js";
-import { CANTI_DIR, INDICE_CANTI_DIR } from "/App/config/config.js";
-import { joinPath } from "/App/config/utils.js";
+import { Canto } from "../../App/Canto.js";
+import { CANTI_DIR, INDICE_CANTI_DIR } from "../../App/config/config.js";
+import { joinPath } from "../../App/config/utils.js";
 
 // già definiti nello script di canto.html
 // const main = document.querySelector('main');
