@@ -1,0 +1,933 @@
+{
+  "type": "canto",
+  "id": 0,
+  "info": {
+    "tonalita": {
+      "type": "tonalita",
+      "tono": "LA",
+      "modo": "m"
+    },
+    "metro": "4/4"
+  },
+  "titolo": "Canto AAA",
+  "intro": [
+    {
+      "label": "intro breve",
+      "contenuto": {
+        "type": "strumentale",
+        "label": "intro",
+        "contenuto": {
+          "type": "riga-accordi",
+          "contenuto": [
+            {
+              "type": "accordo",
+              "base": "DO#",
+              "extra": {
+                "alterazione": "m"
+              }
+            },
+            {
+              "type": "accordo",
+              "base": "DO"
+            },
+            {
+              "type": "commento",
+              "contenuto": "commento",
+              "sep_ext_sx": "(",
+              "sep_ext_dx": ")"
+            }
+          ],
+          "spazi": [
+            {
+              "sep": " ",
+              "qta": 4
+            },
+            {
+              "sep": "⏝",
+              "qta": 1
+            },
+            {
+              "sep": " ",
+              "qta": 3
+            }
+          ]
+        },
+        "moltiplicatore": {
+          "type": "commento",
+          "contenuto": "x2",
+          "sep_ext_sx": "(",
+          "sep_ext_dx": ")"
+        }
+      }
+    }
+  ],
+  "strofe": [
+    {
+      "type": "strofa",
+      "id": 5,
+      "righe_accordi": [
+        {
+          "type": "riga-accordi",
+          "contenuto": [
+            {
+              "type": "accordo",
+              "base": "DO#",
+              "extra": {
+                "alterazione": "m7",
+                "slash": {
+                  "basso": "SOL",
+                  "extra": 5
+                }
+              }
+            },
+            {
+              "type": "accordo",
+              "base": "DO#",
+              "extra": {
+                "alterazione": "m7",
+                "slash": {
+                  "basso": "SOL",
+                  "extra": 5
+                }
+              }
+            },
+            {
+              "type": "commento",
+              "contenuto": "strofa",
+              "sep_ext_sx": "(",
+              "sep_ext_dx": ")"
+            }
+          ],
+          "spazi": [
+            {
+              "sep": " ",
+              "qta": 4
+            },
+            {
+              "sep": " ",
+              "qta": 2
+            },
+            {
+              "sep": " ",
+              "qta": 3
+            }
+          ]
+        },
+        {
+          "type": "riga-accordi",
+          "contenuto": [
+            {
+              "type": "accordo",
+              "base": "DO#",
+              "extra": {
+                "alterazione": "m7",
+                "slash": {
+                  "basso": "SOL",
+                  "extra": 5
+                }
+              }
+            },
+            {
+              "type": "accordo",
+              "base": "DO#",
+              "extra": {
+                "alterazione": "m7",
+                "slash": {
+                  "basso": "SOL",
+                  "extra": 5
+                }
+              }
+            }
+          ],
+          "spazi": [
+            {
+              "sep": " ",
+              "qta": 4
+            },
+            {
+              "sep": "⏝",
+              "qta": 1
+            }
+          ]
+        }
+      ],
+      "righe_testo": [
+        {
+          "type": "riga-testo",
+          "contenuto": [
+            {
+              "type": "testo",
+              "testo": "lorem ipsum dolor "
+            }
+          ],
+          "commento": {
+            "type": "commento",
+            "contenuto": "testo commento strofa 1",
+            "sep_ext_sx": "(",
+            "sep_ext_dx": ")"
+          }
+        },
+        {
+          "type": "riga-testo",
+          "contenuto": [
+            {
+              "type": "testo",
+              "testo": "lorem ipsum"
+            }
+          ]
+        }
+      ],
+      "assegnata": "maschi",
+      "seconde_voci": [
+        {
+          "type": "voce",
+          "registro": "soprani",
+          "voce": "terza",
+          "assegnata": "femmine",
+          "righe_testo": [
+            {
+              "ref_riga": 0,
+              "testo": {
+                "type": "riga-voce",
+                "contenuto": [
+                  {
+                    "type": "testo",
+                    "testo": "soprani 1"
+                  }
+                ]
+              }
+            },
+            {
+              "ref_riga": 1,
+              "testo": {
+                "type": "riga-voce",
+                "contenuto": [
+                  {
+                    "type": "testo",
+                    "testo": "soprani 2"
+                  }
+                ],
+                "commento": {
+                  "type": "commento",
+                  "contenuto": "commento",
+                  "sep_ext_sx": "(",
+                  "sep_ext_dx": ")"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "voce",
+          "registro": "tenori",
+          "voce": "~quinta",
+          "assegnata": "maschi",
+          "righe_testo": [
+            {
+              "ref_riga": 0,
+              "testo": {
+                "type": "riga-voce",
+                "contenuto": [
+                  {
+                    "type": "testo",
+                    "testo": "tenori 1"
+                  }
+                ]
+              }
+            },
+            {
+              "ref_riga": 1,
+              "testo": {
+                "type": "riga-voce",
+                "contenuto": [
+                  {
+                    "type": "testo",
+                    "testo": "tenori 2"
+                  }
+                ],
+                "commento": {
+                  "type": "commento",
+                  "contenuto": "testo",
+                  "sep_ext_sx": "(",
+                  "sep_ext_dx": ")"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "breve": {
+        "type": "stanza-breve",
+        "contenuto":  [
+          {
+            "type": "testo",
+            "testo": "lorem"
+          }
+        ],
+        "commento": {
+          "type": "commento",
+          "contenuto": "testo commento",
+          "sep_ext_sx": "(",
+          "sep_ext_dx": ")"
+        }
+      },
+      "schema": {
+        "type": "struttura-stanza",
+        "schema": [
+          {
+            "componente": "accordi",
+            "posizione": 0
+          },
+          {
+            "componente": "testo",
+            "posizione": 0
+          },
+          {
+            "componente": "accordi",
+            "posizione": 1
+          },
+          {
+            "componente": "testo",
+            "posizione": 1
+          }
+        ]
+      }
+    },
+    {
+      "type": "strofa",
+      "id": 6,
+      "righe_accordi": [
+        {
+          "type": "riga-accordi",
+          "contenuto": [
+            {
+              "type": "accordo",
+              "base": "DO#",
+              "extra": {
+                "alterazione": "m7",
+                "slash": {
+                  "basso": "SOL",
+                  "extra": 5
+                }
+              }
+            },
+            {
+              "type": "accordo",
+              "base": "DO#",
+              "extra": {
+                "alterazione": "m7",
+                "slash": {
+                  "basso": "SOL",
+                  "extra": 5
+                }
+              }
+            },
+            {
+              "type": "commento",
+              "contenuto": "strofa",
+              "sep_ext_sx": "(",
+              "sep_ext_dx": ")"
+            }
+          ],
+          "spazi": [
+            {
+              "sep": " ",
+              "qta": 4
+            },
+            {
+              "sep": " ",
+              "qta": 2
+            },
+            {
+              "sep": " ",
+              "qta": 3
+            }
+          ]
+        },
+        {
+          "type": "riga-accordi",
+          "contenuto": [
+            {
+              "type": "accordo",
+              "base": "DO#",
+              "extra": {
+                "alterazione": "m7",
+                "slash": {
+                  "basso": "SOL",
+                  "extra": 5
+                }
+              }
+            },
+            {
+              "type": "accordo",
+              "base": "DO#",
+              "extra": {
+                "alterazione": "m7",
+                "slash": {
+                  "basso": "SOL",
+                  "extra": 5
+                }
+              }
+            }
+          ],
+          "spazi": [
+            {
+              "sep": " ",
+              "qta": 4
+            },
+            {
+              "sep": "⏝",
+              "qta": 1
+            }
+          ]
+        }
+      ],
+      "righe_testo": [
+        {
+          "type": "riga-testo",
+          "contenuto": [
+            {
+              "type": "testo",
+              "testo": "seconda strofa "
+            }
+          ],
+          "commento": {
+            "type": "commento",
+            "contenuto": "testo commento strofa 2",
+            "sep_ext_sx": "(",
+            "sep_ext_dx": ")"
+          }
+        },
+        {
+          "type": "riga-testo",
+          "contenuto": [
+            {
+              "type": "testo",
+              "testo": "lorem ipsum"
+            }
+          ]
+        }
+      ],
+      "assegnata": "tutti",
+      "seconde_voci": [
+        {
+          "type": "voce",
+          "registro": "soprani",
+          "voce": "terza",
+          "assegnata": "femmine",
+          "righe_testo": [
+            {
+              "ref_riga": 0,
+              "testo": {
+                "type": "riga-voce",
+                "contenuto": [
+                  {
+                    "type": "testo",
+                    "testo": "soprani 1"
+                  }
+                ]
+              }
+            },
+            {
+              "ref_riga": 1,
+              "testo": {
+                "type": "riga-voce",
+                "contenuto": [
+                  {
+                    "type": "testo",
+                    "testo": "soprani 2"
+                  }
+                ],
+                "commento": {
+                  "type": "commento",
+                  "contenuto": "commento",
+                  "sep_ext_sx": "(",
+                  "sep_ext_dx": ")"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "voce",
+          "registro": "tenori",
+          "voce": "~quinta",
+          "assegnata": "maschi",
+          "righe_testo": [
+            {
+              "ref_riga": 0,
+              "testo": {
+                "type": "riga-voce",
+                "contenuto": [
+                  {
+                    "type": "testo",
+                    "testo": "tenori 1"
+                  }
+                ]
+              }
+            },
+            {
+              "ref_riga": 1,
+              "testo": {
+                "type": "riga-voce",
+                "contenuto": [
+                  {
+                    "type": "testo",
+                    "testo": "tenori 2"
+                  }
+                ],
+                "commento": {
+                  "type": "commento",
+                  "contenuto": "testo",
+                  "sep_ext_sx": "(",
+                  "sep_ext_dx": ")"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "breve": {
+        "type": "stanza-breve",
+        "contenuto":  [
+          {
+            "type": "testo",
+            "testo": "lorem 2"
+          }
+        ],
+        "commento": {
+          "type": "commento",
+          "contenuto": "testo commento",
+          "sep_ext_sx": "(",
+          "sep_ext_dx": ")"
+        }
+      },
+      "schema": {
+        "type": "struttura-stanza",
+        "schema": [
+          {
+            "componente": "accordi",
+            "posizione": 0
+          },
+          {
+            "componente": "testo",
+            "posizione": 0
+          },
+          {
+            "componente": "accordi",
+            "posizione": 1
+          },
+          {
+            "componente": "testo",
+            "posizione": 1
+          }
+        ]
+      }
+    }
+  ],
+  "ritornelli": [
+    {
+      "type": "ritornello",
+      "id": 5,
+      "righe_accordi": [
+        {
+          "type": "riga-accordi",
+          "contenuto": [
+            {
+              "type": "accordo",
+              "base": "DO#",
+              "extra": {
+                "alterazione": "m7",
+                "slash": {
+                  "basso": "SOL",
+                  "extra": 5
+                }
+              }
+            },
+            {
+              "type": "accordo",
+              "base": "DO#",
+              "extra": {
+                "alterazione": "m7",
+                "slash": {
+                  "basso": "SOL",
+                  "extra": 5
+                }
+              }
+            },
+            {
+              "type": "commento",
+              "contenuto": "ritornello",
+              "sep_ext_sx": "(",
+              "sep_ext_dx": ")"
+            }
+          ],
+          "spazi": [
+            {
+              "sep": " ",
+              "qta": 4
+            },
+            {
+              "sep": " ",
+              "qta": 2
+            },
+            {
+              "sep": " ",
+              "qta": 3
+            }
+          ]
+        },
+        {
+          "type": "riga-accordi",
+          "contenuto": [
+            {
+              "type": "accordo",
+              "base": "DO#",
+              "extra": {
+                "alterazione": "m7",
+                "slash": {
+                  "basso": "SOL",
+                  "extra": 5
+                }
+              }
+            },
+            {
+              "type": "accordo",
+              "base": "DO#",
+              "extra": {
+                "alterazione": "m7",
+                "slash": {
+                  "basso": "SOL",
+                  "extra": 5
+                }
+              }
+            }
+          ],
+          "spazi": [
+            {
+              "sep": " ",
+              "qta": 4
+            },
+            {
+              "sep": "⏝",
+              "qta": 1
+            }
+          ]
+        }
+      ],
+      "righe_testo": [
+        {
+          "type": "riga-testo",
+          "contenuto": [
+            {
+              "type": "testo",
+              "testo": "ritornello "
+            }
+          ],
+          "commento": {
+            "type": "commento",
+            "contenuto": "testo commento ritornello 1",
+            "sep_ext_sx": "(",
+            "sep_ext_dx": ")"
+          }
+        },
+        {
+          "type": "riga-testo",
+          "contenuto": [
+            {
+              "type": "testo",
+              "testo": "lorem ipsum"
+            }
+          ]
+        }
+      ],
+      "assegnata": "tutti",
+      "seconde_voci": [
+        {
+          "type": "voce",
+          "registro": "soprani",
+          "voce": "terza",
+          "assegnata": "femmine",
+          "righe_testo": [
+            {
+              "ref_riga": 0,
+              "testo": {
+                "type": "riga-voce",
+                "contenuto": [
+                  {
+                    "type": "testo",
+                    "testo": "soprani 1"
+                  }
+                ]
+              }
+            },
+            {
+              "ref_riga": 1,
+              "testo": {
+                "type": "riga-voce",
+                "contenuto": [
+                  {
+                    "type": "testo",
+                    "testo": "soprani 2"
+                  }
+                ],
+                "commento": {
+                  "type": "commento",
+                  "contenuto": "commento",
+                  "sep_ext_sx": "(",
+                  "sep_ext_dx": ")"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "voce",
+          "registro": "tenori",
+          "voce": "~quinta",
+          "assegnata": "maschi",
+          "righe_testo": [
+            {
+              "ref_riga": 0,
+              "testo": {
+                "type": "riga-voce",
+                "contenuto": [
+                  {
+                    "type": "testo",
+                    "testo": "tenori 1"
+                  }
+                ]
+              }
+            },
+            {
+              "ref_riga": 1,
+              "testo": {
+                "type": "riga-voce",
+                "contenuto": [
+                  {
+                    "type": "testo",
+                    "testo": "tenori 2"
+                  }
+                ],
+                "commento": {
+                  "type": "commento",
+                  "contenuto": "testo",
+                  "sep_ext_sx": "(",
+                  "sep_ext_dx": ")"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "breve": {
+        "type": "stanza-breve",
+        "contenuto":  [
+          {
+            "type": "testo",
+            "testo": "lorem"
+          }
+        ],
+        "commento": {
+          "type": "commento",
+          "contenuto": "testo commento",
+          "sep_ext_sx": "(",
+          "sep_ext_dx": ")"
+        }
+      },
+      "schema": {
+        "type": "struttura-stanza",
+        "schema": [
+          {
+            "componente": "accordi",
+            "posizione": 0
+          },
+          {
+            "componente": "testo",
+            "posizione": 0
+          },
+          {
+            "componente": "accordi",
+            "posizione": 1
+          },
+          {
+            "componente": "testo",
+            "posizione": 1
+          }
+        ]
+      }
+    }
+  ],
+  "outro": [
+    {
+      "label": "outro breve",
+      "contenuto": {
+        "type": "strumentale",
+        "label": "outro",
+        "contenuto": {
+          "type": "riga-accordi",
+          "contenuto": [
+            {
+              "type": "accordo",
+              "base": "DO#",
+              "extra": {
+                "alterazione": "m"
+              }
+            },
+            {
+              "type": "accordo",
+              "base": "DO"
+            },
+            {
+              "type": "commento",
+              "contenuto": "commento",
+              "sep_ext_sx": "(",
+              "sep_ext_dx": ")"
+            }
+          ],
+          "spazi": [
+            {
+              "sep": " ",
+              "qta": 4
+            },
+            {
+              "sep": "⏝",
+              "qta": 1
+            },
+            {
+              "sep": " ",
+              "qta": 3
+            }
+          ]
+        },
+        "moltiplicatore": {
+          "type": "commento",
+          "contenuto": "x2",
+          "sep_ext_sx": "(",
+          "sep_ext_dx": ")"
+        }
+      }
+    },
+    {
+      "label": "outro lungo",
+      "contenuto": {
+        "type": "strumentale",
+        "label": "outro",
+        "contenuto": {
+          "type": "riga-accordi",
+          "contenuto": [
+            {
+              "type": "accordo",
+              "base": "DO#",
+              "extra": {
+                "alterazione": "m"
+              }
+            },
+            {
+              "type": "accordo",
+              "base": "DO"
+            },
+            {
+              "type": "accordo",
+              "base": "DO"
+            },
+            {
+              "type": "accordo",
+              "base": "DO"
+            },
+            {
+              "type": "commento",
+              "contenuto": "commento",
+              "sep_ext_sx": "(",
+              "sep_ext_dx": ")"
+            }
+          ],
+          "spazi": [
+            {
+              "sep": " ",
+              "qta": 4
+            },
+            {
+              "sep": " ",
+              "qta": 2
+            },
+            {
+              "sep": " ",
+              "qta": 2
+            },
+            {
+              "sep": "⏝",
+              "qta": 1
+            },
+            {
+              "sep": " ",
+              "qta": 3
+            }
+          ]
+        },
+        "moltiplicatore": {
+          "type": "commento",
+          "contenuto": "x2",
+          "sep_ext_sx": "(",
+          "sep_ext_dx": ")"
+        }
+      }
+    }
+  ],
+  "struttura": [
+    {
+      "label": "default",
+      "struttura": {
+        "type": "struttura-canto",
+        "schema": [
+          {
+            "componente":"intro",
+            "posizione": "intro breve",
+            "commento": "cmt"
+          },
+          {
+            "componente":"strofa",
+            "posizione":5,
+            "commento": "cmt",
+            "isBreve": true,
+            "schema": {
+              "type": "struttura-stanza",
+              "schema": [
+                {
+                  "componente": "testo",
+                  "posizione": 0
+                },
+                {
+                  "componente": "accordi",
+                  "posizione": 1
+                },
+                {
+                  "componente": "testo",
+                  "posizione": 1
+                }
+              ]
+            }
+          },
+          {
+            "componente":"ritornello",
+            "posizione":5,
+            "commento": "a cappella"
+          },
+          {
+            "componente":"strofa",
+            "posizione":6
+          },
+          {
+            "componente":"ritornello",
+            "posizione":5
+          },
+          {
+            "componente":"outro",
+            "posizione": "outro lungo",
+            "commento": "cmt 2"
+          }
+        ]
+      }
+    }
+  ]
+}

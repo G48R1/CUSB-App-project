@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "riga-accordi-unico.schema.json",
+  "title": "riga-accordi",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["riga-accordi"]
+    },
+    "contenuto": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["accordo"]
+              },
+              "base": {
+                "type": "string",
+                "enum": ["DO", "DO#", "REb", "RE", "RE#", "MIb", "MI", "FA", "FA#", "SOLb", "SOL", "SOL#", "LAb", "LA", "LA#", "SIb", "SI"]
+              },
+              "extra": {
+                "type": "object",
+                "properties": {
+                  "alterazione": {
+                    "type": "string"
+                  },
+                  "slash": {
+                    "type": "object",
+                    "properties": {
+                      "basso": {
+                        "type": "string",
+                        "enum": ["DO", "DO#", "REb", "RE", "RE#", "MIb", "MI", "FA", "FA#", "SOLb", "SOL", "SOL#", "LAb", "LA", "LA#", "SIb", "SI"]
+                      },
+                      "extra": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "required": ["type", "base"],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["commento"]
+              },
+              "contenuto": {
+                  "type": "string"
+              },
+              "sep_ext_sx": {
+                  "type": "string"
+              },
+              "sep_ext_dx": {
+                  "type": "string"
+              }
+            },
+            "required": ["type", "contenuto"],
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "spazi": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "sep": {
+            "type": "string",
+            "enum": [" ", "_", "⏝"]
+          },
+          "qta": {
+            "type": "number"
+          }
+        },
+        "required": ["sep", "qta"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["type", "contenuto", "spazi"],
+  "additionalProperties": false
+}

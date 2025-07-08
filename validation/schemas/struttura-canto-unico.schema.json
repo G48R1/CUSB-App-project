@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "struttura-canto.schema.json",
+  "title": "struttura-canto",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["struttura-canto"]
+    },
+    "schema": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "componente": {
+            "type": "string",
+            "enum": ["intro", "strofa", "ritornello", "pre-chorus", "bridge", "strumentale", "outro"]
+          },
+          "posizione": {
+            "oneOf": [
+              {"type": "string"},
+              {"type": "number"}
+            ]
+          },
+          "schema": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["struttura-stanza"]
+              },
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "componente": {
+                      "type": "string",
+                      "enum": ["testo", "accordi"]
+                    },
+                    "posizione": {
+                      "type": "number"
+                    }
+                  },
+                  "required": ["componente", "posizione"],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": ["type", "schema"],
+            "additionalProperties": false
+          },
+          "commento": {
+            "type": "string"
+          },
+          "isBreve": {
+            "type": "boolean"
+          }
+        },
+        "required": ["componente", "posizione"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["type", "schema"],
+  "additionalProperties": false
+}

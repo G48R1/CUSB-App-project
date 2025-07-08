@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "stanza.schema.json",
   "title": "stanza",
   "type": "object",
   "properties": {
@@ -25,13 +26,23 @@
     },
     "assegnata": {
       "type": "string",
-      "enum": ["maschi", "femmine", "tutti", "solista"]
+      "enum": ["maschi", "femmine", "tutti", "solista", "solista-m1", "solista-m2","solista-f1", "solista-f2", "gruppo-1", "gruppo-2", "gruppo-3"]
     },
     "righe_assegnate": {
       "type": "array",
       "items": {
-        "type": "string",
-        "enum": ["maschi", "femmine", "tutti", "solista"]
+        "type": "object",
+        "properties": {
+          "ref_riga": {
+            "type": "number"
+          },
+          "assegnata": {
+            "type": "string",
+            "enum": ["maschi", "femmine", "tutti", "solista", "solista-m1", "solista-m2","solista-f1", "solista-f2", "gruppo-1", "gruppo-2", "gruppo-3"]
+          }
+        },
+        "required": ["ref_riga", "assegnata"],
+        "additionalProperties": false
       }
     },
     "seconde_voci": {

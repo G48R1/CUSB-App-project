@@ -1,0 +1,2372 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "canto-unico.schema.json",
+  "title": "canto",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["canto"]
+    },
+    "id": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "info": {
+      "type": "object",
+      "properties": {
+        "tonalita": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["tonalita"]
+            },
+            "tono": {
+              "type": "string",
+              "enum": ["DO", "DO#", "REb", "RE", "RE#", "MIb", "MI", "FA", "FA#", "SOLb", "SOL", "SOL#", "LAb", "LA", "LA#", "SIb", "SI"]
+            },
+            "modo": {
+              "type": "string",
+              "enum": ["M", "m"]
+            }
+          },
+          "required": ["type", "tono", "modo"],
+          "additionalProperties": false
+        },
+        "metro": {
+          "type": "string"
+        },
+        "tempo": {
+          "type": "object",
+          "properties": {
+            "velocita": {
+              "type": "string",
+              "oneOf": [
+                {"enum": ["veloce", "medio", "lento"]},
+                {"enum": ["lentissimo", "adagio", "andante", "allegro", "presto", "prestissimo"]}
+              ]
+            },
+            "bpm": {
+              "type": "number",
+              "minimum": 1
+            }
+          },
+          "required": ["velocita"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["tonalita"],
+      "additionalProperties": false
+    },
+    "titolo": {
+      "type": "string",
+      "minLength": 1
+    },
+    "intro": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "contenuto": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["strumentale"]
+              },
+              "label": {
+                "type": "string"
+              },
+              "contenuto": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": ["riga-accordi"]
+                  },
+                  "contenuto": {
+                    "type": "array",
+                    "items": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": ["accordo"]
+                            },
+                            "base": {
+                              "type": "string",
+                              "enum": ["DO", "DO#", "REb", "RE", "RE#", "MIb", "MI", "FA", "FA#", "SOLb", "SOL", "SOL#", "LAb", "LA", "LA#", "SIb", "SI"]
+                            },
+                            "extra": {
+                              "type": "object",
+                              "properties": {
+                                "alterazione": {
+                                  "type": "string"
+                                },
+                                "slash": {
+                                  "type": "object",
+                                  "properties": {
+                                    "basso": {
+                                      "type": "string",
+                                      "enum": ["DO", "DO#", "REb", "RE", "RE#", "MIb", "MI", "FA", "FA#", "SOLb", "SOL", "SOL#", "LAb", "LA", "LA#", "SIb", "SI"]
+                                    },
+                                    "extra": {
+                                      "type": "number"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "required": ["type", "base"],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": ["commento"]
+                            },
+                            "contenuto": {
+                                "type": "string"
+                            },
+                            "sep_ext_sx": {
+                                "type": "string"
+                            },
+                            "sep_ext_dx": {
+                                "type": "string"
+                            }
+                          },
+                          "required": ["type", "contenuto"],
+                          "additionalProperties": false
+                        }
+                      ]
+                    }
+                  },
+                  "spazi": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "sep": {
+                          "type": "string",
+                          "enum": [" ", "_", "⏝"]
+                        },
+                        "qta": {
+                          "type": "number"
+                        }
+                      },
+                      "required": ["sep", "qta"],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": ["type", "contenuto", "spazi"],
+                "additionalProperties": false
+              },
+              "moltiplicatore": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": ["commento"]
+                  },
+                  "contenuto": {
+                      "type": "string"
+                  },
+                  "sep_ext_sx": {
+                      "type": "string"
+                  },
+                  "sep_ext_dx": {
+                      "type": "string"
+                  }
+                },
+                "required": ["type", "contenuto"],
+                "additionalProperties": false
+              }
+            },
+            "required": ["type", "contenuto"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["contenuto"],
+        "additionalProperties": false
+      }
+    },
+    "outro": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "contenuto": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["strumentale"]
+              },
+              "label": {
+                "type": "string"
+              },
+              "contenuto": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": ["riga-accordi"]
+                  },
+                  "contenuto": {
+                    "type": "array",
+                    "items": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": ["accordo"]
+                            },
+                            "base": {
+                              "type": "string",
+                              "enum": ["DO", "DO#", "REb", "RE", "RE#", "MIb", "MI", "FA", "FA#", "SOLb", "SOL", "SOL#", "LAb", "LA", "LA#", "SIb", "SI"]
+                            },
+                            "extra": {
+                              "type": "object",
+                              "properties": {
+                                "alterazione": {
+                                  "type": "string"
+                                },
+                                "slash": {
+                                  "type": "object",
+                                  "properties": {
+                                    "basso": {
+                                      "type": "string",
+                                      "enum": ["DO", "DO#", "REb", "RE", "RE#", "MIb", "MI", "FA", "FA#", "SOLb", "SOL", "SOL#", "LAb", "LA", "LA#", "SIb", "SI"]
+                                    },
+                                    "extra": {
+                                      "type": "number"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "required": ["type", "base"],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": ["commento"]
+                            },
+                            "contenuto": {
+                                "type": "string"
+                            },
+                            "sep_ext_sx": {
+                                "type": "string"
+                            },
+                            "sep_ext_dx": {
+                                "type": "string"
+                            }
+                          },
+                          "required": ["type", "contenuto"],
+                          "additionalProperties": false
+                        }
+                      ]
+                    }
+                  },
+                  "spazi": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "sep": {
+                          "type": "string",
+                          "enum": [" ", "_", "⏝"]
+                        },
+                        "qta": {
+                          "type": "number"
+                        }
+                      },
+                      "required": ["sep", "qta"],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": ["type", "contenuto", "spazi"],
+                "additionalProperties": false
+              },
+              "moltiplicatore": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": ["commento"]
+                  },
+                  "contenuto": {
+                      "type": "string"
+                  },
+                  "sep_ext_sx": {
+                      "type": "string"
+                  },
+                  "sep_ext_dx": {
+                      "type": "string"
+                  }
+                },
+                "required": ["type", "contenuto"],
+                "additionalProperties": false
+              }
+            },
+            "required": ["type", "contenuto"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["contenuto"],
+        "additionalProperties": false
+      }
+    },
+    "strofe": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["strofa"]
+          },
+          "id": {
+            "type": "number",
+            "minimum": 0
+          },
+          "righe_accordi": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["riga-accordi"]
+                },
+                "contenuto": {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": ["accordo"]
+                          },
+                          "base": {
+                            "type": "string",
+                            "enum": ["DO", "DO#", "REb", "RE", "RE#", "MIb", "MI", "FA", "FA#", "SOLb", "SOL", "SOL#", "LAb", "LA", "LA#", "SIb", "SI"]
+                          },
+                          "extra": {
+                            "type": "object",
+                            "properties": {
+                              "alterazione": {
+                                "type": "string"
+                              },
+                              "slash": {
+                                "type": "object",
+                                "properties": {
+                                  "basso": {
+                                    "type": "string",
+                                    "enum": ["DO", "DO#", "REb", "RE", "RE#", "MIb", "MI", "FA", "FA#", "SOLb", "SOL", "SOL#", "LAb", "LA", "LA#", "SIb", "SI"]
+                                  },
+                                  "extra": {
+                                    "type": "number"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "required": ["type", "base"],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": ["commento"]
+                          },
+                          "contenuto": {
+                              "type": "string"
+                          },
+                          "sep_ext_sx": {
+                              "type": "string"
+                          },
+                          "sep_ext_dx": {
+                              "type": "string"
+                          }
+                        },
+                        "required": ["type", "contenuto"],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                },
+                "spazi": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "sep": {
+                        "type": "string",
+                        "enum": [" ", "_", "⏝"]
+                      },
+                      "qta": {
+                        "type": "number"
+                      }
+                    },
+                    "required": ["sep", "qta"],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": ["type", "contenuto", "spazi"],
+              "additionalProperties": false
+            }
+          },
+          "righe_testo": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["riga-voce", "riga-testo", "stanza-breve"]
+                },
+                "contenuto": {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "enum": ["testo"]
+                          },
+                          "testo": {
+                            "type": "string"
+                          }
+                        },
+                        "required": ["type", "testo"],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": ["commento"]
+                          },
+                          "contenuto": {
+                              "type": "string"
+                          },
+                          "sep_ext_sx": {
+                              "type": "string"
+                          },
+                          "sep_ext_dx": {
+                              "type": "string"
+                          }
+                        },
+                        "required": ["type", "contenuto"],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                },
+                "commento": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": ["commento"]
+                    },
+                    "contenuto": {
+                        "type": "string"
+                    },
+                    "sep_ext_sx": {
+                        "type": "string"
+                    },
+                    "sep_ext_dx": {
+                        "type": "string"
+                    }
+                  },
+                  "required": ["type", "contenuto"],
+                  "additionalProperties": false
+                }
+              },
+              "required": ["type", "contenuto"],
+              "additionalProperties": false
+            }
+          },
+          "assegnata": {
+            "type": "string",
+            "enum": ["maschi", "femmine", "tutti", "solista", "solista-m1", "solista-m2","solista-f1", "solista-f2", "gruppo-1", "gruppo-2", "gruppo-3"]
+          },
+          "righe_assegnate": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ref_riga": {
+                  "type": "number"
+                },
+                "assegnata": {
+                  "type": "string",
+                  "enum": ["maschi", "femmine", "tutti", "solista", "solista-m1", "solista-m2","solista-f1", "solista-f2", "gruppo-1", "gruppo-2", "gruppo-3"]
+                }
+              },
+              "required": ["ref_riga", "assegnata"],
+              "additionalProperties": false
+            }
+          },
+          "seconde_voci": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["voce"]
+                },
+                "registro": {
+                  "type": "string",
+                  "enum": ["soprani", "contralti", "tenori", "bassi", "alti", "medi"]
+                },
+                "voce": {
+                  "type": "string",
+                  "enum": ["terza", "quinta", "~terza", "~quinta", "mista"]
+                },
+                "assegnata": {
+                  "type": "string",
+                  "enum": ["maschi", "femmine", "tutti", "solista"]
+                },
+                "righe_testo": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ref_riga": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "testo": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": ["riga-voce", "riga-testo", "stanza-breve"]
+                          },
+                          "contenuto": {
+                            "type": "array",
+                            "items": {
+                              "oneOf": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "enum": ["testo"]
+                                    },
+                                    "testo": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": ["type", "testo"],
+                                  "additionalProperties": false
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "enum": ["commento"]
+                                    },
+                                    "contenuto": {
+                                        "type": "string"
+                                    },
+                                    "sep_ext_sx": {
+                                        "type": "string"
+                                    },
+                                    "sep_ext_dx": {
+                                        "type": "string"
+                                    }
+                                  },
+                                  "required": ["type", "contenuto"],
+                                  "additionalProperties": false
+                                }
+                              ]
+                            }
+                          },
+                          "commento": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "enum": ["commento"]
+                              },
+                              "contenuto": {
+                                  "type": "string"
+                              },
+                              "sep_ext_sx": {
+                                  "type": "string"
+                              },
+                              "sep_ext_dx": {
+                                  "type": "string"
+                              }
+                            },
+                            "required": ["type", "contenuto"],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": ["type", "contenuto"],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": ["ref_riga", "testo"],
+                    "additionalProperties": false
+                  }
+                },
+                "pentagramma": {
+                  "type": "string"
+                }
+              },
+              "required": ["type", "registro", "righe_testo"],
+              "additionalProperties": false
+            }
+          },
+          "moltiplicatore": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["moltiplicatore"]
+              },
+              "moltiplicatore": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": ["commento"]
+                  },
+                  "contenuto": {
+                      "type": "string"
+                  },
+                  "sep_ext_sx": {
+                      "type": "string"
+                  },
+                  "sep_ext_dx": {
+                      "type": "string"
+                  }
+                },
+                "required": ["type", "contenuto"],
+                "additionalProperties": false
+              },
+              "start": {
+                "type": "number"
+              },
+              "end": {
+                "type": "number"
+              }
+            },
+            "required": ["type", "moltiplicatore", "start", "end"],
+            "additionalProperties": false
+          },
+          "breve": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["riga-voce", "riga-testo", "stanza-breve"]
+              },
+              "contenuto": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "enum": ["testo"]
+                        },
+                        "testo": {
+                          "type": "string"
+                        }
+                      },
+                      "required": ["type", "testo"],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": ["commento"]
+                        },
+                        "contenuto": {
+                            "type": "string"
+                        },
+                        "sep_ext_sx": {
+                            "type": "string"
+                        },
+                        "sep_ext_dx": {
+                            "type": "string"
+                        }
+                      },
+                      "required": ["type", "contenuto"],
+                      "additionalProperties": false
+                    }
+                  ]
+                }
+              },
+              "commento": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": ["commento"]
+                  },
+                  "contenuto": {
+                      "type": "string"
+                  },
+                  "sep_ext_sx": {
+                      "type": "string"
+                  },
+                  "sep_ext_dx": {
+                      "type": "string"
+                  }
+                },
+                "required": ["type", "contenuto"],
+                "additionalProperties": false
+              }
+            },
+            "required": ["type", "contenuto"],
+            "additionalProperties": false
+          },
+          "schema": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["struttura-stanza"]
+              },
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "componente": {
+                      "type": "string",
+                      "enum": ["testo", "accordi"]
+                    },
+                    "posizione": {
+                      "type": "number"
+                    }
+                  },
+                  "required": ["componente", "posizione"],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": ["type", "schema"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["type" ,"id", "righe_testo", "schema"],
+        "additionalProperties": false
+      }
+    },
+    "pre-chorus": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["pre-chorus"]
+          },
+          "id": {
+            "type": "number",
+            "minimum": 0
+          },
+          "righe_accordi": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["riga-accordi"]
+                },
+                "contenuto": {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": ["accordo"]
+                          },
+                          "base": {
+                            "type": "string",
+                            "enum": ["DO", "DO#", "REb", "RE", "RE#", "MIb", "MI", "FA", "FA#", "SOLb", "SOL", "SOL#", "LAb", "LA", "LA#", "SIb", "SI"]
+                          },
+                          "extra": {
+                            "type": "object",
+                            "properties": {
+                              "alterazione": {
+                                "type": "string"
+                              },
+                              "slash": {
+                                "type": "object",
+                                "properties": {
+                                  "basso": {
+                                    "type": "string",
+                                    "enum": ["DO", "DO#", "REb", "RE", "RE#", "MIb", "MI", "FA", "FA#", "SOLb", "SOL", "SOL#", "LAb", "LA", "LA#", "SIb", "SI"]
+                                  },
+                                  "extra": {
+                                    "type": "number"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "required": ["type", "base"],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": ["commento"]
+                          },
+                          "contenuto": {
+                              "type": "string"
+                          },
+                          "sep_ext_sx": {
+                              "type": "string"
+                          },
+                          "sep_ext_dx": {
+                              "type": "string"
+                          }
+                        },
+                        "required": ["type", "contenuto"],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                },
+                "spazi": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "sep": {
+                        "type": "string",
+                        "enum": [" ", "_", "⏝"]
+                      },
+                      "qta": {
+                        "type": "number"
+                      }
+                    },
+                    "required": ["sep", "qta"],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": ["type", "contenuto", "spazi"],
+              "additionalProperties": false
+            }
+          },
+          "righe_testo": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["riga-voce", "riga-testo", "stanza-breve"]
+                },
+                "contenuto": {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "enum": ["testo"]
+                          },
+                          "testo": {
+                            "type": "string"
+                          }
+                        },
+                        "required": ["type", "testo"],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": ["commento"]
+                          },
+                          "contenuto": {
+                              "type": "string"
+                          },
+                          "sep_ext_sx": {
+                              "type": "string"
+                          },
+                          "sep_ext_dx": {
+                              "type": "string"
+                          }
+                        },
+                        "required": ["type", "contenuto"],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                },
+                "commento": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": ["commento"]
+                    },
+                    "contenuto": {
+                        "type": "string"
+                    },
+                    "sep_ext_sx": {
+                        "type": "string"
+                    },
+                    "sep_ext_dx": {
+                        "type": "string"
+                    }
+                  },
+                  "required": ["type", "contenuto"],
+                  "additionalProperties": false
+                }
+              },
+              "required": ["type", "contenuto"],
+              "additionalProperties": false
+            }
+          },
+          "assegnata": {
+            "type": "string",
+            "enum": ["maschi", "femmine", "tutti", "solista", "solista-m1", "solista-m2","solista-f1", "solista-f2", "gruppo-1", "gruppo-2", "gruppo-3"]
+          },
+          "righe_assegnate": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ref_riga": {
+                  "type": "number"
+                },
+                "assegnata": {
+                  "type": "string",
+                  "enum": ["maschi", "femmine", "tutti", "solista", "solista-m1", "solista-m2","solista-f1", "solista-f2", "gruppo-1", "gruppo-2", "gruppo-3"]
+                }
+              },
+              "required": ["ref_riga", "assegnata"],
+              "additionalProperties": false
+            }
+          },
+          "seconde_voci": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["voce"]
+                },
+                "registro": {
+                  "type": "string",
+                  "enum": ["soprani", "contralti", "tenori", "bassi", "alti", "medi"]
+                },
+                "voce": {
+                  "type": "string",
+                  "enum": ["terza", "quinta", "~terza", "~quinta", "mista"]
+                },
+                "assegnata": {
+                  "type": "string",
+                  "enum": ["maschi", "femmine", "tutti", "solista"]
+                },
+                "righe_testo": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ref_riga": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "testo": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": ["riga-voce", "riga-testo", "stanza-breve"]
+                          },
+                          "contenuto": {
+                            "type": "array",
+                            "items": {
+                              "oneOf": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "enum": ["testo"]
+                                    },
+                                    "testo": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": ["type", "testo"],
+                                  "additionalProperties": false
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "enum": ["commento"]
+                                    },
+                                    "contenuto": {
+                                        "type": "string"
+                                    },
+                                    "sep_ext_sx": {
+                                        "type": "string"
+                                    },
+                                    "sep_ext_dx": {
+                                        "type": "string"
+                                    }
+                                  },
+                                  "required": ["type", "contenuto"],
+                                  "additionalProperties": false
+                                }
+                              ]
+                            }
+                          },
+                          "commento": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "enum": ["commento"]
+                              },
+                              "contenuto": {
+                                  "type": "string"
+                              },
+                              "sep_ext_sx": {
+                                  "type": "string"
+                              },
+                              "sep_ext_dx": {
+                                  "type": "string"
+                              }
+                            },
+                            "required": ["type", "contenuto"],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": ["type", "contenuto"],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": ["ref_riga", "testo"],
+                    "additionalProperties": false
+                  }
+                },
+                "pentagramma": {
+                  "type": "string"
+                }
+              },
+              "required": ["type", "registro", "righe_testo"],
+              "additionalProperties": false
+            }
+          },
+          "moltiplicatore": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["moltiplicatore"]
+              },
+              "moltiplicatore": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": ["commento"]
+                  },
+                  "contenuto": {
+                      "type": "string"
+                  },
+                  "sep_ext_sx": {
+                      "type": "string"
+                  },
+                  "sep_ext_dx": {
+                      "type": "string"
+                  }
+                },
+                "required": ["type", "contenuto"],
+                "additionalProperties": false
+              },
+              "start": {
+                "type": "number"
+              },
+              "end": {
+                "type": "number"
+              }
+            },
+            "required": ["type", "moltiplicatore", "start", "end"],
+            "additionalProperties": false
+          },
+          "breve": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["riga-voce", "riga-testo", "stanza-breve"]
+              },
+              "contenuto": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "enum": ["testo"]
+                        },
+                        "testo": {
+                          "type": "string"
+                        }
+                      },
+                      "required": ["type", "testo"],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": ["commento"]
+                        },
+                        "contenuto": {
+                            "type": "string"
+                        },
+                        "sep_ext_sx": {
+                            "type": "string"
+                        },
+                        "sep_ext_dx": {
+                            "type": "string"
+                        }
+                      },
+                      "required": ["type", "contenuto"],
+                      "additionalProperties": false
+                    }
+                  ]
+                }
+              },
+              "commento": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": ["commento"]
+                  },
+                  "contenuto": {
+                      "type": "string"
+                  },
+                  "sep_ext_sx": {
+                      "type": "string"
+                  },
+                  "sep_ext_dx": {
+                      "type": "string"
+                  }
+                },
+                "required": ["type", "contenuto"],
+                "additionalProperties": false
+              }
+            },
+            "required": ["type", "contenuto"],
+            "additionalProperties": false
+          },
+          "schema": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["struttura-stanza"]
+              },
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "componente": {
+                      "type": "string",
+                      "enum": ["testo", "accordi"]
+                    },
+                    "posizione": {
+                      "type": "number"
+                    }
+                  },
+                  "required": ["componente", "posizione"],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": ["type", "schema"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["type" ,"id", "righe_testo", "schema"],
+        "additionalProperties": false
+      }
+    },
+    "bridge": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["bridge"]
+          },
+          "id": {
+            "type": "number",
+            "minimum": 0
+          },
+          "righe_accordi": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["riga-accordi"]
+                },
+                "contenuto": {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": ["accordo"]
+                          },
+                          "base": {
+                            "type": "string",
+                            "enum": ["DO", "DO#", "REb", "RE", "RE#", "MIb", "MI", "FA", "FA#", "SOLb", "SOL", "SOL#", "LAb", "LA", "LA#", "SIb", "SI"]
+                          },
+                          "extra": {
+                            "type": "object",
+                            "properties": {
+                              "alterazione": {
+                                "type": "string"
+                              },
+                              "slash": {
+                                "type": "object",
+                                "properties": {
+                                  "basso": {
+                                    "type": "string",
+                                    "enum": ["DO", "DO#", "REb", "RE", "RE#", "MIb", "MI", "FA", "FA#", "SOLb", "SOL", "SOL#", "LAb", "LA", "LA#", "SIb", "SI"]
+                                  },
+                                  "extra": {
+                                    "type": "number"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "required": ["type", "base"],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": ["commento"]
+                          },
+                          "contenuto": {
+                              "type": "string"
+                          },
+                          "sep_ext_sx": {
+                              "type": "string"
+                          },
+                          "sep_ext_dx": {
+                              "type": "string"
+                          }
+                        },
+                        "required": ["type", "contenuto"],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                },
+                "spazi": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "sep": {
+                        "type": "string",
+                        "enum": [" ", "_", "⏝"]
+                      },
+                      "qta": {
+                        "type": "number"
+                      }
+                    },
+                    "required": ["sep", "qta"],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": ["type", "contenuto", "spazi"],
+              "additionalProperties": false
+            }
+          },
+          "righe_testo": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["riga-voce", "riga-testo", "stanza-breve"]
+                },
+                "contenuto": {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "enum": ["testo"]
+                          },
+                          "testo": {
+                            "type": "string"
+                          }
+                        },
+                        "required": ["type", "testo"],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": ["commento"]
+                          },
+                          "contenuto": {
+                              "type": "string"
+                          },
+                          "sep_ext_sx": {
+                              "type": "string"
+                          },
+                          "sep_ext_dx": {
+                              "type": "string"
+                          }
+                        },
+                        "required": ["type", "contenuto"],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                },
+                "commento": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": ["commento"]
+                    },
+                    "contenuto": {
+                        "type": "string"
+                    },
+                    "sep_ext_sx": {
+                        "type": "string"
+                    },
+                    "sep_ext_dx": {
+                        "type": "string"
+                    }
+                  },
+                  "required": ["type", "contenuto"],
+                  "additionalProperties": false
+                }
+              },
+              "required": ["type", "contenuto"],
+              "additionalProperties": false
+            }
+          },
+          "assegnata": {
+            "type": "string",
+            "enum": ["maschi", "femmine", "tutti", "solista", "solista-m1", "solista-m2","solista-f1", "solista-f2", "gruppo-1", "gruppo-2", "gruppo-3"]
+          },
+          "righe_assegnate": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ref_riga": {
+                  "type": "number"
+                },
+                "assegnata": {
+                  "type": "string",
+                  "enum": ["maschi", "femmine", "tutti", "solista", "solista-m1", "solista-m2","solista-f1", "solista-f2", "gruppo-1", "gruppo-2", "gruppo-3"]
+                }
+              },
+              "required": ["ref_riga", "assegnata"],
+              "additionalProperties": false
+            }
+          },
+          "seconde_voci": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["voce"]
+                },
+                "registro": {
+                  "type": "string",
+                  "enum": ["soprani", "contralti", "tenori", "bassi", "alti", "medi"]
+                },
+                "voce": {
+                  "type": "string",
+                  "enum": ["terza", "quinta", "~terza", "~quinta", "mista"]
+                },
+                "assegnata": {
+                  "type": "string",
+                  "enum": ["maschi", "femmine", "tutti", "solista"]
+                },
+                "righe_testo": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ref_riga": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "testo": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": ["riga-voce", "riga-testo", "stanza-breve"]
+                          },
+                          "contenuto": {
+                            "type": "array",
+                            "items": {
+                              "oneOf": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "enum": ["testo"]
+                                    },
+                                    "testo": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": ["type", "testo"],
+                                  "additionalProperties": false
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "enum": ["commento"]
+                                    },
+                                    "contenuto": {
+                                        "type": "string"
+                                    },
+                                    "sep_ext_sx": {
+                                        "type": "string"
+                                    },
+                                    "sep_ext_dx": {
+                                        "type": "string"
+                                    }
+                                  },
+                                  "required": ["type", "contenuto"],
+                                  "additionalProperties": false
+                                }
+                              ]
+                            }
+                          },
+                          "commento": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "enum": ["commento"]
+                              },
+                              "contenuto": {
+                                  "type": "string"
+                              },
+                              "sep_ext_sx": {
+                                  "type": "string"
+                              },
+                              "sep_ext_dx": {
+                                  "type": "string"
+                              }
+                            },
+                            "required": ["type", "contenuto"],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": ["type", "contenuto"],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": ["ref_riga", "testo"],
+                    "additionalProperties": false
+                  }
+                },
+                "pentagramma": {
+                  "type": "string"
+                }
+              },
+              "required": ["type", "registro", "righe_testo"],
+              "additionalProperties": false
+            }
+          },
+          "moltiplicatore": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["moltiplicatore"]
+              },
+              "moltiplicatore": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": ["commento"]
+                  },
+                  "contenuto": {
+                      "type": "string"
+                  },
+                  "sep_ext_sx": {
+                      "type": "string"
+                  },
+                  "sep_ext_dx": {
+                      "type": "string"
+                  }
+                },
+                "required": ["type", "contenuto"],
+                "additionalProperties": false
+              },
+              "start": {
+                "type": "number"
+              },
+              "end": {
+                "type": "number"
+              }
+            },
+            "required": ["type", "moltiplicatore", "start", "end"],
+            "additionalProperties": false
+          },
+          "breve": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["riga-voce", "riga-testo", "stanza-breve"]
+              },
+              "contenuto": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "enum": ["testo"]
+                        },
+                        "testo": {
+                          "type": "string"
+                        }
+                      },
+                      "required": ["type", "testo"],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": ["commento"]
+                        },
+                        "contenuto": {
+                            "type": "string"
+                        },
+                        "sep_ext_sx": {
+                            "type": "string"
+                        },
+                        "sep_ext_dx": {
+                            "type": "string"
+                        }
+                      },
+                      "required": ["type", "contenuto"],
+                      "additionalProperties": false
+                    }
+                  ]
+                }
+              },
+              "commento": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": ["commento"]
+                  },
+                  "contenuto": {
+                      "type": "string"
+                  },
+                  "sep_ext_sx": {
+                      "type": "string"
+                  },
+                  "sep_ext_dx": {
+                      "type": "string"
+                  }
+                },
+                "required": ["type", "contenuto"],
+                "additionalProperties": false
+              }
+            },
+            "required": ["type", "contenuto"],
+            "additionalProperties": false
+          },
+          "schema": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["struttura-stanza"]
+              },
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "componente": {
+                      "type": "string",
+                      "enum": ["testo", "accordi"]
+                    },
+                    "posizione": {
+                      "type": "number"
+                    }
+                  },
+                  "required": ["componente", "posizione"],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": ["type", "schema"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["type" ,"id", "righe_testo", "schema"],
+        "additionalProperties": false
+      }
+    },
+    "ritornelli": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["ritornello"]
+          },
+          "id": {
+            "type": "number",
+            "minimum": 0
+          },
+          "righe_accordi": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["riga-accordi"]
+                },
+                "contenuto": {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": ["accordo"]
+                          },
+                          "base": {
+                            "type": "string",
+                            "enum": ["DO", "DO#", "REb", "RE", "RE#", "MIb", "MI", "FA", "FA#", "SOLb", "SOL", "SOL#", "LAb", "LA", "LA#", "SIb", "SI"]
+                          },
+                          "extra": {
+                            "type": "object",
+                            "properties": {
+                              "alterazione": {
+                                "type": "string"
+                              },
+                              "slash": {
+                                "type": "object",
+                                "properties": {
+                                  "basso": {
+                                    "type": "string",
+                                    "enum": ["DO", "DO#", "REb", "RE", "RE#", "MIb", "MI", "FA", "FA#", "SOLb", "SOL", "SOL#", "LAb", "LA", "LA#", "SIb", "SI"]
+                                  },
+                                  "extra": {
+                                    "type": "number"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "required": ["type", "base"],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": ["commento"]
+                          },
+                          "contenuto": {
+                              "type": "string"
+                          },
+                          "sep_ext_sx": {
+                              "type": "string"
+                          },
+                          "sep_ext_dx": {
+                              "type": "string"
+                          }
+                        },
+                        "required": ["type", "contenuto"],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                },
+                "spazi": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "sep": {
+                        "type": "string",
+                        "enum": [" ", "_", "⏝"]
+                      },
+                      "qta": {
+                        "type": "number"
+                      }
+                    },
+                    "required": ["sep", "qta"],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": ["type", "contenuto", "spazi"],
+              "additionalProperties": false
+            }
+          },
+          "righe_testo": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["riga-voce", "riga-testo", "stanza-breve"]
+                },
+                "contenuto": {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "enum": ["testo"]
+                          },
+                          "testo": {
+                            "type": "string"
+                          }
+                        },
+                        "required": ["type", "testo"],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": ["commento"]
+                          },
+                          "contenuto": {
+                              "type": "string"
+                          },
+                          "sep_ext_sx": {
+                              "type": "string"
+                          },
+                          "sep_ext_dx": {
+                              "type": "string"
+                          }
+                        },
+                        "required": ["type", "contenuto"],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                },
+                "commento": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": ["commento"]
+                    },
+                    "contenuto": {
+                        "type": "string"
+                    },
+                    "sep_ext_sx": {
+                        "type": "string"
+                    },
+                    "sep_ext_dx": {
+                        "type": "string"
+                    }
+                  },
+                  "required": ["type", "contenuto"],
+                  "additionalProperties": false
+                }
+              },
+              "required": ["type", "contenuto"],
+              "additionalProperties": false
+            }
+          },
+          "assegnata": {
+            "type": "string",
+            "enum": ["maschi", "femmine", "tutti", "solista", "solista-m1", "solista-m2","solista-f1", "solista-f2", "gruppo-1", "gruppo-2", "gruppo-3"]
+          },
+          "righe_assegnate": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ref_riga": {
+                  "type": "number"
+                },
+                "assegnata": {
+                  "type": "string",
+                  "enum": ["maschi", "femmine", "tutti", "solista", "solista-m1", "solista-m2","solista-f1", "solista-f2", "gruppo-1", "gruppo-2", "gruppo-3"]
+                }
+              },
+              "required": ["ref_riga", "assegnata"],
+              "additionalProperties": false
+            }
+          },
+          "seconde_voci": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["voce"]
+                },
+                "registro": {
+                  "type": "string",
+                  "enum": ["soprani", "contralti", "tenori", "bassi", "alti", "medi"]
+                },
+                "voce": {
+                  "type": "string",
+                  "enum": ["terza", "quinta", "~terza", "~quinta", "mista"]
+                },
+                "assegnata": {
+                  "type": "string",
+                  "enum": ["maschi", "femmine", "tutti", "solista"]
+                },
+                "righe_testo": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ref_riga": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "testo": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": ["riga-voce", "riga-testo", "stanza-breve"]
+                          },
+                          "contenuto": {
+                            "type": "array",
+                            "items": {
+                              "oneOf": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "enum": ["testo"]
+                                    },
+                                    "testo": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": ["type", "testo"],
+                                  "additionalProperties": false
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "enum": ["commento"]
+                                    },
+                                    "contenuto": {
+                                        "type": "string"
+                                    },
+                                    "sep_ext_sx": {
+                                        "type": "string"
+                                    },
+                                    "sep_ext_dx": {
+                                        "type": "string"
+                                    }
+                                  },
+                                  "required": ["type", "contenuto"],
+                                  "additionalProperties": false
+                                }
+                              ]
+                            }
+                          },
+                          "commento": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "enum": ["commento"]
+                              },
+                              "contenuto": {
+                                  "type": "string"
+                              },
+                              "sep_ext_sx": {
+                                  "type": "string"
+                              },
+                              "sep_ext_dx": {
+                                  "type": "string"
+                              }
+                            },
+                            "required": ["type", "contenuto"],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": ["type", "contenuto"],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": ["ref_riga", "testo"],
+                    "additionalProperties": false
+                  }
+                },
+                "pentagramma": {
+                  "type": "string"
+                }
+              },
+              "required": ["type", "registro", "righe_testo"],
+              "additionalProperties": false
+            }
+          },
+          "moltiplicatore": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["moltiplicatore"]
+              },
+              "moltiplicatore": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": ["commento"]
+                  },
+                  "contenuto": {
+                      "type": "string"
+                  },
+                  "sep_ext_sx": {
+                      "type": "string"
+                  },
+                  "sep_ext_dx": {
+                      "type": "string"
+                  }
+                },
+                "required": ["type", "contenuto"],
+                "additionalProperties": false
+              },
+              "start": {
+                "type": "number"
+              },
+              "end": {
+                "type": "number"
+              }
+            },
+            "required": ["type", "moltiplicatore", "start", "end"],
+            "additionalProperties": false
+          },
+          "breve": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["riga-voce", "riga-testo", "stanza-breve"]
+              },
+              "contenuto": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "enum": ["testo"]
+                        },
+                        "testo": {
+                          "type": "string"
+                        }
+                      },
+                      "required": ["type", "testo"],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": ["commento"]
+                        },
+                        "contenuto": {
+                            "type": "string"
+                        },
+                        "sep_ext_sx": {
+                            "type": "string"
+                        },
+                        "sep_ext_dx": {
+                            "type": "string"
+                        }
+                      },
+                      "required": ["type", "contenuto"],
+                      "additionalProperties": false
+                    }
+                  ]
+                }
+              },
+              "commento": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": ["commento"]
+                  },
+                  "contenuto": {
+                      "type": "string"
+                  },
+                  "sep_ext_sx": {
+                      "type": "string"
+                  },
+                  "sep_ext_dx": {
+                      "type": "string"
+                  }
+                },
+                "required": ["type", "contenuto"],
+                "additionalProperties": false
+              }
+            },
+            "required": ["type", "contenuto"],
+            "additionalProperties": false
+          },
+          "schema": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["struttura-stanza"]
+              },
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "componente": {
+                      "type": "string",
+                      "enum": ["testo", "accordi"]
+                    },
+                    "posizione": {
+                      "type": "number"
+                    }
+                  },
+                  "required": ["componente", "posizione"],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": ["type", "schema"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["type" ,"id", "righe_testo", "schema"],
+        "additionalProperties": false
+      }
+    },
+    "strumentali": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["strumentale"]
+          },
+          "label": {
+            "type": "string"
+          },
+          "contenuto": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["riga-accordi"]
+              },
+              "contenuto": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": ["accordo"]
+                        },
+                        "base": {
+                          "type": "string",
+                          "enum": ["DO", "DO#", "REb", "RE", "RE#", "MIb", "MI", "FA", "FA#", "SOLb", "SOL", "SOL#", "LAb", "LA", "LA#", "SIb", "SI"]
+                        },
+                        "extra": {
+                          "type": "object",
+                          "properties": {
+                            "alterazione": {
+                              "type": "string"
+                            },
+                            "slash": {
+                              "type": "object",
+                              "properties": {
+                                "basso": {
+                                  "type": "string",
+                                  "enum": ["DO", "DO#", "REb", "RE", "RE#", "MIb", "MI", "FA", "FA#", "SOLb", "SOL", "SOL#", "LAb", "LA", "LA#", "SIb", "SI"]
+                                },
+                                "extra": {
+                                  "type": "number"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "required": ["type", "base"],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": ["commento"]
+                        },
+                        "contenuto": {
+                            "type": "string"
+                        },
+                        "sep_ext_sx": {
+                            "type": "string"
+                        },
+                        "sep_ext_dx": {
+                            "type": "string"
+                        }
+                      },
+                      "required": ["type", "contenuto"],
+                      "additionalProperties": false
+                    }
+                  ]
+                }
+              },
+              "spazi": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "sep": {
+                      "type": "string",
+                      "enum": [" ", "_", "⏝"]
+                    },
+                    "qta": {
+                      "type": "number"
+                    }
+                  },
+                  "required": ["sep", "qta"],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": ["type", "contenuto", "spazi"],
+            "additionalProperties": false
+          },
+          "moltiplicatore": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["commento"]
+              },
+              "contenuto": {
+                  "type": "string"
+              },
+              "sep_ext_sx": {
+                  "type": "string"
+              },
+              "sep_ext_dx": {
+                  "type": "string"
+              }
+            },
+            "required": ["type", "contenuto"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["type", "contenuto"],
+        "additionalProperties": false
+      }
+    },
+    "struttura": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "struttura": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["struttura-canto"]
+              },
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "componente": {
+                      "type": "string",
+                      "enum": ["intro", "strofa", "ritornello", "pre-chorus", "bridge", "strumentale", "outro"]
+                    },
+                    "posizione": {
+                      "oneOf": [
+                        {"type": "string"},
+                        {"type": "number"}
+                      ]
+                    },
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": ["struttura-stanza"]
+                        },
+                        "schema": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "componente": {
+                                "type": "string",
+                                "enum": ["testo", "accordi"]
+                              },
+                              "posizione": {
+                                "type": "number"
+                              }
+                            },
+                            "required": ["componente", "posizione"],
+                            "additionalProperties": false
+                          }
+                        }
+                      },
+                      "required": ["type", "schema"],
+                      "additionalProperties": false
+                    },
+                    "commento": {
+                      "type": "string"
+                    },
+                    "isBreve": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": ["componente", "posizione"],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": ["type", "schema"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["label", "struttura"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["type", "id", "titolo", "info"],
+  "additionalProperties": false
+}

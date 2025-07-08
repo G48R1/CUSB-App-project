@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "canto.schema.json",
   "title": "canto",
   "type": "object",
   "properties": {
@@ -9,7 +10,7 @@
     },
     "id": {
       "type": "integer",
-      "minimum": 1
+      "minimum": 0
     },
     "info": {
       "type": "object",

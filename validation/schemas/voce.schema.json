@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "voce.schema.json",
   "title": "voce",
   "type": "object",
   "properties": {
@@ -9,10 +10,7 @@
     },
     "registro": {
       "type": "string",
-      "oneOf": [
-        {"enum": ["soprani", "contralti", "tenori", "bassi"]},
-        {"enum": ["alti", "medi", "bassi"]}
-      ]
+      "enum": ["soprani", "contralti", "tenori", "bassi", "alti", "medi"]
     },
     "voce": {
       "type": "string",
@@ -20,12 +18,23 @@
     },
     "assegnata": {
       "type": "string",
-      "enum": ["maschi", "femmine", "tutti", "solista"]
+      "enum": ["maschi", "femmine", "tutti", "solista", "solista-m1", "solista-m2","solista-f1", "solista-f2", "gruppo-1", "gruppo-2", "gruppo-3"]
     },
     "righe_testo": {
       "type": "array",
       "items": {
-        "$ref": "riga-testo.schema.json"
+        "type": "object",
+        "properties": {
+          "ref_riga": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "testo": {
+            "$ref": "riga-testo.schema.json"
+          }
+        },
+        "required": ["ref_riga", "testo"],
+        "additionalProperties": false
       }
     },
     "pentagramma": {

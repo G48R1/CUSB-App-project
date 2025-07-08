@@ -1,0 +1,47 @@
+{
+  "type": "riga-accordi",
+  "contenuto": [
+    {
+      "type": "accordo",
+      "base": "DO#",
+      "extra": {
+        "alterazione": "m7",
+        "slash": {
+          "basso": "SOL",
+          "extra": 5
+        }
+      }
+    },
+    {
+      "type": "accordo",
+      "base": "DO#",
+      "extra": {
+        "alterazione": "m7",
+        "slash": {
+          "basso": "SOL",
+          "extra": 5
+        }
+      }
+    },
+    {
+      "type": "commento",
+      "contenuto": "testo commento",
+      "sep_ext_sx": "(",
+      "sep_ext_dx": ")"
+    }
+  ],
+  "spazi": [
+    {
+      "sep": " ",
+      "qta": 4
+    },
+    {
+      "sep": "⏝",
+      "qta": 1
+    },
+    {
+      "sep": " ",
+      "qta": 3
+    }
+  ]
+}

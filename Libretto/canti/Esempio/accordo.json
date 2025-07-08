@@ -1,0 +1,10 @@
+{
+  "type": "accordo",
+  "base": "DO#",
+  "extra": {
+    "alterazione": "m7",
+    "slash": {
+      "basso": "SOL"
+    }
+  }
+}

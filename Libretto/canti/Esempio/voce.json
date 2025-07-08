@@ -1,0 +1,38 @@
+{
+  "type": "voce",
+  "registro": "soprani",
+  "voce": "terza",
+  "assegnata": "maschi",
+  "righe_testo": [
+    {
+      "ref_riga": 0,
+      "testo": {
+        "type": "riga-voce",
+        "contenuto": [
+          {
+            "type": "testo",
+            "testo":"lorem ipsum dolor"
+          }
+        ]
+      }
+    },
+    {
+      "ref_riga": 1,
+      "testo": {
+        "type": "riga-voce",
+        "contenuto": [
+          {
+            "type": "testo",
+            "testo":"lorem ipsum "
+          }
+        ],
+        "commento": {
+          "type": "commento",
+          "contenuto": "testo commento",
+          "sep_ext_sx": "(",
+          "sep_ext_dx": ")"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "type": "strumentale",
+  "label": "intro",
+  "contenuto": {
+    "type": "riga-accordi",
+    "contenuto": [
+      {
+        "type": "accordo",
+        "base": "DO#",
+        "extra": {
+          "alterazione": "m"
+        }
+      },
+      {
+        "type": "accordo",
+        "base": "DO"
+      },
+      {
+        "type": "commento",
+        "contenuto": "commento",
+        "sep_ext_sx": "(",
+        "sep_ext_dx": ")"
+      }
+    ],
+    "spazi": [
+      {
+        "sep": " ",
+        "qta": 4
+      },
+      {
+        "sep": "⏝",
+        "qta": 1
+      },
+      {
+        "sep": " ",
+        "qta": 3
+      }
+    ]
+  },
+  "moltiplicatore": {
+    "type": "commento",
+    "contenuto": "x2",
+    "sep_ext_sx": "(",
+    "sep_ext_dx": ")"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": 1,
+  "titolo": "Titolo",
+  "info": {
+    "tonalita": {
+      "tono": "Re", "modo": "M"
+    },
+    "metro": "4/4",
+    "tempo": {
+      "velocita": "medio",
+      "battiti": 92
+    }
+  }
+}

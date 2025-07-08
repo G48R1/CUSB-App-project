@@ -1,0 +1,240 @@
+
+:root {
+  --background: #f0f0f0;
+  --button: #674fa3;
+  --button-sh: #705aa6;
+  --btn-edit: rgb(220, 210, 236);
+  --btn-edit-sh: rgb(209, 201, 220);
+  --btn-desc: rgb(221, 216, 226);
+
+  /*blu*/
+  /* --button: rgb(35, 30, 189);
+  --btn-edit: rgb(169, 167, 227);
+  --btn-desc: rgb(216, 216, 226); */
+}
+@font-face {
+  font-family: 'myTitleFont';
+  src: url('./src/fonts/Abrakadaboom.otf') format('opentype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--background);
+  font-family: Arial, Helvetica, sans-serif; /**/
+}
+
+/*generici*/
+a {
+  all: unset;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.cursor-block {
+  cursor: not-allowed;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.logo-open-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: black 1px solid; */
+  width: 420px;
+  height: 100px;
+}
+.logo-box {
+  position: relative;
+  /* overflow: hidden; */
+  cursor: pointer;
+  /* text-align: center; */
+  /* vertical-align: middle; */
+
+  width: 306px;
+  height: 80px;
+  /* border: black 1px solid; */
+}
+@media(max-width: 768px) {
+  .logo-box {
+    width: 134px;
+    height: 35px;
+  }
+  .logo-open-box {
+    width: 200px;
+    height: 50px;
+  }
+}
+.logo-box img {
+  position: absolute;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.cover {
+  position: absolute;
+  z-index: 2;
+  background-color: var(--background);
+  /* border: black 1px solid; */
+  transition: transform 0.5s ease;
+  left: -135px;
+  width: 156px;
+  height: 80px;
+}
+.logo-img.C {
+  z-index: 3;
+  left: 0px;
+}
+.logo-img.cavo {
+  z-index: 1;
+  height: 50%;
+  top: 11.9px; /**/
+  left: -125px; /**/
+}
+.logo-img.USB {
+  z-index: 3;
+  right: 0px;
+}
+.logo-box:hover .logo-img.C, .logo-box:hover .cover {
+  transform: translateX(-61.5px);
+}
+.logo-box:hover .logo-img.USB {
+  transform: translateX(61.5px);
+}
+.logo-box:hover .logo-img.cavo {
+  transform: translateX(83px);
+}
+@media(max-width: 768px) {
+  .logo-box:hover .logo-img.C, .logo-box:hover .cover {
+    transform: translateX(-27.5px);
+  }
+  .logo-box:hover .logo-img.USB {
+    transform: translateX(27.5px);
+  }
+  .logo-img.cavo {
+    height: 50%;
+    top: 4.9px;
+    left: -55px;
+  }
+  .logo-box:hover .logo-img.cavo {
+    transform: translateX(37.5px);
+  }
+  .cover {
+    left: -60px;
+    width: 68px;
+    height: 35px;
+  }
+}
+
+.title {
+  text-align: center;
+  /* font-family: fantasy; */
+  font-family: 'myTitleFont';
+  font-size: x-large;
+  font-variant: small-caps;
+}
+@media(max-width: 768px) {
+  .title {
+    font-size: medium;
+  }
+}
+
+
+/* nav {
+  display: flex;
+  flex-direction: row;
+} */
+
+main {
+  margin-top: 3em;
+  padding: 1.5em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 1em;
+  row-gap: 1em;
+  border: grey 1px solid;
+  border-radius: 12px;
+
+  max-width: 100%;
+  box-sizing: border-box;
+}
+@media(max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  align-items: center;
+}
+.sec-label {
+  padding: 0.7em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  width: fit-content;
+  background-color: var(--button);
+  color: var(--background);
+  font-weight: bold;
+  /* border: grey 1px dotted; */
+  border: none;
+  border-radius: 25px;
+  text-align: center;
+  /* text-wrap: wrap;
+  max-width: 100%; */
+}
+.sec-label:hover {
+  background-color: var(--button-sh);
+  box-shadow: 0px 1px 2px grey;
+}
+.sec-label.editor {
+  background-color: var(--btn-edit);
+  color: black;
+}
+.sec-label.editor:hover {
+  background-color: var(--btn-edit-sh);
+}
+.sec-description {
+  padding: 1.5em;
+  width: 200px;
+  background-color: var(--btn-desc);
+  /* border: grey 1px dotted; */
+  border-radius: 12px;
+  text-align: center;
+  /* text-wrap: wrap;
+  max-width: 100%; */
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+@media(max-width: 768px) {
+
+}
+
+/* 
+aside {
+
+}
+
+footer {
+
+} */

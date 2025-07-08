@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "struttura-stanza.schema.json",
   "title": "struttura-stanza",
   "type": "object",
   "properties": {
@@ -14,22 +15,10 @@
         "properties": {
           "componente": {
             "type": "string",
-            "enum": ["testo", "accordi", "voce", "riga-assegnata"]
+            "enum": ["testo", "accordi"]
           },
           "posizione": {
-            "type": "object",
-            "properties": {
-              "numero": {
-                "type": "number"
-              },
-              "registro": {
-                "type": "string",
-                "oneOf": [
-                  {"enum": ["soprani", "contralti", "tenori", "bassi"]},
-                  {"enum": ["alti", "medi", "bassi"]}
-                ]
-              }
-            }
+            "type": "number"
           }
         },
         "required": ["componente", "posizione"],

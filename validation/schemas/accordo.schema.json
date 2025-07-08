@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "accordo.schema.json",
   "title": "accordo",
   "type": "object",
   "properties": {
@@ -20,11 +21,11 @@
         "slash": {
           "type": "object",
           "properties": {
-            "nome": {
+            "basso": {
               "type": "string",
               "enum": ["DO", "DO#", "REb", "RE", "RE#", "MIb", "MI", "FA", "FA#", "SOLb", "SOL", "SOL#", "LAb", "LA", "LA#", "SIb", "SI"]
             },
-            "intervallo": {
+            "extra": {
               "type": "number"
             }
           }

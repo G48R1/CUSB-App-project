@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "riga-accordi.schema.json",
   "title": "riga-accordi",
   "type": "object",
   "properties": {

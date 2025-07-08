@@ -1,0 +1,25 @@
+{
+  "type": "riga-testo",
+  "contenuto": [
+    {
+      "type": "testo",
+      "testo": "lorem ipsum dolor "
+    },
+    {
+      "type": "commento",
+      "contenuto": "testo commento",
+      "sep_ext_sx": "(",
+      "sep_ext_dx": ")"
+    },
+    {
+      "type": "testo",
+      "testo": " lorem ipsum dolor "
+    }
+  ],
+  "commento": {
+    "type": "commento",
+    "contenuto": "commento finale",
+    "sep_ext_sx": "[[",
+    "sep_ext_dx": "]]"
+  }
+}

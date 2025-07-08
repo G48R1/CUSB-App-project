@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style-canto.css">
+  <link rel="stylesheet" href="style-slider.css">
+  <title>Canto</title>
+  <script type="module" src="/App/Canto.js"></script>
+  <script type="module" src="script-canto.js">
+  </script>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-bar">
+      <div class="nav-label" id="song-title">TITOLO</div>
+      <div>
+        <button class="nav-btn" id="back-button"><a href="../libretto.html">🔙</a></button>
+        <button class="nav-btn" id="home-button"><a href="/home.html">🏠︎</a></button>
+      </div>
+    </div>
+  </nav>
+
+  <aside class="dashboard">
+    <div id="text-dim-box" class="text-dim-box">
+      <button class="btn" onclick="changeFontSize(-1)">-</button>
+      <span style="font-weight: bold;"><small>T</small>T</span>
+      <button class="btn" onclick="changeFontSize(1)">+</button>
+    </div>
+    <div id="tonality-box" class="tonality-box hidden">
+      <button class="btn" onclick="transpose(-1)">-</button>
+      <span><span id="tonality">-</span> <small id="mode">-</small></span>
+      <button class="btn" onclick="transpose(1)">+</button>
+    </div>
+  </aside>
+
+  <aside class="visualize-chords">
+    <label class="switch">
+      <input type="checkbox" id="visualize-chords-checkbox">
+      <span class="slider" onclick="visualizeChords()"></span>
+    </label>
+    <span>visualizza accordi</span>
+  </aside>
+
+  <aside class="choose-variant">
+    <label for="variant-select">Scegli variante:</label>
+    <select id="variant-select">
+      <!-- popolato dinamicamente -->
+    </select>
+  </aside>
+
+  <main>
+    <!-- popolato dinamicamente -->
+  </main>
+
+
+
+  <script>
+    const tonality = document.getElementById("tonality-box");
+    const checkbox = document.getElementById("visualize-chords-checkbox");
+    const main = document.querySelector('main');
+    const tone = document.getElementById("tonality");
+    const mode = document.getElementById("mode");
+
+    checkbox.addEventListener("click", () => {
+      setTimeout(() => {
+        if (checkbox.checked) {
+          tonality.classList.remove("hidden");
+        } else {
+          tonality.classList.add("hidden");
+        }
+      }, 200);
+    });
+
+    function visualizeChords() {
+      document.querySelectorAll('.strumentale, .riga-accordi:not(.strumentale *)').forEach(r => {
+        r.classList.toggle('hidden');
+      });
+    }
+
+
+    // TRANSPOSER
+    const tonalita = ["DO","REb","RE","MIb","MI","FA","FA#","SOL","LAb","LA","SIb","SI"]
+    const tonalita_cast = [0,1,0,1,0,1,0,0,1,0,1,0]  // 0=#, 1=b
+    const diesis = ["DO","DO#","RE","RE#","MI","FA","FA#","SOL","SOL#","LA","LA#","SI"]
+    const bemolle = ["DO","REb","RE","MIb","MI","FA","SOLb","SOL","LAb","LA","SIb","SI"]
+
+    function transpose(qty) {
+      const baseChords = document.querySelectorAll(".transpose-js");
+      const index = tonalita.findIndex(t => t === tone.textContent);
+      tone.textContent = tonalita[(index + qty + 12) % 12];
+      baseChords.forEach(bc => {
+        let i = diesis.findIndex(d => d === bc.textContent); 
+        if (i === -1) i = bemolle.findIndex(b => b === bc.textContent);
+        bc.textContent = tonalita_cast[(index + qty + 12) % 12] === 1 ? bemolle[(i + qty + 12) % 12] : diesis[(i + qty + 12) % 12];
+      })
+    }
+
+    let currentFontSizeInit = "medium";
+    // FONT-SIZE MODIFIER
+    function changeFontSize(change) {
+      const canto = document.querySelector(".canto");
+      let currentFontSize = null;
+      const minFontSize = 10;
+      const maxFontSize = 30;
+      if (currentFontSize === null) {
+        const computed = window.getComputedStyle(canto).fontSize;
+        currentFontSize = parseFloat(computed);
+      }
+
+      currentFontSize += change;
+      if (currentFontSize < minFontSize) currentFontSize = minFontSize;
+      if (currentFontSize > maxFontSize) currentFontSize = maxFontSize;
+
+      canto.style.fontSize = currentFontSize + "px";
+      currentFontSizeInit = currentFontSize;
+    }
+
+    function setFontSize(size = currentFontSizeInit) {
+      const canto = document.querySelector(".canto");
+      canto.style.fontSize = size instanceof String ? size : size + "px";
+    }
+  </script>
+</body>
+</html>
