@@ -7,11 +7,21 @@ import { joinPath } from "../../App/config/utils.js";
 // const tone = document.getElementById("tonality");
 // const mode = document.getElementById("mode");
 
+// function abilitaToggleStrofaBreve() {
+//   document.querySelectorAll('.stanza-box').forEach(box => {
+//     box.onclick = () => {
+//       const [stanzaEl, breveEl] = box.children;
+//       if (!stanzaEl || !breveEl) return;
+//       stanzaEl.classList.toggle('hidden');
+//       breveEl.classList.toggle('hidden');
+//     };
+//   });
+// }
 function abilitaToggleStrofaBreve() {
   document.querySelectorAll('.stanza-box').forEach(box => {
     box.onclick = () => {
       const [stanzaEl, breveEl] = box.children;
-      if (!stanzaEl || !breveEl) return;
+      if (!stanzaEl || !breveEl || !enableTSB) return;
       stanzaEl.classList.toggle('hidden');
       breveEl.classList.toggle('hidden');
     };

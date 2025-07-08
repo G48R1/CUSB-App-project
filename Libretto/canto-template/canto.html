@@ -34,6 +34,14 @@
     </select>
   </aside>
 
+  <aside class="enable-collapse">
+    <label class="switch">
+      <input type="checkbox" id="enable-collapse-checkbox">
+      <span class="slider" onclick="enableToggleStrofaBreve()"></span>
+    </label>
+    <span>abilita strofa-collapse</span>
+  </aside>
+
   <aside class="dashboard">
     <div id="text-dim-box" class="text-dim-box">
       <button class="btn" onclick="changeFontSize(-1)">-</button>
@@ -67,6 +75,7 @@
     const main = document.querySelector('main');
     const tone = document.getElementById("tonality");
     const mode = document.getElementById("mode");
+    let enableTSB = false;
 
     checkbox.addEventListener("click", () => {
       setTimeout(() => {
@@ -84,6 +93,20 @@
       });
     }
 
+    function enableToggleStrofaBreve() {
+      enableTSB = !enableTSB;
+    }
+
+/*    function abilitaToggleStrofaBreve() {
+      document.querySelectorAll('.stanza-box').forEach(box => {
+        box.onclick = () => {
+          const [stanzaEl, breveEl] = box.children;
+          if (!stanzaEl || !breveEl || !enableTSB) return;
+          stanzaEl.classList.toggle('hidden');
+          breveEl.classList.toggle('hidden');
+        };
+      });
+    }*/
 
     // TRANSPOSER
     const tonalita = ["DO","REb","RE","MIb","MI","FA","FA#","SOL","LAb","LA","SIb","SI"]
