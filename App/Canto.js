@@ -213,6 +213,20 @@ class Canto {
   }
 
   /**
+   * Restituisce un array dei nomi delle seconde voci
+   * @param {Array<string>} label ['registro' | 'voce' | 'assegnata']
+   * @returns {Set<string>}
+   */
+  getNomiSecondeVoci(label = ['registro','voce','assegnata']) {
+    let voci = new Set();
+    this.data.strofe.forEach(s => s.getNomiSecondeVoci(label).forEach(v => voci.add(v)));
+    this.data.ritornelli.forEach(r => r.getNomiSecondeVoci(label).forEach(v => voci.add(v)));
+    this.data['pre-chorus'].forEach(pc => pc.getNomiSecondeVoci(label).forEach(v => voci.add(v)));
+    this.data.bridge.forEach(b => b.getNomiSecondeVoci(label).forEach(v => voci.add(v)));
+    return voci;
+  }
+
+  /**
    * Attiva o disattiva i colori per le stanze
    * @param {boolean} bool 
    */

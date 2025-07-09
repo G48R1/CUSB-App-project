@@ -162,6 +162,32 @@ class Stanza {
   }
 
   /**
+   * Restituisce un array dei nomi delle seconde voci
+   * @param {Array<string>} label ['registro' | 'voce' | 'assegnata']
+   * @returns {Set<string>}
+   */
+  getNomiSecondeVoci(label = ['registro']) {
+    if (!Array.isArray(this.data.seconde_voci)) return;
+    let voci = new Set();
+    if (label.includes("registro")) {
+      this.data.seconde_voci.forEach(v => {
+        if (v.data.registro) voci.add(v.data.registro);
+      })
+    }
+    if (label.includes("voce")) {
+      this.data.seconde_voci.forEach(v => {
+        if (v.data.voce) voci.add(v.data.voce);
+      })
+    }
+    if (label.includes("assegnata")) {
+      this.data.seconde_voci.forEach(v => {
+        if (v.data.assegnata) voci.add(v.data.assegnata);
+      })
+    }
+    return voci;
+  }
+
+  /**
    * Aggiunge la versione breve della strofa
    * @param {RigaTesto | string} breve 
    */

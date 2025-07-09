@@ -95,5 +95,24 @@ document.addEventListener('DOMContentLoaded', async () => {
   mode.textContent = canto.getTonalita().getModo();
 
   setFontSize();
+
+  const voices = document.getElementById('voices-select');
+  const voicesList = canto.getNomiSecondeVoci();
+  voicesList.forEach((voice) => {
+    const option = document.createElement('option');
+    option.value = voice;
+    option.textContent = voice;
+    voices.appendChild(option);
+  });
+  const option = document.createElement('option');
+  option.value = "all";
+  option.textContent = "tutte";
+  voices.appendChild(option);
+  voices.value = "all";
+
+  voices.addEventListener('change', () => {
+    visualizeVoice(voices.value);
+  });
+
 });
 

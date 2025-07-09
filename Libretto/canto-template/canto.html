@@ -27,19 +27,38 @@
     </div>
   </nav>
 
-  <aside class="choose-variant">
-    <label for="variant-select">Scegli variante:</label>
-    <select id="variant-select">
-      <!-- popolato dinamicamente -->
-    </select>
-  </aside>
-
-  <aside class="enable-collapse">
-    <label class="switch">
-      <input type="checkbox" id="enable-collapse-checkbox">
-      <span class="slider" onclick="enableToggleStrofaBreve()"></span>
-    </label>
-    <span>abilita strofa-collapse</span>
+  <aside class="settings closed">
+    <div class="toggle-tab cursor-pointer">⚙️</div>
+    <form class="collapsed">
+      <div class="form-padding">
+        <div class="choose-variant">
+          <label for="variant-select">Scegli variante:</label>
+          <select id="variant-select">
+            <!-- popolato dinamicamente -->
+          </select>
+        </div>
+        <div class="choose-voice">
+          <label for="voices-select">Visualizza voci:</label>
+          <select id="voices-select">
+            <!-- popolato dinamicamente -->
+          </select>
+        </div>
+        <div class="enable-collapse">
+          <label class="switch">
+            <input type="checkbox" id="enable-collapse-checkbox">
+            <span class="slider" onclick="enableToggleStrofaBreve()"></span>
+          </label>
+          <span>abilita strofa-collapse</span>
+        </div>
+        <div class="enable-colors">
+          <label class="switch">
+            <input type="checkbox" id="enable-colors-checkbox">
+            <span class="slider" onclick="enableColors()"></span>
+          </label>
+          <span>🪅</span> <!-- 🌈 -->
+        </div>
+      </div>
+    </form>
   </aside>
 
   <aside class="dashboard">
@@ -70,6 +89,7 @@
 
 
   <script>
+    // TONALITY
     const tonality = document.getElementById("tonality-box");
     const checkbox = document.getElementById("visualize-chords-checkbox");
     const main = document.querySelector('main');
@@ -87,9 +107,55 @@
       }, 200);
     });
 
+/*    document.querySelector('.toggle-tab').addEventListener('click', () => {
+      const settings = document.querySelector('.settings');
+      settings.classList.toggle('open');
+      settings.classList.toggle('closed');
+    });*/
+
+    // SETTING BAR
+    const settings = document.querySelector('.settings');
+    const formSettings = document.querySelector('.settings form');
+    const toggleSettings = document.querySelector('.toggle-tab');
+
+    toggleSettings.addEventListener('click', () => {
+      const isExpanded = formSettings.classList.contains('expanded');
+
+      if (isExpanded) {
+        formSettings.style.maxHeight = `${formSettings.scrollHeight}px`;
+
+        // Forza reflow per assicurare che il browser legga lo stile
+        void formSettings.offsetHeight;
+
+        formSettings.style.maxHeight = '0px';
+        formSettings.classList.remove('expanded');
+        formSettings.classList.add('collapsed');
+        settings.classList.remove('open');
+        settings.classList.add('closed');
+      } else {
+        formSettings.classList.add('expanded');
+        formSettings.classList.remove('collapsed');
+        settings.classList.add('open');
+        settings.classList.remove('closed');
+
+        formSettings.style.maxHeight = `${formSettings.scrollHeight}px`;
+      }
+    });
+
     function visualizeChords() {
       document.querySelectorAll('.strumentale, .riga-accordi:not(.strumentale *)').forEach(r => {
         r.classList.toggle('hidden');
+      });
+    }
+
+    function visualizeVoice(voce) {
+      const blocchi = document.querySelectorAll('.riga-voce');
+      blocchi.forEach(blocco => {
+        if (voce === "all" || blocco.classList.contains(voce)) {
+          blocco.classList.remove("hidden");
+        } else {
+          blocco.classList.add("hidden");
+        }
       });
     }
 
@@ -97,6 +163,9 @@
       enableTSB = !enableTSB;
     }
 
+    function enableColors() {
+      document.querySelectorAll(".stanza").forEach(s => s.classList.toggle("active-color"));
+    }
 /*    function abilitaToggleStrofaBreve() {
       document.querySelectorAll('.stanza-box').forEach(box => {
         box.onclick = () => {
@@ -149,6 +218,7 @@
       const canto = document.querySelector(".canto");
       canto.style.fontSize = size instanceof String ? size : size + "px";
     }
+
   </script>
 </body>
 </html>

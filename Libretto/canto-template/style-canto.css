@@ -20,6 +20,8 @@
   --gruppo-1: red;
   --gruppo-2: orange;
   --gruppo-3: green;
+  --voci: grey;
+  --commenti: rgb(150, 150, 150);
 }
 @font-face {
   font-family: 'myTitleFont';
@@ -114,6 +116,7 @@ nav {
 
 #song-title {
   font-size: x-large;
+  text-transform: uppercase;
 }
 
 #back-button {
@@ -121,28 +124,59 @@ nav {
   /* font-size: larger; */
 }
 
-
-aside.choose-variant {
-  background-color: #f9f9f9;
-  align-self: flex-end;
+aside.settings {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-end;
+
+  /* overflow: hidden;
+  transition: max-height 1.5s ease;
+  max-height: 1.5em; */
+}
+.toggle-tab {
+  text-align: center;
+  user-select: none;
+
+  margin-bottom: 0.4em;
+  transition: transform 1.5s ease;
+}
+.settings.open .toggle-tab {
+  transform: rotate(180deg);
+}
+aside.settings form {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 1.5s ease;
+}
+aside.settings .form-padding {
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
   gap: 0.6em;
   align-items: center;
-  margin-top: 0.4em;
-  padding: 0.5em 1.5em;
+  margin: 0;
+  padding: 1em 2em;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  /* max-width: 300px; */
-  /* margin: 1rem auto; */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-aside.choose-variant label {
+/* aside.settings .form-padding.collapsed {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0 2em;
+}
+aside.settings .form-padding.expanded {
+  padding: 1em 2em;
+} */
+aside.settings .form-padding label {
   display: block;
   font-weight: 600;
   color: #333;
 }
-aside.choose-variant select {
+aside.settings .form-padding select {
   padding: 0.3rem 0.4rem;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -150,11 +184,17 @@ aside.choose-variant select {
   font-size: medium;
   transition: border-color 0.3s ease;
 }
-aside.choose-variant select:focus {
+aside.settings .form-padding select:focus {
   border-color: var(--button);  /*#007bff;*/
   outline: none;
   box-shadow: 0 0 0 3px var(--button-sh-op); /* rgba(0, 123, 255, 0.2);*/
   background-color: #fefefe;
+}
+aside.settings .choose-variant, aside.settings .choose-voice, aside.settings .enable-collapse, aside.settings .enable-colors {
+  display: flex;
+  flex-direction: row;
+  gap: 0.6em;
+  align-items: center;
 }
 
 
@@ -200,13 +240,6 @@ aside.visualize-chords {
   gap: 0.3em;
   align-items: center;
 }
-aside.enable-collapse {
-  margin-top: 0.4em;
-  display: flex;
-  flex-direction: row;
-  gap: 0.3em;
-  align-items: center;
-}
 
 
 .tonality-box, .text-dim-box {
@@ -234,11 +267,15 @@ main {
   font-style: italic;
 }
 .commento-stanza, .commento-strumentale, .commento-canto {
-  color: rgb(150, 150, 150);
+  color: var(--commenti);
   margin-bottom: 0.3em;
 }
 .stanza-box, .strumentale {
   margin-bottom: 1em;
+}
+.breve-box {
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 .breve-box::after {
   /* content: "..."; */
@@ -254,22 +291,23 @@ main {
 .riga-testo-e-voce {
   display: flex;
   flex-direction: row;
-  gap: 3em;
+  gap: 1em;
 }
 .riga-testo {
   /* min-width: 8em; */
 }
-.maschi.active-color .riga-testo { color: var(--maschi); }
-.femmine.active-color .riga-testo { color: var(--femmine); }
-.solista.active-color .riga-testo { color: var(--solista); }
-.solista-m1.active-color .riga-testo { color: var(--solista-m1); }
-.solista-m2.active-color .riga-testo { color: var(--solista-m2); }
-.solista-f1.active-color .riga-testo { color: var(--solista-f1); }
-.solista-f2.active-color .riga-testo { color: var(--solista-f2); }
-.tutti.active-color .riga-testo { color: var(--text); }
-.gruppo-1 .riga-testo { color: var(--gruppo-1); }
-.gruppo-2 .riga-testo { color: var(--gruppo-2); }
-.gruppo-3 .riga-testo { color: var(--gruppo-3); }
+
+.active-color .maschi .riga-testo, .active-color.maschi .riga-testo { color: var(--maschi); }
+.active-color .femmine .riga-testo, .active-color.femmine .riga-testo { color: var(--femmine); }
+.active-color .solista .riga-testo, .active-color.solista .riga-testo { color: var(--solista); }
+.active-color .solista-m1 .riga-testo, .active-color.solista-m1 .riga-testo { color: var(--solista-m1); }
+.active-color .solista-m2 .riga-testo, .active-color.solista-m2 .riga-testo { color: var(--solista-m2); }
+.active-color .solista-f1 .riga-testo, .active-color.solista-f1 .riga-testo { color: var(--solista-f1); }
+.active-color .solista-f2 .riga-testo, .active-color.solista-f2 .riga-testo { color: var(--solista-f2); }
+.active-color .tutti .riga-testo, .active-color.tutti .riga-testo { color: var(--text); }
+.active-color .gruppo-1 .riga-testo, .active-color.gruppo-1 .riga-testo { color: var(--gruppo-1); }
+.active-color .gruppo-2 .riga-testo, .active-color.gruppo-2 .riga-testo { color: var(--gruppo-2); }
+.active-color .gruppo-3 .riga-testo, .active-color.gruppo-3 .riga-testo { color: var(--gruppo-3); }
 
 .active-color .voci .maschi { color: var(--maschi); }
 .active-color .voci .femmine { color: var(--femmine); }
@@ -287,12 +325,15 @@ main {
   flex-direction: row; */
 }
 .riga-voce {
+  margin-left: 3em;
   display: flex;
   flex-direction: row;
   gap: 1em;
+  color: var(--voci);
 }
 .voci {
   display: flex;
   flex-direction: row;
   gap: 1.5em;
+  font-size: smaller;
 }

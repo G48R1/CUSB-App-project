@@ -1,0 +1,106 @@
+:root {
+  --maschi: cornflowerblue;
+  --femmine: lightcoral;
+  --solista: gold;
+  --solista-m1: rgb(0, 13, 255);
+  --solista-m2: cornflowerblue;
+  --solista-f1: rgb(237, 89, 89);
+  --solista-f2: lightcoral;
+  --text: black;
+  --gruppo-1: red;
+  --gruppo-2: orange;
+  --gruppo-3: green;
+}
+
+body {}
+
+.hidden {
+  display: none !important;
+}
+.cursor-zoom-out {
+  cursor: zoom-out;
+}
+.cursor-zoom-in {
+  cursor: zoom-in;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+
+
+main {
+  width: 100%;
+  padding-left: 1em;
+}
+.accordo {
+  font-weight: bold;
+}
+.accordo .base .accordo .basso {
+  text-transform: uppercase;
+}
+.commento {
+  font-style: italic;
+}
+.commento-stanza, .commento-strumentale, .commento-canto {
+  color: rgb(150, 150, 150);
+  margin-bottom: 0.3em;
+}
+.stanza-box, .strumentale {
+  margin-bottom: 1em;
+}
+.breve-box::after {
+  /* content: "..."; */
+}
+.ritornello-box {
+  padding-left: 2em;
+}
+.label::after {
+  content: ":";
+  /* margin-left: 0.5em; */
+}
+
+.riga-testo-e-voce {
+  display: flex;
+  flex-direction: row;
+  gap: 3em;
+}
+.riga-testo {
+  /* min-width: 8em; */
+}
+.maschi.active-color .riga-testo { color: var(--maschi); }
+.femmine.active-color .riga-testo { color: var(--femmine); }
+.solista.active-color .riga-testo { color: var(--solista); }
+.solista-m1.active-color .riga-testo { color: var(--solista-m1); }
+.solista-m2.active-color .riga-testo { color: var(--solista-m2); }
+.solista-f1.active-color .riga-testo { color: var(--solista-f1); }
+.solista-f2.active-color .riga-testo { color: var(--solista-f2); }
+.tutti.active-color .riga-testo { color: var(--text); }
+.gruppo-1 .riga-testo { color: var(--gruppo-1); }
+.gruppo-2 .riga-testo { color: var(--gruppo-2); }
+.gruppo-3 .riga-testo { color: var(--gruppo-3); }
+
+.active-color .voci .maschi { color: var(--maschi); }
+.active-color .voci .femmine { color: var(--femmine); }
+.active-color .voci .solista { color: var(--solista); }
+.active-color .voci .solista-m1 { color: var(--solista-m1); }
+.active-color .voci .solista-m2 { color: var(--solista-m2); }
+.active-color .voci .solista-f1 { color: var(--solista-f1); }
+.active-color .voci .solista-f2 { color: var(--solista-f2); }
+.active-color .voci .gruppo-1 { color: var(--gruppo-1); }
+.active-color .voci .gruppo-2 { color: var(--gruppo-2); }
+.active-color .voci .gruppo-3 { color: var(--gruppo-3); }
+
+.riga-accordi {
+  /* display: flex;
+  flex-direction: row; */
+}
+.riga-voce {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+.voci {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5em;
+}
