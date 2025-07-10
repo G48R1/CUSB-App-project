@@ -37,95 +37,71 @@ import { Canto } from '../App/Canto.js';
   const canto = await Canto.loadFromFile(filepath);
   main.appendChild(canto.toHTML());
 
-  console.log(canto.toJSON());
+  // console.log(canto.toJSON());
 
 
   /*************************************************************/
   // from old encode
   /*************************************************************/
-  const stringCantoFromOldEncode = String.raw`\head OGGI TI CHIAMO
-\intro DO  SIb  FA  DO
+  const stringCantoFromOldEncode = String.raw`\head CHIAMATI PER NOME
+\intro   RE SOL LA
 \start
-\c DO                  SIb
-\l Oggi ti chiamo alla vita
-\c              FA                   DO
-\l t'invito a seguirmi, a venire con Me.
-\c DO                         SIb
-\l Apri i tuoi occhi e il tuo cuore
-\c           FA            DO
-\l dimentica tutto e segui Me.
-\c LA-             FA       SOL             DO
-\l Non avere più paura di lasciare quel che hai,
-\c    LA-              FA        SOL
-\l il senso vero della vita troverai.
 $$
-\c      DO          FA          DO          FA
-\l Seguirò la Tua parola, mio Signore io verrò,
-\c        LA-        FA         RE-       SOL
-\l con la mano nella Tua sempre io camminerò,
-\c       DO          RE-              SOL
-\l dammi oggi la Tua forza ed il Tuo amore.
-\c      DO         FA          DO       FA
-\l Canterò canzoni nuove, canterò felicità,
-\c       LA-            FA           RE-        SOL
-\l ed il fuoco del Tuo amore nel mio mondo porterò,
-\c      DO          RE-         SOL
-\l canterò che solo Tu sei libertà.
+\c            RE              LA
+\l Veniamo da Te chiamati per nome
+\c             RE                    SOL9
+\l che festa Signore, tu cammini con noi.
+\c             RE                    LA
+\l Ci parli di Te, per noi spezzi il pane
+\c             RE                     SOL9
+\l Ti riconosciamo il cuore arde: sei Tu!
+\c           SI- LA        SOL9 LA 
+\l E noi tuo popolo, siamo qui.
 $$
-\c DO                  SIb
-\l Oggi ti chiamo all'amore
-\c              FA                  DO
-\l t'invito a seguirmi, a stare con Me.
-\c DO                SIb
-\l Apri le porte del cuore
-\c              FA               DO
-\l allarga i confini del dono di te.
-\c   LA-               FA         SOL         DO
-\l Accogli tutti nella pace con fiducia e verità,
-\c    LA-            FA         SOL
-\l l'amore vero ti darà la libertà.
+\c SOL                   SI-7
+\l Siamo come terra ed argilla
+\c      RE                LA
+\l e la Tua parola ci plasmerà.
+\c SOL                     SI-
+\l Brace pronta per la scintilla
+\c        RE            SOL           LA
+\l Il tuo spirito soffierà, c’infiammerà.
 $$
-\c      DO          FA          DO          FA
-\l Seguirò la Tua parola, mio Signore io verrò,
-\c        LA-        FA         RE-       SOL
-\l con la mano nella Tua sempre io camminerò,
-\c       DO          RE-              SOL
-\l dammi oggi la Tua forza ed il Tuo amore.
-\c      DO         FA          DO       FA
-\l Canterò canzoni nuove, canterò felicità,
-\c       LA-            FA           RE-        SOL
-\l ed il fuoco del Tuo amore nel mio mondo porterò,
-\c      DO          RE-         SOL
-\l canterò che solo Tu sei libertà.
+\c            RE              LA
+\l Veniamo da Te chiamati per nome
+\c             RE                    SOL9
+\l che festa Signore, tu cammini con noi.
+\c             RE                    LA
+\l Ci parli di Te, per noi spezzi il pane
+\c             RE                     SOL9
+\l Ti riconosciamo il cuore arde: sei Tu!
+\c           SI- LA        SOL9 LA 
+\l E noi tuo popolo, siamo qui.
 $$
-\cmt (stoppato)
-\c DO                  SIb
-\l Oggi ti chiamo alla gioia,
-\c              FA                   DO
-\l t'invito a seguirmi, a venire con Me.
-\c DO                    SIb
-\l Sai quanto vale un sorriso,
-\c             FA                 DO
-\l può dare speranza a chi non ne ha.
-\c    LA-                 FA         SOL          DO
-\l La gioia è segno della vita che rinasce dentro te,
-\c     LA-                 FA          SOL
-\l e annuncia ad ogni uomo pace e libertà.
+\c SOL                 SI-7
+\l Siamo come semi nel solco
+\c      RE                       LA
+\l come vigna che il suo frutto darà.
+\c SOL                 SI-
+\l grano del Signore risorto,
+\c        RE             SOL        LA
+\l la Sua messe che fiorirà d’eternità.
 $$
-\c      DO          FA          DO          FA
-\l Seguirò la Tua parola, mio Signore io verrò,
-\c        LA-        FA         RE-       SOL
-\l con la mano nella Tua sempre io camminerò,
-\c       DO          RE-              SOL
-\l dammi oggi la Tua forza ed il Tuo amore.
-\c      DO         FA          DO       FA
-\l Canterò canzoni nuove, canterò felicità,
-\c       LA-            FA           RE-        SOL
-\l ed il fuoco del Tuo amore nel mio mondo porterò,
-\c      DO          RE-         SOL
-\l canterò che solo Tu sei libertà.
+\c            RE              LA
+\l Veniamo da Te chiamati per nome
+\c             RE                    SOL9
+\l che festa Signore, Tu cammini con noi.
+\c             RE                    LA
+\l Ci parli di Te, per noi spezzi il pane
+\c             RE                     SOL9
+\l Ti riconosciamo il cuore arde: sei Tu!
+\c           SI- LA        SOL9 LA 
+\l E noi tuo popolo, siamo qui.
+\c           SI- LA        SOL LA 
+\l E noi tuo popolo, siamo qui,   
+\c       RE
+\l Siamo qui.
 $$
-\outro DO  SIb  FA  DO
 \end`;
 
   const cantoFromOldEncode = Canto.fromOldEncode(stringCantoFromOldEncode);

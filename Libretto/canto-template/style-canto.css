@@ -196,6 +196,17 @@ aside.settings .choose-variant, aside.settings .choose-voice, aside.settings .en
   gap: 0.6em;
   align-items: center;
 }
+aside.settings .audio-tracks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
+}
+.track-box {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  align-items: center;
+}
 
 
 aside.dashboard {

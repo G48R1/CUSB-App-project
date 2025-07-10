@@ -1,5 +1,23 @@
 [
-  {"numero": 0, "name":"ABBRACCIAMI", "link":{"default":"ABBRACCIAMI/abbracciami.json","breve":"ABBRACCIAMI/abbracciami_breve.json"}},
-  {"numero": 1, "name":"OGGI TI CHIAMO", "link":{"default":"OGGI TI CHIAMO/oggi-ti-chiamo.json"}},
-  {"numero": 2, "name":"canto", "link":{"default":"canto/canto.json"}}
+  {
+    "numero": 0,
+    "name":"ABBRACCIAMI",
+    "link": {"default":"ABBRACCIAMI/abbracciami.json", "breve":"ABBRACCIAMI/abbracciami_breve.json"},
+    "audio": {"full":"ABBRACCIAMI/AUDIO/ABBRACCIAMI.aac"}
+  },
+  {
+    "numero": 1,
+    "name":"OGGI TI CHIAMO",
+    "link":{"default":"OGGI TI CHIAMO/oggi-ti-chiamo.json"}
+  },
+  {
+    "numero": 2,
+    "name":"CHIAMATI PER NOME",
+    "link": {"default":"CHIAMATI PER NOME/chiamati-per-nome.json"}
+  },
+  {
+    "numero": 99,
+    "name":"ZZZ canto",
+    "link": {"default":"canto/canto.json"}
+  }
 ]

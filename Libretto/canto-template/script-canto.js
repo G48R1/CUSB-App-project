@@ -7,16 +7,6 @@ import { joinPath } from "../../App/config/utils.js";
 // const tone = document.getElementById("tonality");
 // const mode = document.getElementById("mode");
 
-// function abilitaToggleStrofaBreve() {
-//   document.querySelectorAll('.stanza-box').forEach(box => {
-//     box.onclick = () => {
-//       const [stanzaEl, breveEl] = box.children;
-//       if (!stanzaEl || !breveEl) return;
-//       stanzaEl.classList.toggle('hidden');
-//       breveEl.classList.toggle('hidden');
-//     };
-//   });
-// }
 function abilitaToggleStrofaBreve() {
   document.querySelectorAll('.stanza-box').forEach(box => {
     box.onclick = () => {
@@ -63,9 +53,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     .then(response => response.json())
     .then(data => {
       const cantoData = data.find(c => c.numero === id);
+
       const select = document.getElementById('variant-select');
       const linkEntries = Object.entries(cantoData.link);
 
+      // song variants
       linkEntries.forEach(([label, path]) => {
         const option = document.createElement('option');
         option.value = joinPath(CANTI_DIR, path);
@@ -76,6 +68,38 @@ document.addEventListener('DOMContentLoaded', async () => {
       select.addEventListener('change', () => {
         loadCanto(select.value);
       });
+
+      if (cantoData.audio) {
+        const audioEntries = Object.entries(cantoData.audio);
+        const audioTracks = document.getElementById("audio-tracks");
+        // audio
+        audioEntries.forEach(([label, trackPath]) => {
+          const container = document.createElement("div");
+          container.className = "track-box";
+
+          const labelDiv = document.createElement("label");
+          labelDiv.textContent = label;
+
+          const audio = document.createElement("audio");
+          audio.controls = true;
+          audio.className = "audio-track";
+
+          const source = document.createElement("source");
+          source.src = joinPath(CANTI_DIR, trackPath);
+
+          const message = document.createElement("p");
+          message.textContent = "";
+
+          audio.appendChild(source);
+          audio.appendChild(message);
+
+          container.appendChild(labelDiv);
+          container.appendChild(audio);
+
+          audioTracks.appendChild(container);
+        })
+      }
+
     })
     .catch(error => {
       console.error('Errore nel caricamento dei canti:', error);
