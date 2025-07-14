@@ -4,6 +4,11 @@ import { camelToKebab, getSchema } from './config/utils.js';
 class Tonalita {
 
   static REGEX = /^(DO#?|REb?|RE#?|MIb?|MI|FA#?|SOLb?|SOL#?|LAb?|LA#?|SIb?|SI)\s*(M|m)$/;
+  static tonalitaBase = ["DO","REb","RE","MIb","MI","FA","FA#","SOL","LAb","LA","SIb","SI"]
+  // static tonalita_cast = [0,1,0,1,0,1,0,0,1,0,1,0]  // 0=#, 1=b
+  static tonalitaDiesis = ["DO","DO#","RE","RE#","MI","FA","FA#","SOL","SOL#","LA","LA#","SI"]
+  static tonalitaBemolle = ["DO","REb","RE","MIb","MI","FA","SOLb","SOL","LAb","LA","SIb","SI"]
+
   static schema = null;
   static _ajv = new Ajv();
   static _validate = null;
@@ -86,6 +91,52 @@ class Tonalita {
       return;
     }
     console.warn("Formato di tono o modo errati");
+  }
+
+  /**
+   * Calcola la distanza in semitoni tra due tonalità
+   * @param {Tonalita} tonality1
+   * @param {Tonalita} tonality2
+   * @returns {number} tonality2 - tonality1 (in semitoni)
+   */
+  static calculateInterval(tonality1, tonality2) {
+    if (tonality1.getModo() !== tonality2.getModo()) {
+      console.warn("Impossibile calcolare l'intervallo se le tonalità non hanno stesso modo.");
+      return;
+    }
+    let toneIndex1 = Tonalita.tonalitaBase.findIndex(t => t === tonality1.getTono());
+    if (toneIndex1 === -1) toneIndex1 = Tonalita.tonalitaDiesis.findIndex(t => t === tonality1.getTono());
+    if (toneIndex1 === -1) toneIndex1 = Tonalita.tonalitaBemolle.findIndex(t => t === tonality1.getTono());
+    if (toneIndex1 === -1) return;
+    let toneIndex2 = Tonalita.tonalitaBase.findIndex(t => t === tonality2.getTono());
+    if (toneIndex2 === -1) toneIndex2 = Tonalita.tonalitaDiesis.findIndex(t => t === tonality2.getTono());
+    if (toneIndex2 === -1) toneIndex2 = Tonalita.tonalitaBemolle.findIndex(t => t === tonality2.getTono());
+    if (toneIndex2 === -1) return;
+
+    return toneIndex2 - toneIndex1;
+  }
+
+  /**
+   * Calcola la distanza in semitoni da un'altra tonalità.
+   * Se positiva allora la tonalità passata come argomento è più alta di questa
+   * @param {Tonalita} tonalita
+   * @returns {number} tonalita - this (in semitoni)
+   */
+  interval(tonalita) {
+    if (this.getModo() !== tonalita.getModo()) {
+      console.warn("Impossibile calcolare l'intervallo se le tonalità non hanno stesso modo.");
+      return;
+    }
+    let thisToneIndex = Tonalita.tonalitaBase.findIndex(t => t === this.getTono());
+    if (thisToneIndex === -1) thisToneIndex = Tonalita.tonalitaDiesis.findIndex(t => t === this.getTono());
+    if (thisToneIndex === -1) thisToneIndex = Tonalita.tonalitaBemolle.findIndex(t => t === this.getTono());
+    if (thisToneIndex === -1) return;
+    let otherToneIndex = Tonalita.tonalitaBase.findIndex(t => t === tonalita.getTono());
+    if (otherToneIndex === -1) otherToneIndex = Tonalita.tonalitaDiesis.findIndex(t => t === tonalita.getTono());
+    if (otherToneIndex === -1) otherToneIndex = Tonalita.tonalitaBemolle.findIndex(t => t === tonalita.getTono());
+    if (otherToneIndex === -1) return;
+
+    return otherToneIndex - thisToneIndex;
   }
 
   /**

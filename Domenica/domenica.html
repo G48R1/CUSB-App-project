@@ -9,18 +9,50 @@
   <meta name="theme-color" content="#007bff"/>
 
   <link rel="stylesheet" href="style-domenica.css">
+  <link rel="stylesheet" href="style-slider.css">
   <title>Canti della Domenica</title>
 </head>
 <body>
 
   <nav>
     <div class="nav-bar">
-      <div class="nav-label" id="song-title">TITOLO</div>
+      <div class="nav-label" id="title">CANTI DELLA DOMENICA</div>
       <div>
         <button class="nav-btn"><a href="../index.html">🏠︎</a></button>
       </div>
     </div>
   </nav>
 
+  <aside class="visualize-all-chords">
+    <label class="switch">
+      <input type="checkbox" id="visualize-all-chords-checkbox" onchange="visualizeAllChords(this.checked)">
+      <span class="slider"></span>
+    </label>
+    <span>visualizza accordi (all)</span>
+  </aside>
+
+  <main>
+    <!-- popolato dinamicamente -->
+  </main>
+
+  <script type="module" src="script-domenica.js"></script>
+  <script>
+    function visualizeAllChords(isChecked) {
+      const iframes = document.querySelectorAll("iframe.iframe-song");
+      iframes.forEach(iframe => {
+        try {
+          const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+          const slider = iframeDoc.getElementById("visualize-chords-checkbox");
+          if (slider) {
+            slider.checked = isChecked;
+            // per attivare la logica collegata allo switch (simula il click)
+            slider.dispatchEvent(new Event('change', { bubbles: true }));
+          }
+        } catch (e) {
+          console.warn("Impossibile accedere all'iframe (forse per CORS):", e);
+        }
+      });
+    }
+  </script>
 </body>
 </html>

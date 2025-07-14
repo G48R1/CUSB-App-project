@@ -33,22 +33,14 @@
       <div class="form-padding">
         <div class="parts">
           <div id="audio-tracks" class="audio-tracks">
-
+            <!-- popolato dinamicamente -->
             <!-- <div class="track-box">
               <label>full:</label>
               <audio class="audio-track" controls>
                 <source src="mio_audio.mp3">
                 <p>Il tuo browser non supporta audio html5</p>
               </audio>
-            </div>
-            <div class="track-box">
-              <label>full:</label>
-              <audio class="audio-track" controls>
-                <source src="mio_audio.mp3">
-                <p>Il tuo browser non supporta audio html5</p>
-              </audio>
             </div> -->
-
           </div>
           <div class="sheets">
             <!-- collegamento cartella spartiti? link? pagina html? -->
@@ -65,6 +57,13 @@
           <select id="voices-select">
             <!-- popolato dinamicamente -->
           </select>
+        </div>
+        <div class="double-columns">
+          <label class="switch">
+            <input type="checkbox" id="double-columns-checkbox">
+            <span class="slider" onclick="doubleColumns()"></span>
+          </label>
+          <span>2 colonne</span>
         </div>
         <div class="enable-collapse">
           <label class="switch">
@@ -97,19 +96,29 @@
     </div>
   </aside>
 
-  <aside class="visualize-chords">
+  <!-- <aside class="visualize-chords">
     <label class="switch">
       <input type="checkbox" id="visualize-chords-checkbox">
       <span class="slider" onclick="visualizeChords()"></span>
     </label>
     <span>visualizza accordi</span>
+  </aside> -->
+  <aside class="visualize-chords">
+    <label class="switch">
+      <input type="checkbox" id="visualize-chords-checkbox" onchange="visualizeChordsBool(this.checked)">
+      <span class="slider"></span>
+    </label>
+    <span>visualizza accordi</span>
   </aside>
+
 
   <main>
     <!-- popolato dinamicamente -->
   </main>
 
-
+  <footer>
+    <!-- utilizzato solo per aggiungere spazio in fondo senza ricorrere al margin-bottom del main -->
+  </footer>
 
   <script>
     // TONALITY
@@ -120,15 +129,13 @@
     const mode = document.getElementById("mode");
     let enableTSB = false;
 
-    checkbox.addEventListener("click", () => {
-      setTimeout(() => {
-        if (checkbox.checked) {
-          tonality.classList.remove("hidden");
-        } else {
-          tonality.classList.add("hidden");
-        }
-      }, 200);
-    });
+    function showTonality(show) {
+      if (show) {
+        tonality.classList.remove("hidden");
+      } else {
+        tonality.classList.add("hidden");
+      }
+    }
 
 /*    document.querySelector('.toggle-tab').addEventListener('click', () => {
       const settings = document.querySelector('.settings');
@@ -165,10 +172,20 @@
       }
     });
 
-    function visualizeChords() {
+/*  function visualizeChords() {
       document.querySelectorAll('.strumentale, .riga-accordi:not(.strumentale *)').forEach(r => {
         r.classList.toggle('hidden');
       });
+    } */
+    function visualizeChordsBool(isChecked) {
+      document.querySelectorAll('.strumentale, .riga-accordi:not(.strumentale *)').forEach(r => {
+        if (isChecked) {
+          r.classList.remove('hidden'); // Mostra gli accordi
+        } else {
+          r.classList.add('hidden'); // Nascondi gli accordi
+        }
+      });
+      showTonality(isChecked);
     }
 
     function visualizeVoice(voce) {
@@ -180,6 +197,11 @@
           blocco.classList.add("hidden");
         }
       });
+    }
+
+    function doubleColumns() {
+      const canto = document.querySelector(".canto");
+      canto.classList.toggle("cols2");
     }
 
     function enableToggleStrofaBreve() {
@@ -198,7 +220,7 @@
           breveEl.classList.toggle('hidden');
         };
       });
-    }*/
+    } */
 
     // TRANSPOSER
     const tonalita = ["DO","REb","RE","MIb","MI","FA","FA#","SOL","LAb","LA","SIb","SI"]
@@ -222,7 +244,7 @@
     function changeFontSize(change) {
       const canto = document.querySelector(".canto");
       let currentFontSize = null;
-      const minFontSize = 10;
+      const minFontSize = 6;
       const maxFontSize = 30;
       if (currentFontSize === null) {
         const computed = window.getComputedStyle(canto).fontSize;
@@ -241,6 +263,20 @@
       const canto = document.querySelector(".canto");
       canto.style.fontSize = size instanceof String ? size : size + "px";
     }
+
+
+
+    // parent (Raccolte)
+    function sendHeightToParent() {
+      const height = document.body.scrollHeight;
+      parent.postMessage({ type: 'resize-iframe', height }, '*');
+    }
+    window.addEventListener('load', sendHeightToParent);
+
+    const observer = new ResizeObserver(() => {
+      sendHeightToParent();
+    });
+    observer.observe(document.documentElement);
 
   </script>
 </body>

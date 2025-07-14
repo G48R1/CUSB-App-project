@@ -1,7 +1,7 @@
 import { joinPath } from "../App/config/utils.js";
 import { INDICE_CANTI_DIR } from "../App/config/config.js";
 
-// Attendi che il DOM sia caricato
+// Attendo che il DOM sia caricato
 document.addEventListener('DOMContentLoaded', () => {
   const main = document.querySelector('main');
 
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch(joinPath(INDICE_CANTI_DIR, 'indice_canti.json'))
     .then(response => response.json())
     .then(data => {
-      // Svuota il main prima di inserire i canti
+      // Svuoto il main prima di inserire i canti
       main.innerHTML = '';
 
       data.forEach(canto => {
@@ -20,10 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const numero = document.createElement("span");
         numero.className = 'numero-canto'
-        numero.textContent = canto.numero;
+        numero.textContent = canto.numero + 1;  // visualizza contando da 1 (non da 0)
 
         const link = document.createElement('a');
-        link.href = `./canto-template/canto.html?path=${encodeURIComponent(canto.link?.default)}&title=${encodeURIComponent(canto.name)}&numero=${canto.numero}`;
+        const path = canto.link.default ? canto.link.default : Object.values(canto.link)[0];
+        link.href = `./canto-template/canto.html?path=${encodeURIComponent(path)}&title=${encodeURIComponent(canto.name)}&numero=${canto.numero}`;
         link.textContent = canto.name;
 
         container.appendChild(numero);

@@ -190,7 +190,7 @@ aside.settings .form-padding select:focus {
   box-shadow: 0 0 0 3px var(--button-sh-op); /* rgba(0, 123, 255, 0.2);*/
   background-color: #fefefe;
 }
-aside.settings .choose-variant, aside.settings .choose-voice, aside.settings .enable-collapse, aside.settings .enable-colors {
+aside.settings .choose-variant, aside.settings .choose-voice, aside.settings .double-columns, aside.settings .enable-collapse, aside.settings .enable-colors {
   display: flex;
   flex-direction: row;
   gap: 0.6em;
@@ -268,6 +268,14 @@ main {
 .canto {
   font-size: medium;
 }
+.cols2 {
+  -moz-column-count: 2;
+  -webkit-column-count: 2;
+  column-count: 2;
+  margin: 0 auto;
+  column-gap: 2em;
+}
+
 .accordo {
   font-weight: bold;
 }
@@ -283,6 +291,8 @@ main {
 }
 .stanza-box, .strumentale {
   margin-bottom: 1em;
+  break-inside: avoid;
+  cursor: pointer;
 }
 .breve-box {
   margin-top: 2em;
@@ -310,11 +320,11 @@ main {
 
 .active-color .maschi .riga-testo, .active-color.maschi .riga-testo { color: var(--maschi); }
 .active-color .femmine .riga-testo, .active-color.femmine .riga-testo { color: var(--femmine); }
-.active-color .solista .riga-testo, .active-color.solista .riga-testo { color: var(--solista); }
-.active-color .solista-m1 .riga-testo, .active-color.solista-m1 .riga-testo { color: var(--solista-m1); }
-.active-color .solista-m2 .riga-testo, .active-color.solista-m2 .riga-testo { color: var(--solista-m2); }
-.active-color .solista-f1 .riga-testo, .active-color.solista-f1 .riga-testo { color: var(--solista-f1); }
-.active-color .solista-f2 .riga-testo, .active-color.solista-f2 .riga-testo { color: var(--solista-f2); }
+.active-color .solista .riga-testo, .active-color.solista .riga-testo { color: var(--solista); font-weight: 500; }
+.active-color .solista-m1 .riga-testo, .active-color.solista-m1 .riga-testo { color: var(--solista-m1); font-weight: 500; }
+.active-color .solista-m2 .riga-testo, .active-color.solista-m2 .riga-testo { color: var(--solista-m2); font-weight: 500; }
+.active-color .solista-f1 .riga-testo, .active-color.solista-f1 .riga-testo { color: var(--solista-f1); font-weight: 500; }
+.active-color .solista-f2 .riga-testo, .active-color.solista-f2 .riga-testo { color: var(--solista-f2); font-weight: 500; }
 .active-color .tutti .riga-testo, .active-color.tutti .riga-testo { color: var(--text); }
 .active-color .gruppo-1 .riga-testo, .active-color.gruppo-1 .riga-testo { color: var(--gruppo-1); }
 .active-color .gruppo-2 .riga-testo, .active-color.gruppo-2 .riga-testo { color: var(--gruppo-2); }
@@ -322,11 +332,11 @@ main {
 
 .active-color .voci .maschi { color: var(--maschi); }
 .active-color .voci .femmine { color: var(--femmine); }
-.active-color .voci .solista { color: var(--solista); }
-.active-color .voci .solista-m1 { color: var(--solista-m1); }
-.active-color .voci .solista-m2 { color: var(--solista-m2); }
-.active-color .voci .solista-f1 { color: var(--solista-f1); }
-.active-color .voci .solista-f2 { color: var(--solista-f2); }
+.active-color .voci .solista { color: var(--solista); font-weight: 500; }
+.active-color .voci .solista-m1 { color: var(--solista-m1); font-weight: 500; }
+.active-color .voci .solista-m2 { color: var(--solista-m2); font-weight: 500; }
+.active-color .voci .solista-f1 { color: var(--solista-f1); font-weight: 500; }
+.active-color .voci .solista-f2 { color: var(--solista-f2); font-weight: 500; }
 .active-color .voci .gruppo-1 { color: var(--gruppo-1); }
 .active-color .voci .gruppo-2 { color: var(--gruppo-2); }
 .active-color .voci .gruppo-3 { color: var(--gruppo-3); }
@@ -347,4 +357,8 @@ main {
   flex-direction: row;
   gap: 1.5em;
   font-size: smaller;
+}
+
+footer {
+  margin-top: 4em;
 }

@@ -1,4 +1,5 @@
 import { Canto } from "../../App/Canto.js";
+import { Tonalita } from "../../App/Tonalita.js";
 import { CANTI_DIR, INDICE_CANTI_DIR } from "../../App/config/config.js";
 import { joinPath } from "../../App/config/utils.js";
 
@@ -22,6 +23,16 @@ function getQueryParam(key) {
   return new URLSearchParams(window.location.search).get(key);
 }
 
+/**
+ * Calcola l'intervallo di tonalità tra la tonalità di default e quella da impostare e traspone della quantità delta
+ * @param {string} newTonality
+ * @param {string} oldTonality
+ */
+function changeTonality(newTonality, oldTonality) {
+  const newTonalityObj = new Tonalita().fromString(newTonality);
+  transpose(oldTonality.interval(newTonalityObj));
+}
+
 async function loadCanto(filepath) {
   const canto = await Canto.loadFromFile(filepath);
   main.textContent = null;
@@ -31,7 +42,7 @@ async function loadCanto(filepath) {
   main.appendChild(canto.toHTML());
   // document.getElementById("song-title").textContent = title;
 
-  if (!checkbox.checked) visualizeChords(); // default: non visualizzati
+  if (!checkbox.checked) visualizeChordsBool(false); //visualizeChords(); // default: non visualizzati
   abilitaToggleStrofaBreve();
 
 
@@ -47,6 +58,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (!path) return;
   const id = parseInt(getQueryParam('numero'));
   if (isNaN(id)) return;
+  const tonalityToSet = getQueryParam('tonality');
 
   // Carico l’indice
   fetch(joinPath(INDICE_CANTI_DIR, 'indice_canti.json'))
@@ -65,6 +77,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         select.appendChild(option);
       });
 
+      select.value = path;
       select.addEventListener('change', () => {
         loadCanto(select.value);
       });
@@ -112,7 +125,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   main.appendChild(canto.toHTML());
   document.getElementById("song-title").textContent = title;
 
-  visualizeChords(); // default: non visualizzati
+  visualizeChordsBool(false); //visualizeChords(); // default: non visualizzati
   abilitaToggleStrofaBreve();
 
   tone.textContent = canto.getTonalita().getTono();
@@ -137,6 +150,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   voices.addEventListener('change', () => {
     visualizeVoice(voices.value);
   });
+
+  if (tonalityToSet) changeTonality(tonalityToSet, canto.getTonalita());
 
 });
 
