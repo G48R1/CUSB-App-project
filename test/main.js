@@ -105,7 +105,7 @@ $$
 \end`;
 
   const cantoFromOldEncode = Canto.fromOldEncode(stringCantoFromOldEncode);
-  cantoFromOldEncode.setId(5);
+  // cantoFromOldEncode.setId(5);
   cantoFromOldEncode.setInfo(new Tonalita().fromString("REm"));
   main.appendChild(cantoFromOldEncode.update());
   

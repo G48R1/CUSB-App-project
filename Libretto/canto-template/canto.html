@@ -191,11 +191,10 @@
     function visualizeVoice(voce) {
       const blocchi = document.querySelectorAll('.riga-voce');
       blocchi.forEach(blocco => {
-        if (voce === "all" || blocco.classList.contains(voce)) {
+        if (voce === "none") blocco.classList.add("hidden"); // superfluo, rientra nell'else; messo per sicurezza e ridondanza
+        else if (voce === "all" || blocco.classList.contains(voce))
           blocco.classList.remove("hidden");
-        } else {
-          blocco.classList.add("hidden");
-        }
+        else blocco.classList.add("hidden");
       });
     }
 

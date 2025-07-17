@@ -101,3 +101,7 @@ aside {
   gap: 0.3em;
   align-items: center;
 }
+
+footer {
+  margin-top: 3em;
+}

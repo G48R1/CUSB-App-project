@@ -1,0 +1,38 @@
+[
+  {
+    "evento": "evento 1",
+    "data": "01/01/2026",
+    "canti":
+    [
+      {
+        "numero":0,
+        "name":"ABBRACCIAMI",
+        "link":"ABBRACCIAMI/abbracciami_breve.json",
+        "tonality":"SOL M"
+      },
+      {
+        "numero":1,
+        "name":"OGGI TI CHIAMO",
+        "link":"OGGI TI CHIAMO/oggi-ti-chiamo.json"
+      }
+    ]
+  },
+  {
+    "evento": "evento 2",
+    "commento": "provvisorio",
+    "data": "01/01/2026",
+    "canti":
+    [
+      {
+        "numero":0,
+        "name":"ABBRACCIAMI",
+        "link":"ABBRACCIAMI/abbracciami.json"
+      },
+      {
+        "numero":1,
+        "name":"OGGI TI CHIAMO",
+        "link":"OGGI TI CHIAMO/oggi-ti-chiamo.json"
+      }
+    ]
+  }
+]

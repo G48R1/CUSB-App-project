@@ -8,10 +8,6 @@
       "type": "string",
       "enum": ["canto"]
     },
-    "id": {
-      "type": "integer",
-      "minimum": 0
-    },
     "info": {
       "type": "object",
       "properties": {
@@ -126,6 +122,6 @@
       }
     }
   },
-  "required": ["type", "id", "titolo", "info"],
+  "required": ["type", "titolo", "info"],
   "additionalProperties": false
 }

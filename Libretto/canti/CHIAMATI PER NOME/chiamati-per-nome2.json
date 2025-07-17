@@ -50,7 +50,7 @@
   "strofe": [
     {
       "type": "strofa",
-      "id": 2,
+      "id": 0,
       "righe_accordi": [
         {
           "type": "riga-accordi",
@@ -241,7 +241,7 @@
     },
     {
       "type": "strofa",
-      "id": 4,
+      "id": 1,
       "righe_accordi": [
         {
           "type": "riga-accordi",
@@ -432,6 +432,251 @@
     }
   ],
   "ritornelli": [
+    {
+      "type": "ritornello",
+      "id": 0,
+      "righe_accordi": [
+        {
+          "type": "riga-accordi",
+          "contenuto": [
+            {
+              "type": "accordo",
+              "base": "RE"
+            },
+            {
+              "type": "accordo",
+              "base": "LA"
+            }
+          ],
+          "spazi": [
+            {
+              "sep": " ",
+              "qta": 12
+            },
+            {
+              "sep": " ",
+              "qta": 14
+            }
+          ]
+        },
+        {
+          "type": "riga-accordi",
+          "contenuto": [
+            {
+              "type": "accordo",
+              "base": "RE"
+            },
+            {
+              "type": "accordo",
+              "base": "SOL",
+              "extra": {
+                "alterazione": "9"
+              }
+            }
+          ],
+          "spazi": [
+            {
+              "sep": " ",
+              "qta": 13
+            },
+            {
+              "sep": " ",
+              "qta": 20
+            }
+          ]
+        },
+        {
+          "type": "riga-accordi",
+          "contenuto": [
+            {
+              "type": "accordo",
+              "base": "RE"
+            },
+            {
+              "type": "accordo",
+              "base": "LA"
+            }
+          ],
+          "spazi": [
+            {
+              "sep": " ",
+              "qta": 13
+            },
+            {
+              "sep": " ",
+              "qta": 20
+            }
+          ]
+        },
+        {
+          "type": "riga-accordi",
+          "contenuto": [
+            {
+              "type": "accordo",
+              "base": "RE"
+            },
+            {
+              "type": "accordo",
+              "base": "SOL",
+              "extra": {
+                "alterazione": "9"
+              }
+            }
+          ],
+          "spazi": [
+            {
+              "sep": " ",
+              "qta": 13
+            },
+            {
+              "sep": " ",
+              "qta": 21
+            }
+          ]
+        },
+        {
+          "type": "riga-accordi",
+          "contenuto": [
+            {
+              "type": "accordo",
+              "base": "SI",
+              "extra": {
+                "alterazione": "-"
+              }
+            },
+            {
+              "type": "accordo",
+              "base": "LA"
+            },
+            {
+              "type": "accordo",
+              "base": "SOL",
+              "extra": {
+                "alterazione": "9"
+              }
+            },
+            {
+              "type": "accordo",
+              "base": "LA"
+            }
+          ],
+          "spazi": [
+            {
+              "sep": " ",
+              "qta": 11
+            },
+            {
+              "sep": " ",
+              "qta": 1
+            },
+            {
+              "sep": " ",
+              "qta": 8
+            },
+            {
+              "sep": " ",
+              "qta": 1
+            }
+          ]
+        }
+      ],
+      "righe_testo": [
+        {
+          "type": "riga-testo",
+          "contenuto": [
+            {
+              "type": "testo",
+              "testo": " Veniamo da Te chiamati per nome"
+            }
+          ]
+        },
+        {
+          "type": "riga-testo",
+          "contenuto": [
+            {
+              "type": "testo",
+              "testo": " che festa Signore, tu cammini con noi."
+            }
+          ]
+        },
+        {
+          "type": "riga-testo",
+          "contenuto": [
+            {
+              "type": "testo",
+              "testo": " Ci parli di Te, per noi spezzi il pane"
+            }
+          ]
+        },
+        {
+          "type": "riga-testo",
+          "contenuto": [
+            {
+              "type": "testo",
+              "testo": " Ti riconosciamo il cuore arde"
+            },
+            {
+              "type": "testo",
+              "testo": ": sei Tu!"
+            }
+          ]
+        },
+        {
+          "type": "riga-testo",
+          "contenuto": [
+            {
+              "type": "testo",
+              "testo": " E noi tuo popolo, siamo qui."
+            }
+          ]
+        }
+      ],
+      "schema": {
+        "type": "struttura-stanza",
+        "schema": [
+          {
+            "componente": "accordi",
+            "posizione": 0
+          },
+          {
+            "componente": "testo",
+            "posizione": 0
+          },
+          {
+            "componente": "accordi",
+            "posizione": 1
+          },
+          {
+            "componente": "testo",
+            "posizione": 1
+          },
+          {
+            "componente": "accordi",
+            "posizione": 2
+          },
+          {
+            "componente": "testo",
+            "posizione": 2
+          },
+          {
+            "componente": "accordi",
+            "posizione": 3
+          },
+          {
+            "componente": "testo",
+            "posizione": 3
+          },
+          {
+            "componente": "accordi",
+            "posizione": 4
+          },
+          {
+            "componente": "testo",
+            "posizione": 4
+          }
+        ]
+      }
+    },
     {
       "type": "ritornello",
       "id": 1,
@@ -679,252 +924,7 @@
     },
     {
       "type": "ritornello",
-      "id": 3,
-      "righe_accordi": [
-        {
-          "type": "riga-accordi",
-          "contenuto": [
-            {
-              "type": "accordo",
-              "base": "RE"
-            },
-            {
-              "type": "accordo",
-              "base": "LA"
-            }
-          ],
-          "spazi": [
-            {
-              "sep": " ",
-              "qta": 12
-            },
-            {
-              "sep": " ",
-              "qta": 14
-            }
-          ]
-        },
-        {
-          "type": "riga-accordi",
-          "contenuto": [
-            {
-              "type": "accordo",
-              "base": "RE"
-            },
-            {
-              "type": "accordo",
-              "base": "SOL",
-              "extra": {
-                "alterazione": "9"
-              }
-            }
-          ],
-          "spazi": [
-            {
-              "sep": " ",
-              "qta": 13
-            },
-            {
-              "sep": " ",
-              "qta": 20
-            }
-          ]
-        },
-        {
-          "type": "riga-accordi",
-          "contenuto": [
-            {
-              "type": "accordo",
-              "base": "RE"
-            },
-            {
-              "type": "accordo",
-              "base": "LA"
-            }
-          ],
-          "spazi": [
-            {
-              "sep": " ",
-              "qta": 13
-            },
-            {
-              "sep": " ",
-              "qta": 20
-            }
-          ]
-        },
-        {
-          "type": "riga-accordi",
-          "contenuto": [
-            {
-              "type": "accordo",
-              "base": "RE"
-            },
-            {
-              "type": "accordo",
-              "base": "SOL",
-              "extra": {
-                "alterazione": "9"
-              }
-            }
-          ],
-          "spazi": [
-            {
-              "sep": " ",
-              "qta": 13
-            },
-            {
-              "sep": " ",
-              "qta": 21
-            }
-          ]
-        },
-        {
-          "type": "riga-accordi",
-          "contenuto": [
-            {
-              "type": "accordo",
-              "base": "SI",
-              "extra": {
-                "alterazione": "-"
-              }
-            },
-            {
-              "type": "accordo",
-              "base": "LA"
-            },
-            {
-              "type": "accordo",
-              "base": "SOL",
-              "extra": {
-                "alterazione": "9"
-              }
-            },
-            {
-              "type": "accordo",
-              "base": "LA"
-            }
-          ],
-          "spazi": [
-            {
-              "sep": " ",
-              "qta": 11
-            },
-            {
-              "sep": " ",
-              "qta": 1
-            },
-            {
-              "sep": " ",
-              "qta": 8
-            },
-            {
-              "sep": " ",
-              "qta": 1
-            }
-          ]
-        }
-      ],
-      "righe_testo": [
-        {
-          "type": "riga-testo",
-          "contenuto": [
-            {
-              "type": "testo",
-              "testo": " Veniamo da Te chiamati per nome"
-            }
-          ]
-        },
-        {
-          "type": "riga-testo",
-          "contenuto": [
-            {
-              "type": "testo",
-              "testo": " che festa Signore, tu cammini con noi."
-            }
-          ]
-        },
-        {
-          "type": "riga-testo",
-          "contenuto": [
-            {
-              "type": "testo",
-              "testo": " Ci parli di Te, per noi spezzi il pane"
-            }
-          ]
-        },
-        {
-          "type": "riga-testo",
-          "contenuto": [
-            {
-              "type": "testo",
-              "testo": " Ti riconosciamo il cuore arde"
-            },
-            {
-              "type": "testo",
-              "testo": ": sei Tu!"
-            }
-          ]
-        },
-        {
-          "type": "riga-testo",
-          "contenuto": [
-            {
-              "type": "testo",
-              "testo": " E noi tuo popolo, siamo qui."
-            }
-          ]
-        }
-      ],
-      "schema": {
-        "type": "struttura-stanza",
-        "schema": [
-          {
-            "componente": "accordi",
-            "posizione": 0
-          },
-          {
-            "componente": "testo",
-            "posizione": 0
-          },
-          {
-            "componente": "accordi",
-            "posizione": 1
-          },
-          {
-            "componente": "testo",
-            "posizione": 1
-          },
-          {
-            "componente": "accordi",
-            "posizione": 2
-          },
-          {
-            "componente": "testo",
-            "posizione": 2
-          },
-          {
-            "componente": "accordi",
-            "posizione": 3
-          },
-          {
-            "componente": "testo",
-            "posizione": 3
-          },
-          {
-            "componente": "accordi",
-            "posizione": 4
-          },
-          {
-            "componente": "testo",
-            "posizione": 4
-          }
-        ]
-      }
-    },
-    {
-      "type": "ritornello",
-      "id": 5,
+      "id": 2,
       "righe_accordi": [
         {
           "type": "riga-accordi",
@@ -1270,24 +1270,22 @@
             "posizione": "0"
           },
           {
+            "componente": "ritornello"
+          },
+          {
+            "componente": "strofa"
+          },
+          {
             "componente": "ritornello",
             "posizione": 1
           },
           {
             "componente": "strofa",
+            "posizione": 1
+          },
+          {
+            "componente": "ritornello",
             "posizione": 2
-          },
-          {
-            "componente": "ritornello",
-            "posizione": 3
-          },
-          {
-            "componente": "strofa",
-            "posizione": 4
-          },
-          {
-            "componente": "ritornello",
-            "posizione": 5
           }
         ]
       }

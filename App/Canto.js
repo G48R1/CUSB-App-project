@@ -19,7 +19,7 @@ class Canto {
   constructor(json = null) {
     this.type = "canto";
     this.data = json ? {
-      id : json.id,
+      // id : json.id,
       titolo : json.titolo,
       info : {
         tonalita : new Tonalita(json.info.tonalita),
@@ -141,21 +141,21 @@ class Canto {
     }
   }
 
-  /**
-   * Assegna l'id del canto
-   * @param {number} id
-   */
-  setId(id) {
-    this.initData();
-    this.data.id = id;
-  }
+  // /**
+  //  * Assegna l'id del canto
+  //  * @param {number} id
+  //  */
+  // setId(id) {
+  //   this.initData();
+  //   this.data.id = id;
+  // }
 
-  /**
-   * @returns {number}
-   */
-  getId() {
-    return this.data?.id || null;
-  }
+  // /**
+  //  * @returns {number}
+  //  */
+  // getId() {
+  //   return this.data?.id || null;
+  // }
 
   /**
    * Imposta il tempo del canto
@@ -431,6 +431,7 @@ class Canto {
   fromBlocks(canto) {
     if (!Array.isArray(canto)) return;
 
+    let ids = { "strofa": 0, "ritornello": 0 };
     for (let i=0; i<canto.length; i++) {
       const type = canto[i].type;
       const blocco = canto[i].contenuto;
@@ -445,7 +446,8 @@ class Canto {
         else {
           console.log(true);
           const stanza = new Stanza();
-          stanza.setId(i);
+          // stanza.setId(i);
+          stanza.setId(ids[type]++);
           stanza.setType(type);
           stanza.fromString(blocco);
           this.addStanza(stanza);
@@ -453,7 +455,8 @@ class Canto {
       }
       else if (blocco.length > 1) {
         const stanza = new Stanza();
-        stanza.setId(i);
+        // stanza.setId(i);
+        stanza.setId(ids[type]++);
         stanza.setType(type);
         stanza.fromString(blocco);
         this.addStanza(stanza);
@@ -869,7 +872,7 @@ class Canto {
 
     const obj = {
       type: this.type,
-      id: this.data.id,
+      // id: this.data.id,
       titolo: this.data.titolo,
       info: {
         tonalita: this.data.info.tonalita?.toJSONObject?.() ?? null

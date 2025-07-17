@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const tonalityToSet = getQueryParam('tonality');
 
   // Carico l’indice
-  fetch(joinPath(INDICE_CANTI_DIR, 'indice_canti.json'))
+  fetch(joinPath(INDICE_CANTI_DIR, 'indice-canti.json'))
     .then(response => response.json())
     .then(data => {
       const cantoData = data.find(c => c.numero === id);
@@ -141,10 +141,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     option.textContent = voice;
     voices.appendChild(option);
   });
-  const option = document.createElement('option');
-  option.value = "all";
-  option.textContent = "tutte";
-  voices.appendChild(option);
+  const optionAll = document.createElement('option');
+  optionAll.value = "all";
+  optionAll.textContent = "tutte";
+  voices.appendChild(optionAll);
+  const optionNone = document.createElement('option');
+  optionNone.value = "none";
+  optionNone.textContent = "nessuna";
+  voices.appendChild(optionNone);
   voices.value = "all";
 
   voices.addEventListener('change', () => {

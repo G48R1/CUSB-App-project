@@ -5,7 +5,7 @@
 
 
 import { joinPath } from "../App/config/utils.js";
-import { CANTO_TEMPLATE_DIR } from "../App/config/config.js";
+import { CANTO_TEMPLATE_DIR, INDICE_CANTI_DOMENICA_DIR } from "../App/config/config.js";
 
 // function resizeIframe(iframe) {
 //   iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
@@ -15,7 +15,7 @@ import { CANTO_TEMPLATE_DIR } from "../App/config/config.js";
 document.addEventListener('DOMContentLoaded', () => {
   const main = document.querySelector('main');
 
-  fetch('./lista-canti-domenica.json')
+  fetch(joinPath(INDICE_CANTI_DOMENICA_DIR, './indice-canti-domenica.json'))
     .then(response => response.json())
     .then(data => {
       // Svuoto il main prima di inserire i canti

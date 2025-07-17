@@ -1,6 +1,5 @@
 {
   "type": "canto",
-  "id": 1,
   "titolo": "OGGI TI CHIAMO",
   "info": {
     "tonalita": {
@@ -849,21 +848,6 @@
           "contenuto": [
             {
               "type": "testo",
-              "testo": "mt "
-            }
-          ],
-          "commento": {
-            "type": "commento",
-            "contenuto": "stoppato",
-            "sep_ext_sx": "(",
-            "sep_ext_dx": ")"
-          }
-        },
-        {
-          "type": "riga-testo",
-          "contenuto": [
-            {
-              "type": "testo",
               "testo": " Oggi ti chiamo alla gioia,"
             }
           ]
@@ -918,16 +902,12 @@
         "type": "struttura-stanza",
         "schema": [
           {
-            "componente": "testo",
-            "posizione": 0
-          },
-          {
             "componente": "accordi",
             "posizione": 0
           },
           {
             "componente": "testo",
-            "posizione": 1
+            "posizione": 0
           },
           {
             "componente": "accordi",
@@ -935,7 +915,7 @@
           },
           {
             "componente": "testo",
-            "posizione": 2
+            "posizione": 1
           },
           {
             "componente": "accordi",
@@ -943,7 +923,7 @@
           },
           {
             "componente": "testo",
-            "posizione": 3
+            "posizione": 2
           },
           {
             "componente": "accordi",
@@ -951,7 +931,7 @@
           },
           {
             "componente": "testo",
-            "posizione": 4
+            "posizione": 3
           },
           {
             "componente": "accordi",
@@ -959,7 +939,7 @@
           },
           {
             "componente": "testo",
-            "posizione": 5
+            "posizione": 4
           },
           {
             "componente": "accordi",
@@ -967,7 +947,7 @@
           },
           {
             "componente": "testo",
-            "posizione": 6
+            "posizione": 5
           }
         ]
       }
@@ -2056,7 +2036,8 @@
           },
           {
             "componente": "strofa",
-            "posizione": 5
+            "posizione": 5,
+            "commento": "(stoppato)"
           },
           {
             "componente": "ritornello",

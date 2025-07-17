@@ -2,18 +2,21 @@
   {
     "numero": 0,
     "name":"ABBRACCIAMI",
+    "type": ["ingresso"],
     "link": {"default":"ABBRACCIAMI/abbracciami.json", "breve":"ABBRACCIAMI/abbracciami_breve.json"},
     "audio": {"full":"ABBRACCIAMI/AUDIO/ABBRACCIAMI.aac"}
   },
   {
     "numero": 1,
     "name":"OGGI TI CHIAMO",
+    "type": ["eucarestia", "finale"],
     "link":{"default":"OGGI TI CHIAMO/oggi-ti-chiamo.json"}
   },
   {
     "numero": 2,
     "name":"CHIAMATI PER NOME",
-    "link": {"default":"CHIAMATI PER NOME/chiamati-per-nome.json"}
+    "type": ["ingresso"],
+    "link": {"default":"CHIAMATI PER NOME/chiamati-per-nome2.json"}
   },
   {
     "numero": 99,

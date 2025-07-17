@@ -146,6 +146,7 @@ class StrutturaCanto {
       strumentale : 0,
       outro : 0
     };
+    // this.indexIn.forEach(s => s = 0);
   }
 
   resetIndexOut() {
