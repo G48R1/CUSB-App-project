@@ -1,6 +1,7 @@
 :root {
   --background: #f0f0f0;
   --button: #674fa3;
+  --select: #7b69a8;
   --button-sh: #705aa6;
   --btn-edit: rgb(220, 210, 236);
   --btn-edit-sh: rgb(209, 201, 220);
@@ -30,9 +31,16 @@ body {
   background-color: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 
-  height: 100vh; /**/
-  overflow: hidden; /**/
+  height: 100vh;
+  overflow: hidden;
 }
+
+::-webkit-scrollbar { width: 15px; height: 15px; }
+/* body *::-webkit-scrollbar { width: 10px; height: 10px; } */
+::-webkit-scrollbar-track { background: var(--btn-desc); }
+::-webkit-scrollbar-thumb { background-color: var(--button); border-radius: 10px; border: 2px solid var(--btn-desc); }
+::-webkit-scrollbar-thumb:hover { background-color: var(--button-sh); }
+
 
 /*generici*/
 a {
@@ -117,28 +125,46 @@ nav {
 }
 #search-bar {
   all: unset;
-  flex: 1 1 120px; /**/
+  flex: 1 1 140px; /**/
   min-width: 0;
   font-weight: normal;
   max-width: 100%;
 }
-.type-filter {
+
+.filter-box {
   display: flex;
-  flex: none;
+  flex-direction: row;
+  gap: 0.2em 1em;
+  flex-wrap: wrap;
+}
+.filter {
+  display: flex;
   flex-direction: row;
   align-items: center;
   gap: 0.5em;
 }
-.type-filter label {
-  font-weight: bold;
-  white-space: nowrap;
+.filter label {
+  font-weight: 600;
+  font-size: 0.9em;
+  color: var(--text, #333);
 }
-/*@media()...*/
+.filter select {
+  padding: 0.2em 0.6em;
+  border-radius: 12px;
+  border: 1px solid var(--button);
+  background-color: var(--background-soft, #fff);
+  font-size: 0.9em;
+  transition: border-color 0.2s;
+}
+.filter select:focus {
+  border-color: var(--accent, var(--select));
+  outline: none;
+}
 
 main {
   flex: 1 1 auto;
   overflow-y: auto;
-  /* width: 100%; */
+  width: 100%;
   box-sizing: border-box;
   padding-top: 1em;
   padding-left: 2.5em;

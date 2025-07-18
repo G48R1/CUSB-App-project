@@ -1,37 +1,58 @@
 import { joinPath } from "../App/config/utils.js";
 import { INDICE_CANTI_DIR } from "../App/config/config.js";
 
-const TIPI_CANTO = ["ingresso", "eucarestia", "finale"]; // aggiorna con tutti i tipi possibili
+const TIPI_CANTO = ["INGRESSO", "KYRIE", "GLORIA", "ALLELUIA", "SANTO", "AGNELLO", "PACE", "EUCARESTIA", "FINALE"];
+const PERIODI = ["ORDINARIO", "AVVENTO", "NATALE", "QUARESIMA", "PASQUA"];
 
-const nav = document.querySelector('nav');
+/**
+ * Crea un filtro con le specifiche date.
+ * @param {string} type
+ * @param {string} label
+ * @param {Array<string>} options
+ * @returns {HTMLElement}
+ * 
+ */
+function createFilter(type, label, options) {
+  const filterWrapper = document.createElement('div');
+  const className = type + '-filter';
+  filterWrapper.className = `${className} filter`;
 
-const typeFilterWrapper = document.createElement('div');
-typeFilterWrapper.className = 'type-filter';
+  const filterLabel = document.createElement('label');
+  filterLabel.setAttribute('for', className);
+  filterLabel.textContent = label + ":";
 
-const typeLabel = document.createElement('label');
-typeLabel.setAttribute('for', 'type-filter');
-typeLabel.textContent = 'Tipo:';
+  const select = document.createElement('select');
+  select.id = className;
 
-const typeSelect = document.createElement('select');
-typeSelect.id = 'type-filter';
+  const allOption = document.createElement('option');
+  allOption.value = '';
+  allOption.textContent = 'TUTTI';
+  select.appendChild(allOption);
 
-const allOption = document.createElement('option');
-allOption.value = '';
-allOption.textContent = 'Tutti';
-typeSelect.appendChild(allOption);
+  options.forEach(elt => {
+    const option = document.createElement('option');
+    option.value = elt;
+    option.textContent = elt;
+    select.appendChild(option);
+  });
 
-TIPI_CANTO.forEach(tipo => {
-  const option = document.createElement('option');
-  option.value = tipo;
-  option.textContent = tipo;
-  typeSelect.appendChild(option);
-});
+  filterWrapper.appendChild(filterLabel);
+  filterWrapper.appendChild(select);
 
-typeFilterWrapper.appendChild(typeLabel);
-typeFilterWrapper.appendChild(typeSelect);
+  return filterWrapper;
+}
 
+const typeFilterWrapper = createFilter("type", "Tipo", TIPI_CANTO);
+const timeFilterWrapper = createFilter("time", "Periodo", PERIODI);
+
+const filterBox = document.createElement("div");
+filterBox.className = "filter-box",
+filterBox.appendChild(typeFilterWrapper);
+filterBox.appendChild(timeFilterWrapper);
 // Inserisco dopo la search bar
-document.querySelector('.search').appendChild(typeFilterWrapper);
+document.querySelector('.search').appendChild(filterBox);
+
+
 
 
 // Attendo che il DOM sia caricato
@@ -89,27 +110,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const searchBar = document.getElementById('search-bar');
   const typeFilter = document.getElementById('type-filter');
+  const timeFilter = document.getElementById('time-filter');
+  // const typeFilter = document.querySelectorAll('filter');
 
   function applyFilters() {
     const searchTerm = searchBar.value.toLowerCase();
-    const selectedType = typeFilter.value;
+    const selectedType = typeFilter.value.toLowerCase();
+    const selectedTime = timeFilter.value.toLowerCase();
 
     document.querySelectorAll('.song').forEach(song => {
       const text = song.textContent.toLowerCase();
-      const songIndex = [...song.parentElement.children].indexOf(song); // stesso ordine dei dati
+      const songIndex = [...song.parentElement.children].indexOf(song); // mantiene l'ordine dei dati
       const songData = data[songIndex]; // da usare come riferimento
 
       const matchesSearch = text.includes(searchTerm);
-      const matchesType =
-        selectedType === '' || (songData.type && songData.type.includes(selectedType));
+      const matchesFilters =
+        (selectedType === '' || (songData.type && songData.type.includes(selectedType))) && (selectedTime === '' || (songData.time && songData.time.includes(selectedTime)));
 
-      song.style.display = matchesSearch && matchesType ? '' : 'none';
+      song.style.display = matchesSearch && matchesFilters ? '' : 'none';
     });
   }
 
   searchBar.addEventListener('input', applyFilters);
   typeFilter.addEventListener('change', applyFilters);
-
-
+  timeFilter.addEventListener('change', applyFilters);
 
 });
