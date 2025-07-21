@@ -60,22 +60,22 @@
         </div>
         <div class="double-columns">
           <label class="switch">
-            <input type="checkbox" id="double-columns-checkbox">
-            <span class="slider" onclick="doubleColumns()"></span>
+            <input type="checkbox" id="double-columns-checkbox" onchange="doubleColumns(this.checked)">
+            <span class="slider"></span>
           </label>
           <span>2 colonne</span>
         </div>
         <div class="enable-collapse">
           <label class="switch">
-            <input type="checkbox" id="enable-collapse-checkbox">
-            <span class="slider" onclick="enableToggleStrofaBreve()"></span>
+            <input type="checkbox" id="enable-collapse-checkbox" onchange="enableToggleStrofaBreve(this.checked)">
+            <span class="slider"></span>
           </label>
           <span>abilita strofa-collapse</span>
         </div>
         <div class="enable-colors">
           <label class="switch">
-            <input type="checkbox" id="enable-colors-checkbox">
-            <span class="slider" onclick="enableColors()"></span>
+            <input type="checkbox" id="enable-colors-checkbox" onchange="enableColors(this.checked)">
+            <span class="slider"></span>
           </label>
           <span>🪅</span> <!-- 🌈 -->
         </div>
@@ -198,18 +198,22 @@
       });
     }
 
-    function doubleColumns() {
+    function doubleColumns(isActive) {
       const canto = document.querySelector(".canto");
-      canto.classList.toggle("cols2");
+      if (isActive) canto.classList.add("cols2");
+      else canto.classList.remove("cols2");
     }
 
-    function enableToggleStrofaBreve() {
-      enableTSB = !enableTSB;
+    function enableToggleStrofaBreve(isActive) {
+      enableTSB = isActive;
     }
 
-    function enableColors() {
-      document.querySelectorAll(".stanza").forEach(s => s.classList.toggle("active-color"));
-    }
+    function enableColors(isActive) {
+      document.querySelectorAll(".stanza").forEach(s => {
+        if (isActive) s.classList.add("active-color");
+        else s.classList.remove("active-color");
+      }
+    )}
 /*    function abilitaToggleStrofaBreve() {
       document.querySelectorAll('.stanza-box').forEach(box => {
         box.onclick = () => {

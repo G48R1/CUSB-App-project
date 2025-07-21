@@ -107,11 +107,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // });
 
 
-
+  // Filtri di ricerca
   const searchBar = document.getElementById('search-bar');
   const typeFilter = document.getElementById('type-filter');
   const timeFilter = document.getElementById('time-filter');
-  // const typeFilter = document.querySelectorAll('filter');
 
   function applyFilters() {
     const searchTerm = searchBar.value.toLowerCase();
@@ -121,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.song').forEach(song => {
       const text = song.textContent.toLowerCase();
       const songIndex = [...song.parentElement.children].indexOf(song); // mantiene l'ordine dei dati
-      const songData = data[songIndex]; // da usare come riferimento
+      const songData = data[songIndex];
 
       const matchesSearch = text.includes(searchTerm);
       const matchesFilters =

@@ -367,8 +367,9 @@ main {
 .active-color .voci .gruppo-3 { color: var(--gruppo-3); }
 
 .riga-accordi {
-  /* display: flex;
-  flex-direction: row; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .riga-voce {
   margin-left: 3em;

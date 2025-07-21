@@ -2363,6 +2363,5 @@
       }
     }
   },
-  "required": ["type", "titolo", "info"],
-  "additionalProperties": false
+  "required": ["type", "titolo", "info"]
 }

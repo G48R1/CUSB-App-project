@@ -168,7 +168,7 @@ main {
   box-sizing: border-box;
   padding-top: 1em;
   padding-left: 2.5em;
-  padding-bottom: 1.5em;
+  padding-bottom: 3em;
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -203,5 +203,5 @@ main {
 }
 
 footer {
-  margin-top: 3em;
+  /* margin-top: 3em; */
 }

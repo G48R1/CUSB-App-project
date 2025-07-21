@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     voices.appendChild(option);
   });
   const optionAll = document.createElement('option');
-  optionAll.value = "all";
+  optionAll.value = "all";  // o anche ""
   optionAll.textContent = "tutte";
   voices.appendChild(optionAll);
   const optionNone = document.createElement('option');
