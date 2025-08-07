@@ -570,7 +570,7 @@ class Canto {
 
     this.components = new Map();
 
-    this.setActiveColorForEachStanza();
+    // this.setActiveColorForEachStanza();
     this.setSubtypeForEachStrumentale();
 
     let stanze = new Map();
@@ -836,6 +836,109 @@ class Canto {
       }
     }
     return str.length > 0 ? str.join('\n\n') : "";
+  }
+
+  toEditor() {
+    this.buildSingleComponents();
+    let obj = {
+      titolo : this.data.titolo,
+      commento : this.commento.toString(),
+      info : {
+        tonalita : this.data.info.tonalita.toString(),
+        metro : this.data.info.metro,
+        tempo : this.data.info.tempo ? {
+          velocita : this.data.info.tempo.velocita,
+          bpm : this.data.info.tempo.bpm
+        } : null
+      }
+    };
+
+    const struttura = this.getStruttura(this.strutturaSelected).getSchema();
+    let blocchi = [];
+    for (const { componente, posizione, schema, commento, isBreve } of struttura) {
+      switch (componente) {
+        case "intro": {
+          const blocco = this.components.get("intro")?.get(posizione);
+          if (blocco) {
+            if (commento) blocco.addCommento(commento); else blocco.removeCommento();
+            blocchi.push(blocco.toEditor());
+          }
+          break;
+        }
+
+        case "strofa": {
+          const blocco = this.components.get("strofe")?.get(posizione);
+          if (blocco) {
+            if (commento) blocco.addCommento(commento); else blocco.removeCommento();
+            if (isBreve) blocco.setIsBreve(isBreve); else blocco.setIsBreve();
+            let elt = blocco;
+            if (schema) { elt = blocco.clone(); elt.setSchema(schema); elt.activeColor(this.color); elt = elt.update(); }
+          if (blocco) { blocchi.push(elt.toEditor()); }
+          }
+          break;
+        }
+
+        case "ritornello": {
+          const blocco = this.components.get("ritornelli")?.get(posizione);
+          if (blocco) {
+            if (commento) blocco.addCommento(commento); else blocco.removeCommento();
+            if (isBreve) blocco.setIsBreve(isBreve); else blocco.setIsBreve();
+            let elt = blocco;
+            if (schema) { elt = blocco.clone(); elt.setSchema(schema); elt.activeColor(this.color); elt = elt.update(); }
+          if (blocco) { blocchi.push(elt.toEditor()); }
+          }
+          break;
+        }
+
+        case "pre-chorus": {
+          const blocco = this.components.get("pre-chorus")?.get(posizione);
+          if (blocco) {
+            if (commento) blocco.addCommento(commento); else blocco.removeCommento();
+            if (isBreve) blocco.setIsBreve(isBreve); else blocco.setIsBreve();
+            let elt = blocco;
+            if (schema) { elt = blocco.clone(); elt.setSchema(schema); elt.activeColor(this.color); elt = elt.update(); }
+          if (blocco) { blocchi.push(elt.toEditor()); }
+          }
+          break;
+        }
+
+        case "bridge": {
+          const blocco = this.components.get("bridge")?.get(posizione);
+          if (blocco) {
+            if (commento) blocco.addCommento(commento); else blocco.removeCommento();
+            if (isBreve) blocco.setIsBreve(isBreve); else blocco.setIsBreve();
+            let elt = blocco;
+            if (schema) { elt = blocco.clone(); elt.setSchema(schema); elt.activeColor(this.color); elt = elt.update(); }
+          if (blocco) { blocchi.push(elt.toEditor()); }
+          }
+          break;
+        }
+
+        case "strumentale": {
+          const blocco = this.components.get("strumentali")?.[posizione];
+          if (blocco) {
+            if (commento) blocco.addCommento(commento); else blocco.removeCommento();
+            blocchi.push(blocco.toEditor());
+          }
+          break;
+        }
+
+        case "outro": {
+          const blocco = this.components.get("outro")?.get(posizione);
+          if (blocco) {
+            if (commento) blocco.addCommento(commento); else blocco.removeCommento();
+            blocchi.push(blocco.toEditor());
+          }
+          break;
+        }
+
+        default:
+          console.warn(`Componente non gestito: ${componente}`);
+      }
+    }
+    obj["contenuto"] = blocchi;
+
+    return obj;
   }
 
   /**

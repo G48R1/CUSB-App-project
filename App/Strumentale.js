@@ -188,6 +188,19 @@ class Strumentale {
   }
 
   /**
+   * Restituisce in un oggetto la versione stringa della riga strumentale
+   * @returns {object}
+   */
+  toEditor() {
+    let obj = {
+      subtype : this.subtype,
+      commento : this.commento.toString(),
+      contenuto : this.data.label + ": " + this.data.contenuto.toString() + " " + this.data.moltiplicatore?.toString()
+    };
+    return obj;
+  }
+
+  /**
    * Genera l'HTML del container
    * @param {string} tagName
    */

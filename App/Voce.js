@@ -69,13 +69,22 @@ class Voce {
     if (!this.data) this.data = {};
     this.data.registro = registro;
   }
+  getRegistro() {
+    return this.data.registro;
+  }
   setVoce(voce = null) {
     if (!this.data) this.data = {};
     this.data.voce = voce;
   }
+  getVoce() {
+    return this.data.voce;
+  }
   setAssegnata(assegnata = null) {
     if (!this.data) this.data = {};
     this.data.assegnata = assegnata;
+  }
+  getAssegnata() {
+    return this.data.assegnata;
   }
   setPentagramma(pentagramma = null) {
     if (!this.data) this.data = {};
@@ -129,6 +138,10 @@ class Voce {
       this.addRigaVoceAsString(key, value);
     }
     return this;
+  }
+
+  fromString(voce) {
+    // ...
   }
 
   /**
@@ -249,11 +262,24 @@ class Voce {
   }
 
   /**
-   * Ritorna la rappresentazione testuale della riga
+   * Ritorna la rappresentazione testuale della voce (con tanto di righe vuote)
    * @returns {string}
    */
   toString() {
-    return this.data.righe_testo.map(elt => elt.testo.toString()).join("\n");
+    let str = "";
+    let i = 0, j = 0;
+    while (i < this.data.righe_testo.length) {
+      if (this.data.righe_testo[i].ref_riga == j) {
+        if (i!=0) str += "\n";
+        str += this.righe_testo[i].testo;
+        i++; j++;
+      }
+      else {
+        str += "\n";
+        j++;
+      }
+    }
+    return 
   }
 
   /**

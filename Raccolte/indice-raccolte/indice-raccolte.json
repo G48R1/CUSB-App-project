@@ -1,7 +1,7 @@
 [
   {
-    "titolo": "evento 1",
-    "data": "01/01/2025",
+    "titolo": "raccolta 1",
+    "data": "01/01/2026",
     "canti":
     [
       {
@@ -18,9 +18,9 @@
     ]
   },
   {
-    "titolo": "evento 2",
+    "titolo": "raccolta 2",
     "commento": "provvisorio",
-    "data": "01/05/2025",
+    "data": "01/01/2026",
     "canti":
     [
       {

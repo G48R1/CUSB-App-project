@@ -106,6 +106,28 @@ class Stanza {
   }
 
   /**
+   * Restituisce in un oggetto la versione stringa della stanza
+   * @returns {object}
+   */
+  toEditor() {
+    let obj = {
+      // type : this.getType(),
+      commento : this.commento,
+      breve : this.data.breve.toString(),
+      isBreve : this.isBreve,
+      moltiplicatore : this.data.moltiplicatore,
+      contenuto : this.toString(false),
+      voci : this.data.seconde_voci.forEach(v => ({
+        registro : v.getRegistro(),
+        voce : v.getVoce(),
+        assegnata : v.getAssegnata(),
+        testo : v.toString()
+      }))
+    }
+    return obj;
+  }
+
+  /**
    * Aggiunge una riga accordi e aggiorna lo schema
    * @param {RigaAccordi} rigaAccordi 
    */
@@ -463,6 +485,10 @@ class Stanza {
   setType(type) {
     this.initData();
     this.data.type = type;
+  }
+
+  getType() {
+    return this.data.type;
   }
 
   /**
