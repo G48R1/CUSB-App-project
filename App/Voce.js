@@ -140,8 +140,52 @@ class Voce {
     return this;
   }
 
-  fromString(voce) {
-    // ...
+  /**
+   * 
+   * @param {string} voceStr 
+   * @param {string} registro 
+   * @param {string} voce 
+   * @param {string} assegnata 
+   * @returns 
+   */
+  fromString(voceStr, registro = null, voce = null, assegnata = null) {
+    this.initData();
+    if (registro) this.setRegistro(registro);
+    if (voce) this.setVoce(voce);
+    if (assegnata) this.setAssegnata(assegnata);
+
+    const righe = voceStr.split('\n');
+    const righe_testo = [];
+    let ref = 0;
+
+    for (const riga of righe) {
+      if (riga.trim() !== '') {
+        const rigaVoce = new RigaVoce().fromString(riga, this.data.registro, this.data.voce, this.data.assegnata);
+        righe_testo.push({ ref_riga: ref, testo: rigaVoce });
+      }
+      ref++;
+    }
+
+    this.data.righe_testo = righe_testo;
+    this.buildSingleComponentsHTML();
+    return this;
+  }
+
+  fromEditor(voceObj) {
+    if (voceObj.testo) this.fromString(voceObj.testo);
+    if (voceObj.registro) this.setRegistro(voceObj.registro);
+    if (voceObj.voce) this.setVoce(voceObj.voce);
+    if (voceObj.assegnata) this.setAssegnata(voceObj.assegnata);
+  }
+
+  toEditor() {
+    const obj = {
+      registro : this.getRegistro(),
+      voce : this.getVoce(),
+      assegnata : this.getAssegnata(),
+      testo : this.toString()
+    }
+    return obj;
   }
 
   /**

@@ -941,6 +941,53 @@ class Canto {
     return obj;
   }
 
+  fromEditor(cantoObj) {
+    if (cantoObj.titolo) this.setTitolo(cantoObj.titolo);
+    if (cantoObj.commento) this.addCommento(cantoObj.commento);
+    if (cantoObj.info) {
+      const tonalita = new Tonalita();
+      tonalita.fromString(cantoObj.info.tonalita);
+      this.setInfo(tonalita, cantoObj.info.metro, cantoObj.info.tempo);
+    }
+    if (cantoObj.contenuto) this.fromBlocksEditor(cantoObj.contenuto);
+
+    return this;
+  }
+
+  /**
+   * Ricostruisce il contenuto del Canto a partire da un array di blocchi in formato "editor".
+   * @param {Array<object>} blocchiEditor
+   * @returns {Canto}
+   */
+  fromBlocksEditor(blocchiEditor) {
+    if (!Array.isArray(blocchiEditor)) return;
+
+    const strumentaleTypes = ["intro", "outro", "strumentale"];
+    const stanzaTypes = ["strofa", "ritornello", "pre-chorus", "bridge"];
+
+    for (const blocco of blocchiEditor) {
+      if (!blocco || !blocco.type || !blocco.contenuto) continue;
+
+      if (strumentaleTypes.includes(blocco.type)) {
+        const strum = new Strumentale();
+        strum.fromEditor(blocco);
+        if (blocco.type === "intro") {
+          this.addIntroOutro(strum, null, "intro");
+        } else if (blocco.type === "outro") {
+          this.addIntroOutro(strum, null, "outro");
+        } else {
+          this.addStrumentale(strum);
+        }
+      } else {
+        const stanza = new Stanza();
+        stanza.fromEditor(blocco);
+        this.addStanza(stanza);
+      }
+    }
+
+    return this;
+  }
+
   /**
    * Costruisce e restituisce il blocco HTML del canto
    * @param {string} tagName

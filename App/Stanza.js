@@ -106,23 +106,37 @@ class Stanza {
   }
 
   /**
+   * 
+   * @param {object} stanzaObj 
+   */
+  fromEditor(stanzaObj) {
+    if (stanzaObj.type) this.setType(stanzaObj.type);
+    // if (stanzaObj.id) this.setId(stanzaObj.id);
+    if (stanzaObj.contenuto) this.fromString(stanzaObj.contenuto.split("\n"));
+    if (stanzaObj.commento) this.addCommento(stanzaObj.commento);
+    if (stanzaObj.moltiplicatore) this.addMoltiplicatore(stanzaObj.moltiplicatore);
+    if (stanzaObj.isBreve) this.setIsBreve(stanzaObj.isBreve);
+    if (stanzaObj.breve) this.setBreve(stanzaObj.breve);
+    if (stanzaObj.voci) stanzaObj.voci.forEach(v => {
+      const voce = new Voce();
+      voce.fromEditor(v);
+      this.addVoce(voce)
+    })
+  }
+
+  /**
    * Restituisce in un oggetto la versione stringa della stanza
    * @returns {object}
    */
   toEditor() {
     let obj = {
-      // type : this.getType(),
+      type : this.getType(),
       commento : this.commento,
       breve : this.data.breve.toString(),
       isBreve : this.isBreve,
       moltiplicatore : this.data.moltiplicatore,
       contenuto : this.toString(false),
-      voci : this.data.seconde_voci.forEach(v => ({
-        registro : v.getRegistro(),
-        voce : v.getVoce(),
-        assegnata : v.getAssegnata(),
-        testo : v.toString()
-      }))
+      voci : this.data.seconde_voci.map(v => v.toEditor())
     }
     return obj;
   }

@@ -23,7 +23,7 @@
             "velocita": {
               "type": "string",
               "oneOf": [
-                {"enum": ["veloce", "medio", "lento"]},
+                {"enum": ["veloce", "moderato", "lento"]},
                 {"enum": ["lentissimo", "adagio", "andante", "allegro", "presto", "prestissimo"]}
               ]
             },

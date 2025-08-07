@@ -187,6 +187,12 @@ class Strumentale {
     return str.join('\n');
   }
 
+  fromEditor(strumentaleObj) {
+    if (strumentaleObj.subtype) this.setSubType(strumentaleObj.subtype);
+    if (strumentaleObj.commento) this.addCommento(strumentaleObj.commento);
+    if (strumentaleObj.contenuto) this.fromString(strumentaleObj.contenuto);
+  }
+
   /**
    * Restituisce in un oggetto la versione stringa della riga strumentale
    * @returns {object}
