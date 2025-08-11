@@ -1,16 +1,43 @@
 [
   {
+    "numero": 0,
+    "name":"ABBRACCIAMI",
+    "type": ["ingresso"],
+    "time": ["ordinario"],
+    "link": {"default":"ABBRACCIAMI/abbracciami.json", "breve":"ABBRACCIAMI/abbracciami_breve.json"},
+    "audio": {"full":"ABBRACCIAMI/AUDIO/ABBRACCIAMI.aac"}
+  },
+  {
+    "numero": 1,
+    "name":"OGGI TI CHIAMO",
+    "type": ["eucarestia", "finale"],
+    "time": ["ordinario"],
+    "link":{"default":"OGGI TI CHIAMO/oggi-ti-chiamo.json"}
+  },
+  {
+    "numero": 2,
+    "name":"CHIAMATI PER NOME",
+    "type": ["ingresso"],
+    "time": ["ordinario"],
+    "link": {"default":"CHIAMATI PER NOME/chiamati-per-nome2.json"}
+  },
+  {
+    "numero": 99,
+    "name":"ZZZ canto",
+    "link": {"default":"canto/canto.json"}
+  },
+  {
     "name": "T",
     "link": {
       "default": "T/t.json"
     },
-    "numero": 0
+    "numero": 3
   },
   {
     "name": "TI",
     "link": {
       "default": "TI/ti.json"
     },
-    "numero": 1
+    "numero": 4
   }
 ]
