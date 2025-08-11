@@ -5,5 +5,12 @@
       "default": "T/t.json"
     },
     "numero": 0
+  },
+  {
+    "name": "TI",
+    "link": {
+      "default": "TI/ti.json"
+    },
+    "numero": 1
   }
 ]
