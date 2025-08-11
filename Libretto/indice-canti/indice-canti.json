@@ -1,43 +1,81 @@
 [
   {
-    "numero": 0,
-    "name":"ABBRACCIAMI",
-    "type": ["ingresso"],
-    "time": ["ordinario"],
-    "link": {"default":"ABBRACCIAMI/abbracciami.json", "breve":"ABBRACCIAMI/abbracciami_breve.json"},
-    "audio": {"full":"ABBRACCIAMI/AUDIO/ABBRACCIAMI.aac"}
+    "name": "A",
+    "link": {
+      "n": "A/a.json"
+    },
+    "type": [
+      "INGRESSO",
+      "PACE"
+    ],
+    "time": [
+      "ORDINARIO"
+    ],
+    "numero": 0
   },
   {
     "numero": 1,
-    "name":"OGGI TI CHIAMO",
-    "type": ["eucarestia", "finale"],
-    "time": ["ordinario"],
-    "link":{"default":"OGGI TI CHIAMO/oggi-ti-chiamo.json"}
+    "name": "ABBRACCIAMI",
+    "type": [
+      "ingresso"
+    ],
+    "time": [
+      "ordinario"
+    ],
+    "link": {
+      "default": "ABBRACCIAMI/abbracciami.json",
+      "breve": "ABBRACCIAMI/abbracciami_breve.json"
+    },
+    "audio": {
+      "full": "ABBRACCIAMI/AUDIO/ABBRACCIAMI.aac"
+    }
   },
   {
     "numero": 2,
-    "name":"CHIAMATI PER NOME",
-    "type": ["ingresso"],
-    "time": ["ordinario"],
-    "link": {"default":"CHIAMATI PER NOME/chiamati-per-nome2.json"}
+    "name": "CHIAMATI PER NOME",
+    "type": [
+      "ingresso"
+    ],
+    "time": [
+      "ordinario"
+    ],
+    "link": {
+      "default": "CHIAMATI PER NOME/chiamati-per-nome2.json"
+    }
   },
   {
-    "numero": 99,
-    "name":"ZZZ canto",
-    "link": {"default":"canto/canto.json"}
+    "numero": 3,
+    "name": "OGGI TI CHIAMO",
+    "type": [
+      "eucarestia",
+      "finale"
+    ],
+    "time": [
+      "ordinario"
+    ],
+    "link": {
+      "default": "OGGI TI CHIAMO/oggi-ti-chiamo.json"
+    }
   },
   {
     "name": "T",
     "link": {
       "default": "T/t.json"
     },
-    "numero": 3
+    "numero": 4
   },
   {
     "name": "TI",
     "link": {
       "default": "TI/ti.json"
     },
-    "numero": 4
+    "numero": 5
+  },
+  {
+    "numero": 6,
+    "name": "ZZZ canto",
+    "link": {
+      "default": "canto/canto.json"
+    }
   }
 ]
