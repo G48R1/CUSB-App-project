@@ -2,7 +2,8 @@
   {
     "name": "A",
     "link": {
-      "n": "A/a.json"
+      "n": "A/a.json",
+      "nuova versione": "A/nuova versione.json"
     },
     "type": [
       "INGRESSO",
