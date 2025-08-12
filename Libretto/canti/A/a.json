@@ -12,6 +12,23 @@
     {
       "type": "strofa",
       "id": 0,
+      "righe_accordi": [
+        {
+          "type": "riga-accordi",
+          "contenuto": [
+            {
+              "type": "accordo",
+              "base": "DO"
+            }
+          ],
+          "spazi": [
+            {
+              "sep": "",
+              "qta": 0
+            }
+          ]
+        }
+      ],
       "righe_testo": [
         {
           "type": "riga-testo",
@@ -26,6 +43,10 @@
       "schema": {
         "type": "struttura-stanza",
         "schema": [
+          {
+            "componente": "accordi",
+            "posizione": 0
+          },
           {
             "componente": "testo",
             "posizione": 0
