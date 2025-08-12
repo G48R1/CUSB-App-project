@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const matchesSearch = text.includes(searchTerm);
       const matchesFilters =
-        (selectedType === '' || (songData.type && songData.type.includes(selectedType))) && (selectedTime === '' || (songData.time && songData.time.includes(selectedTime)));
+        (selectedType === '' || (songData.type && songData.type.some(t => t.toLowerCase().includes(selectedType))) && (selectedTime === '' || (songData.time && songData.time.some(t => t.toLowerCase().includes(selectedTime)));
 
       song.style.display = matchesSearch && matchesFilters ? '' : 'none';
     });
