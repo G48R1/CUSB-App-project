@@ -25,7 +25,8 @@
     ],
     "link": {
       "default": "ABBRACCIAMI/abbracciami.json",
-      "breve": "ABBRACCIAMI/abbracciami_breve.json"
+      "breve": "ABBRACCIAMI/abbracciami_breve.json",
+      "prova": "ABBRACCIAMI/ABBRACCIAMI_prova.json"
     },
     "audio": {
       "full": "ABBRACCIAMI/AUDIO/ABBRACCIAMI.aac"
