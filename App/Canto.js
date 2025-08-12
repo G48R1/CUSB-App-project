@@ -444,9 +444,8 @@ class Canto {
           else this.addStrumentale(strumentale);
         }
         else {
-          console.log(true);
+          // console.log(true);
           const stanza = new Stanza();
-          // stanza.setId(i);
           stanza.setId(ids[type]++);
           stanza.setType(type);
           stanza.fromString(blocco);
@@ -455,13 +454,14 @@ class Canto {
       }
       else if (blocco.length > 1) {
         const stanza = new Stanza();
-        // stanza.setId(i);
         stanza.setId(ids[type]++);
         stanza.setType(type);
         stanza.fromString(blocco);
         this.addStanza(stanza);
       }
     }
+
+    this.buildSingleComponents();
     return this;
   }
 
@@ -482,8 +482,10 @@ class Canto {
       riga = riga.trim();
       if (!riga) continue;
 
-      if (riga.startsWith('\\c') || riga.startsWith('\\l')) {
-        bloccoCorrente.contenuto.push(riga.replace('\\c','').replace('\\l',''));
+      if (riga.startsWith('\\start') || riga.startsWith('\\cmt')) continue;
+
+      else if (riga.startsWith('\\c') || riga.startsWith('\\l')) {
+        bloccoCorrente.contenuto.push(riga.replace('\\c ','').replace('\\l ','')); // oppure .trim()
       }
 
       else if (riga.startsWith('$$')) {
@@ -524,8 +526,6 @@ class Canto {
         continue;
       }
 
-      else if (riga.startsWith('\\start') || riga.startsWith('\\cmt')) continue;
-
       else if (riga.startsWith('\\end')) {
         if (bloccoCorrente.contenuto.length > 0) {
           if (bloccoCorrente.contenuto.length === 1 && Strumentale.isValid(bloccoCorrente.contenuto[0])) bloccoCorrente.type = "strumentale";
@@ -536,7 +536,7 @@ class Canto {
       }
 
       else if (riga.startsWith('\\intro')) {
-        const strumentale = { type: "intro", contenuto: [riga.replace('\\intro', '')]};
+        const strumentale = { type: "intro", contenuto: [riga.replace('\\intro ', '')]}; // oppure .trim()
         blocchi.push(strumentale);
         continue;
       }
@@ -549,7 +549,7 @@ class Canto {
           bloccoCorrente = {type: null, contenuto: []};
         }
 
-        const strumentale = { type: "outro", contenuto: [riga.replace('\\outro', '')]};
+        const strumentale = { type: "outro", contenuto: [riga.replace('\\outro ', '')]}; // oppure .trim()
         blocchi.push(strumentale);
         continue;
       }
@@ -842,13 +842,13 @@ class Canto {
     this.buildSingleComponents();
     let obj = {
       titolo : this.data.titolo,
-      commento : this.commento.toString(),
+      commento : this.commento?.toString() || null,
       info : {
         tonalita : this.data.info.tonalita.toString(),
-        metro : this.data.info.metro,
+        metro : this.data.info?.metro || null,
         tempo : this.data.info.tempo ? {
-          velocita : this.data.info.tempo.velocita,
-          bpm : this.data.info.tempo.bpm
+          velocita : this.data.info.tempo?.velocita || null,
+          bpm : this.data.info.tempo?.bpm || null
         } : null
       }
     };
@@ -945,9 +945,10 @@ class Canto {
     if (cantoObj.titolo) this.setTitolo(cantoObj.titolo);
     if (cantoObj.commento) this.addCommento(cantoObj.commento);
     if (cantoObj.info) {
-      const tonalita = new Tonalita();
-      tonalita.fromString(cantoObj.info.tonalita);
-      this.setInfo(tonalita, cantoObj.info.metro, cantoObj.info.tempo);
+      const tonalita = new Tonalita().fromString(cantoObj.info.tonalita);
+      const metro = cantoObj.info.metro || null;
+      const tempo = cantoObj.info.tempo || null;
+      this.setInfo(tonalita, metro, tempo);
     }
     if (cantoObj.contenuto) this.fromBlocksEditor(cantoObj.contenuto);
 
@@ -962,8 +963,9 @@ class Canto {
   fromBlocksEditor(blocchiEditor) {
     if (!Array.isArray(blocchiEditor)) return;
 
+    let ids = { "strofa": 0, "ritornello": 0, "pre-chorus": 0, "bridge": 0 };
     const strumentaleTypes = ["intro", "outro", "strumentale"];
-    const stanzaTypes = ["strofa", "ritornello", "pre-chorus", "bridge"];
+    // const stanzaTypes = ["strofa", "ritornello", "pre-chorus", "bridge"];
 
     for (const blocco of blocchiEditor) {
       if (!blocco || !blocco.type || !blocco.contenuto) continue;
@@ -971,6 +973,7 @@ class Canto {
       if (strumentaleTypes.includes(blocco.type)) {
         const strum = new Strumentale();
         strum.fromEditor(blocco);
+
         if (blocco.type === "intro") {
           this.addIntroOutro(strum, null, "intro");
         } else if (blocco.type === "outro") {
@@ -980,11 +983,14 @@ class Canto {
         }
       } else {
         const stanza = new Stanza();
+        stanza.setId(ids[blocco.type]++);
+        // stanza.setType(blocco.type);
         stanza.fromEditor(blocco);
-        this.addStanza(stanza);
+        this.addStanza(stanza, stanza.isBreve);
       }
     }
 
+    this.buildSingleComponents();
     return this;
   }
 
@@ -1029,12 +1035,13 @@ class Canto {
       }
     };
 
+    // if (this.commento) obj.commento = this.commento;
     if (this.data.info.metro) obj.info.metro = this.data.info.metro;
     if (this.data.info.tempo) {
-      obj.tempo = {
+      obj.info.tempo = {
         velocita: this.data.info.tempo.velocita
       }
-      if (this.data.info.tempo.bpm) obj.tempo.bpm = this.data.info.tempo.bpm;
+      if (this.data.info.tempo.bpm) obj.info.tempo.bpm = this.data.info.tempo.bpm;
     }
 
     if (Array.isArray(this.data.intro) && this.data.intro.length > 0) {

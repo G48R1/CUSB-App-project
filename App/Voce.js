@@ -176,6 +176,9 @@ class Voce {
     if (voceObj.registro) this.setRegistro(voceObj.registro);
     if (voceObj.voce) this.setVoce(voceObj.voce);
     if (voceObj.assegnata) this.setAssegnata(voceObj.assegnata);
+
+    this.update();
+    return this;
   }
 
   toEditor() {
@@ -306,7 +309,7 @@ class Voce {
   }
 
   /**
-   * Ritorna la rappresentazione testuale della voce (con tanto di righe vuote)
+   * Restituisce la rappresentazione testuale della voce (con tanto di righe vuote)
    * @returns {string}
    */
   toString() {
@@ -315,7 +318,7 @@ class Voce {
     while (i < this.data.righe_testo.length) {
       if (this.data.righe_testo[i].ref_riga == j) {
         if (i!=0) str += "\n";
-        str += this.righe_testo[i].testo;
+        str += this.data.righe_testo[i].testo;
         i++; j++;
       }
       else {
@@ -323,7 +326,7 @@ class Voce {
         j++;
       }
     }
-    return 
+    return str;
   }
 
   /**

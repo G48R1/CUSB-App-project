@@ -183,7 +183,7 @@ class Strumentale {
   toString() {
     let str = [];
     if (this.commento) str.push(this.commento.toString());
-    str.push(this.data.label + ": " + this.data.contenuto.toString() + " " + this.data.moltiplicatore?.toString());
+    str.push((this.data.label || this.subtype) + ":" + this.data.contenuto.toString() + (this.data.moltiplicatore ? + this.data.moltiplicatore?.toString() || "" : ""));
     return str.join('\n');
   }
 
@@ -191,6 +191,8 @@ class Strumentale {
     if (strumentaleObj.subtype) this.setSubType(strumentaleObj.subtype);
     if (strumentaleObj.commento) this.addCommento(strumentaleObj.commento);
     if (strumentaleObj.contenuto) this.fromString(strumentaleObj.contenuto);
+
+    this.buildSingleComponentsHTML();
   }
 
   /**
@@ -199,9 +201,9 @@ class Strumentale {
    */
   toEditor() {
     let obj = {
-      subtype : this.subtype,
-      commento : this.commento.toString(),
-      contenuto : this.data.label + ": " + this.data.contenuto.toString() + " " + this.data.moltiplicatore?.toString()
+      type : this.subtype,
+      commento : this.commento?.toString() || null,
+      contenuto : (this.data.label || this.subtype) + ":" + this.data.contenuto.toString() + (this.data.moltiplicatore ? this.data.moltiplicatore?.toString() || "" : "")
     };
     return obj;
   }
@@ -274,7 +276,7 @@ class Strumentale {
       type: this.type
     };
 
-    if (this.data.label) obj.label = this.data.label;
+    if (this.data.label) obj.label = this.data.label || this.subtype;
     if (this.data.contenuto) obj.contenuto = this.data.contenuto?.toJSONObject?.() ?? null;
     if (this.data.moltiplicatore) obj.moltiplicatore = this.data.moltiplicatore.toJSONObject?.() ?? null;
 

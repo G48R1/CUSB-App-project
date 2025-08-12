@@ -75,6 +75,7 @@ class StrutturaCanto {
    * @param {string|Commento} commento
    */
   addComponenteByRef(componente, posizione, isBreve = false, schema = null, commento = null) {
+    
     if (!this.data) { this.data = {}; this.data.schema = []; }
     this.data.schema.push({
       componente : componente,

@@ -102,7 +102,7 @@ class Stanza {
    * @returns {number}
    */
   getId() {
-    return this.data?.id || null;
+    return this.data?.id ?? null;
   }
 
   /**
@@ -117,11 +117,14 @@ class Stanza {
     if (stanzaObj.moltiplicatore) this.addMoltiplicatore(stanzaObj.moltiplicatore);
     if (stanzaObj.isBreve) this.setIsBreve(stanzaObj.isBreve);
     if (stanzaObj.breve) this.setBreve(stanzaObj.breve);
+    if (stanzaObj.assegnata) this.setAssegnata(stanzaObj.assegnata);
+
     if (stanzaObj.voci) stanzaObj.voci.forEach(v => {
-      const voce = new Voce();
-      voce.fromEditor(v);
-      this.addVoce(voce)
+      const voce = new Voce().fromEditor(v);
+      this.addVoce(voce);
     })
+
+    this.update();
   }
 
   /**
@@ -131,8 +134,8 @@ class Stanza {
   toEditor() {
     let obj = {
       type : this.getType(),
-      commento : this.commento,
-      breve : this.data.breve.toString(),
+      commento : this.commento?.toString() || null,
+      breve : this.data.breve?.toString() || null,
       isBreve : this.isBreve,
       moltiplicatore : this.data.moltiplicatore,
       contenuto : this.toString(false),
@@ -428,12 +431,11 @@ class Stanza {
    */
   toString(voci = false) {
     let str = [];
-    if (this.commento) str.push(this.commento.toString());
+    // if (this.commento) str.push(this.commento.toString());
     let righeTesto = [];
     this.data.righe_testo.forEach(r => righeTesto.push(r.clone()));
     if (this.data.seconde_voci) {
       for (const voce of this.data.seconde_voci) {
-        console.log(voce.index);
         let riga = voce.nextCouple();
         while (riga) {
           righeTesto[riga.ref_riga].addVoce(riga.testo);
