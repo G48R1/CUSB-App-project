@@ -1,13 +1,13 @@
 [
   {
+    "link": "OGGI TI CHIAMO/oggi-ti-chiamo.json",
+    "name": "OGGI TI CHIAMO",
+    "numero": 1
+  },
+  {
     "link": "ABBRACCIAMI/abbracciami_breve.json",
     "name": "ABBRACCIAMI",
     "numero": 0,
     "tonality": "SOL M"
-  },
-  {
-    "link": "OGGI TI CHIAMO/oggi-ti-chiamo.json",
-    "name": "OGGI TI CHIAMO",
-    "numero": 1
   }
 ]
