@@ -1,13 +1,20 @@
 [
   {
-    "numero":0,
-    "name":"ABBRACCIAMI",
-    "link":"ABBRACCIAMI/abbracciami_breve.json",
-    "tonality":"SOL M"
+    "link": "ABBRACCIAMI/abbracciami_breve.json",
+    "name": "ABBRACCIAMI",
+    "numero": 0,
+    "tonality": "SOL M"
   },
   {
-    "numero":1,
-    "name":"OGGI TI CHIAMO",
-    "link":"OGGI TI CHIAMO/oggi-ti-chiamo.json"
+    "link": "OGGI TI CHIAMO/oggi-ti-chiamo.json",
+    "name": "OGGI TI CHIAMO",
+    "numero": 1
+  },
+  {
+    "numero": 2,
+    "name": "NUOVO CANTO",
+    "versione": "default",
+    "link": "new.json",
+    "tonality": "DO M"
   }
 ]
