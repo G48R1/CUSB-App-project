@@ -9,12 +9,5 @@
     "link": "OGGI TI CHIAMO/oggi-ti-chiamo.json",
     "name": "OGGI TI CHIAMO",
     "numero": 1
-  },
-  {
-    "numero": 2,
-    "name": "NUOVO CANTO",
-    "versione": "default",
-    "link": "new.json",
-    "tonality": "DO M"
   }
 ]
