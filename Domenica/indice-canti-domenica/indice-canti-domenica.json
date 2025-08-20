@@ -1,13 +1,23 @@
 [
   {
-    "link": "ABBRACCIAMI/abbracciami_breve.json",
+    "numero": "0",
     "name": "ABBRACCIAMI",
-    "numero": 0,
+    "versione": "breve",
+    "link": "ABBRACCIAMI/abbracciami_breve.json",
     "tonality": "SOL M"
   },
   {
-    "link": "OGGI TI CHIAMO/oggi-ti-chiamo.json",
+    "numero": "2",
     "name": "OGGI TI CHIAMO",
-    "numero": 1
+    "versione": "default",
+    "link": "OGGI TI CHIAMO/oggi-ti-chiamo.json",
+    "tonality": "DO M"
+  },
+  {
+    "numero": "1",
+    "name": "CHIAMATI PER NOME",
+    "versione": "default",
+    "link": "CHIAMATI PER NOME/chiamati-per-nome2.json",
+    "tonality": "MI M"
   }
 ]
