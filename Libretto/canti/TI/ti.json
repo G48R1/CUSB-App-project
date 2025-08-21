@@ -4,13 +4,13 @@
   "info": {
     "tonalita": {
       "type": "tonalita",
-      "tono": "REb",
+      "tono": "MIb",
       "modo": "m"
     },
     "metro": "4/4",
     "tempo": {
-      "velocita": "lento",
-      "bpm": "60"
+      "velocita": "moderato",
+      "bpm": "64"
     }
   },
   "strofe": [
