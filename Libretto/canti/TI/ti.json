@@ -6,6 +6,11 @@
       "type": "tonalita",
       "tono": "REb",
       "modo": "m"
+    },
+    "metro": "4/4",
+    "tempo": {
+      "velocita": "lento",
+      "bpm": "60"
     }
   },
   "strofe": [
