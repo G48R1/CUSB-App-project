@@ -7,11 +7,14 @@
   --btn-edit-sh: rgb(209, 201, 220);
   --btn-desc: rgb(221, 216, 226);
 
-  /*blu*/
-  /* --button: rgb(35, 30, 189);
-  --btn-edit: rgb(169, 167, 227);
-  --btn-desc: rgb(216, 216, 226); */
+  --background: #f9f9f9;
+  --primary: #674fa3;
+  --primary-hover: #5b3fa0;
+  --editor: #dcd2ec;
+  --editor-hover: #cfc6dd;
+  --desc-bg: #ede8f2;
 }
+
 @font-face {
   font-family: 'myTitleFont';
   src: url('./src/fonts/Abrakadaboom.otf') format('opentype');
@@ -143,16 +146,24 @@ header {
   }
 }
 
-.title {
+/* .title {
   text-align: center;
-  /* font-family: fantasy; */
   font-family: 'myTitleFont';
   font-size: x-large;
   font-variant: small-caps;
+} */
+.title {
+  /* font-family: 'myTitleFont', sans-serif; */
+  margin: 0;
+  font-size: 1.7rem;
+  text-align: center;
+  font-variant: small-caps;
+  color: var(--primary);
 }
+
 @media(max-width: 768px) {
   .title {
-    font-size: medium;
+    font-size: 1.2rem;
   }
 }
 
@@ -171,7 +182,7 @@ main {
   justify-content: center;
   column-gap: 1em;
   row-gap: 1em;
-  border: grey 1px solid;
+  /* border: grey 1px solid; */
   border-radius: 12px;
 
   max-width: 100%;
@@ -196,6 +207,7 @@ main {
   background-color: var(--button);
   color: var(--background);
   font-weight: bold;
+  font-size: medium;
   /* border: grey 1px dotted; */
   border: none;
   border-radius: 25px;
@@ -214,18 +226,25 @@ main {
 .sec-label.editor:hover {
   background-color: var(--btn-edit-sh);
 }
-.sec-description {
+/* .sec-description {
   padding: 1.5em;
   width: 200px;
   background-color: var(--btn-desc);
-  /* border: grey 1px dotted; */
   border-radius: 12px;
   text-align: center;
-  /* text-wrap: wrap;
-  max-width: 100%; */
   font-family: Arial, sans-serif;
   font-size: 14px;
+} */
+.sec-description {
+  background: var(--desc-bg);
+  margin: 0;
+  padding: 1em 1.5em;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #333;
 }
+
 @media(max-width: 768px) {
 
 }
