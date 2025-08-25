@@ -3,10 +3,10 @@
     "numero": 0,
     "name": "ABBRACCIAMI",
     "type": [
-      "INGRESSO"
+      "ingresso"
     ],
     "time": [
-      "ORDINARIO"
+      "ordinario"
     ],
     "link": {
       "default": "ABBRACCIAMI/abbracciami.json",
