@@ -3,20 +3,19 @@
     "numero": 0,
     "name": "ABBRACCIAMI",
     "type": [
-      "ingresso"
+      "INGRESSO"
     ],
     "time": [
-      "ordinario"
+      "ORDINARIO"
     ],
     "link": {
       "default": "ABBRACCIAMI/abbracciami.json",
       "breve": "ABBRACCIAMI/abbracciami_breve.json",
-      "prova": "ABBRACCIAMI/ABBRACCIAMI_prova.json",
-      "prova2": "ABBRACCIAMI/abbracciami_prova2.json"
+      "prova": "ABBRACCIAMI/ABBRACCIAMI_prova.json"
     },
-    "audio":{
-      "full": "ABBRACCIAMI/AUDIO/ABBRACCIAMI.aac"
-    }
+    "audio": [
+      "ABBRACCIAMI/AUDIO/ABBRACCIAMI.aac"
+    ]
   },
   {
     "numero": 1,
