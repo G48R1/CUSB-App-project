@@ -15,7 +15,9 @@
       "prova2": "ABBRACCIAMI/ABBRACCIAMI_prova2.json"
     },
     "audio": [
-      "ABBRACCIAMI/AUDIO/ABBRACCIAMI.aac"
+      {
+        "full": "ABBRACCIAMI/AUDIO/ABBRACCIAMI.aac"
+      }
     ]
   },
   {
