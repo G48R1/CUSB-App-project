@@ -1,15 +1,15 @@
 [
   {
-    "name": "A",
+    "name": "AA",
     "numero": 0,
     "type": [
       "ALLELUIA"
     ],
     "link": {
-      "default": "A/a.json"
+      "default": "AA/a.json"
     },
     "scores": {
-      "a": "A/PARTITURE/Screenshot_2024-12-18_171127.png"
+      "a": "AA/PARTITURE/Screenshot_2024-12-18_171127.png"
     }
   },
   {
