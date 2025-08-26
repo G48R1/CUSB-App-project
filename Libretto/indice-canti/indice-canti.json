@@ -47,7 +47,7 @@
     "name": "TI",
     "link": {
       "default": "TI/ti.json",
-      "nuova versione": "TI/ti_nuova versione.json"
+      "nuova": "TI/ti_nuova versione.json"
     },
     "numero": 3
   },
