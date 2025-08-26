@@ -44,22 +44,7 @@
     }
   },
   {
-    "name": "T",
     "numero": 3,
-    "type": [
-      "KYRIE",
-      "PACE",
-      "EUCARESTIA"
-    ],
-    "time": [
-      "NATALE"
-    ],
-    "link": {
-      "default": "T/ti.json"
-    }
-  },
-  {
-    "numero": 4,
     "name": "ZZZ canto",
     "link": {
       "default": "canto/canto.json"
