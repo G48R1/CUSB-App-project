@@ -3,11 +3,11 @@
     "name": "A",
     "numero": 0,
     "link": {
-      "default": "A/aaa.json"
+      "default1": "A/aaa.json"
     },
     "scores": {
-      "a": "A/PARTITURE/Screenshot_2024-12-09_114050.png",
-      "b": "A/PARTITURE/Screenshot_2024-12-18_171127.png"
+      "an": "A/PARTITURE/Screenshot_2024-12-09_114050.png",
+      "bn": "A/PARTITURE/Screenshot_2024-12-18_171127.png"
     }
   },
   {
