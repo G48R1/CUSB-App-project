@@ -45,10 +45,6 @@
   },
   {
     "name": "TI",
-    "link": {
-      "default": "TI/ti.json",
-      "nuova versione": "TI/ti_nuova versione.json"
-    },
     "numero": 3,
     "type": [
       "INGRESSO",
@@ -58,8 +54,9 @@
       "AVVENTO",
       "NATALE"
     ],
-    "scores": {
-      "a": "TI/PARTITURE/Screenshot_2024-12-18_171127.png"
+    "link": {
+      "default": "TI/ti.json",
+      "nuova versione": "TI/ti_nuova versione.json"
     }
   },
   {
