@@ -1,12 +1,12 @@
 [
   {
-    "name": "A",
+    "name": "AAA",
     "numero": 0,
     "link": {
-      "default": "A/aaa.json"
+      "default": "AAA/aaa.json"
     },
     "scores": {
-      "a": "A/PARTITURE/Screenshot_2024-12-09_114050.png"
+      "a": "AAA/PARTITURE/Screenshot_2024-12-09_114050.png"
     }
   },
   {
