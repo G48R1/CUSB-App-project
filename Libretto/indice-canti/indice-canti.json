@@ -44,7 +44,7 @@
     }
   },
   {
-    "name": "TI",
+    "name": "T",
     "numero": 3,
     "type": [
       "INGRESSO",
@@ -55,7 +55,7 @@
       "NATALE"
     ],
     "link": {
-      "default": "TI/ti.json"
+      "default": "T/ti.json"
     }
   },
   {
