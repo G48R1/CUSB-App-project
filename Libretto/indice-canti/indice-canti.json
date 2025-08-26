@@ -44,10 +44,11 @@
     }
   },
   {
-    "name": "T",
+    "name": "TI",
     "numero": 3,
     "type": [
       "INGRESSO",
+      "KYRIE",
       "PACE",
       "EUCARESTIA"
     ],
@@ -55,7 +56,7 @@
       "NATALE"
     ],
     "link": {
-      "default": "T/ti.json"
+      "default": "TI/ti.json"
     }
   },
   {
