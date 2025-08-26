@@ -1,9 +1,9 @@
 [
   {
-    "name": "AAA",
+    "name": "AA",
     "numero": 0,
     "link": {
-      "default1": "AAA/aaa.json"
+      "default1": "AA/aaa.json"
     }
   },
   {
