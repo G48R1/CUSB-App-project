@@ -1,13 +1,16 @@
 [
   {
-    "name": "A",
+    "name": "AAA",
     "numero": 0,
+    "time": [
+      "PASQUA"
+    ],
     "link": {
-      "default1": "A/aaa.json"
+      "default1": "AAA/aaa.json"
     },
     "scores": {
-      "an": "A/PARTITURE/Screenshot_2024-12-09_114050.png",
-      "bn": "A/PARTITURE/Screenshot_2024-12-18_171127.png"
+      "an": "AAA/PARTITURE/Screenshot_2024-12-09_114050.png",
+      "b": "AAA/PARTITURE/Screenshot_2024-12-18_171127.png"
     }
   },
   {
