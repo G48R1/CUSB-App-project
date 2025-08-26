@@ -48,6 +48,7 @@
     "numero": 3,
     "type": [
       "INGRESSO",
+      "PACE",
       "EUCARESTIA"
     ],
     "time": [
