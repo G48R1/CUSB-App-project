@@ -57,6 +57,9 @@
     "link": {
       "default": "TI/ti.json",
       "nuova versione": "TI/ti_nuova versione.json"
+    },
+    "scores": {
+      "aa": "TI/PARTITURE/Screenshot_2024-12-18_171127.png"
     }
   },
   {
