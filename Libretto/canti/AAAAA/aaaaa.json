@@ -1,0 +1,51 @@
+{
+  "type": "canto",
+  "titolo": "AAAAA",
+  "info": {
+    "tonalita": {
+      "type": "tonalita",
+      "tono": "DO",
+      "modo": "M"
+    }
+  },
+  "strofe": [
+    {
+      "type": "strofa",
+      "id": 0,
+      "righe_testo": [
+        {
+          "type": "riga-testo",
+          "contenuto": [
+            {
+              "type": "testo",
+              "testo": "aaa"
+            }
+          ]
+        }
+      ],
+      "schema": {
+        "type": "struttura-stanza",
+        "schema": [
+          {
+            "componente": "testo",
+            "posizione": 0
+          }
+        ]
+      }
+    }
+  ],
+  "struttura": [
+    {
+      "label": "default",
+      "struttura": {
+        "type": "struttura-canto",
+        "schema": [
+          {
+            "componente": "strofa",
+            "posizione": 0
+          }
+        ]
+      }
+    }
+  ]
+}
