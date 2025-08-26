@@ -44,10 +44,9 @@
     }
   },
   {
-    "name": "TI",
+    "name": "T",
     "numero": 3,
     "type": [
-      "INGRESSO",
       "KYRIE",
       "PACE",
       "EUCARESTIA"
@@ -56,11 +55,11 @@
       "NATALE"
     ],
     "link": {
-      "default": "TI/ti.json",
-      "nuova versione": "TI/ti_nuova versione.json"
+      "default": "T/ti.json",
+      "nuova versione": "T/ti_nuova versione.json"
     },
     "scores": {
-      "aaa": "TI/PARTITURE/Screenshot_2024-12-18_171127.png"
+      "aaa": "T/PARTITURE/Screenshot_2024-12-18_171127.png"
     }
   },
   {
