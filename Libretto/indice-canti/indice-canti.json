@@ -56,7 +56,8 @@
       "NATALE"
     ],
     "link": {
-      "default": "TI/ti.json"
+      "default": "TI/ti.json",
+      "nuova versione": "TI/ti_nuova versione.json"
     }
   },
   {
