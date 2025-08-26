@@ -1,20 +1,6 @@
 [
   {
-    "name": "AA",
     "numero": 0,
-    "type": [
-      "INGRESSO",
-      "ALLELUIA"
-    ],
-    "link": {
-      "default": "AA/a.json"
-    },
-    "scores": {
-      "a": "AA/PARTITURE/Screenshot_2024-12-18_171127.png"
-    }
-  },
-  {
-    "numero": 1,
     "name": "ABBRACCIAMI",
     "type": [
       "INGRESSO"
@@ -31,7 +17,7 @@
     }
   },
   {
-    "numero": 2,
+    "numero": 1,
     "name": "CHIAMATI PER NOME",
     "type": [
       "ingresso"
@@ -44,7 +30,7 @@
     }
   },
   {
-    "numero": 3,
+    "numero": 2,
     "name": "OGGI TI CHIAMO",
     "type": [
       "eucarestia",
@@ -58,7 +44,7 @@
     }
   },
   {
-    "numero": 4,
+    "numero": 3,
     "name": "ZZZ canto",
     "link": {
       "default": "canto/canto.json"
