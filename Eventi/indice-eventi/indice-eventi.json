@@ -2,18 +2,20 @@
   {
     "titolo": "evento 1",
     "data": "01/01/2025",
-    "canti":
-    [
+    "canti": [
       {
-        "numero":0,
-        "name":"ABBRACCIAMI",
-        "link":"ABBRACCIAMI/abbracciami_breve.json",
-        "tonality":"SOL M"
+        "numero": "1",
+        "name": "ABBRACCIAMI",
+        "versione": "default",
+        "link": "ABBRACCIAMI/abbracciami.json",
+        "tonality": "SOL M"
       },
       {
-        "numero":1,
-        "name":"OGGI TI CHIAMO",
-        "link":"OGGI TI CHIAMO/oggi-ti-chiamo.json"
+        "numero": "3",
+        "name": "OGGI TI CHIAMO",
+        "versione": "default",
+        "link": "OGGI TI CHIAMO/oggi-ti-chiamo.json",
+        "tonality": "DO M"
       }
     ]
   },
@@ -21,17 +23,16 @@
     "titolo": "evento 2",
     "commento": "provvisorio",
     "data": "01/05/2025",
-    "canti":
-    [
+    "canti": [
       {
-        "numero":0,
-        "name":"ABBRACCIAMI",
-        "link":"ABBRACCIAMI/abbracciami.json"
+        "numero": 0,
+        "name": "ABBRACCIAMI",
+        "link": "ABBRACCIAMI/abbracciami.json"
       },
       {
-        "numero":1,
-        "name":"OGGI TI CHIAMO",
-        "link":"OGGI TI CHIAMO/oggi-ti-chiamo.json"
+        "numero": 1,
+        "name": "OGGI TI CHIAMO",
+        "link": "OGGI TI CHIAMO/oggi-ti-chiamo.json"
       }
     ]
   }
