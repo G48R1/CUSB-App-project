@@ -9,20 +9,66 @@
   <meta name="theme-color" content="#007bff"/>
 
   <link rel="stylesheet" href="style-raccolte.css">
+  <style>
+    /* === BOX COMING SOON === */
+    .coming-soon-box {
+      box-sizing: border-box;
+      max-width: 500px;
+      width: 90%;
+      margin: 5rem auto;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      background-color: #f9fafb;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border: 1px solid #e5e7eb;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    .coming-soon-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .coming-soon-box h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #4b5563;
+    }
+
+    .coming-soon-box p {
+      font-size: 1rem;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
   <title>Le mie Raccolte</title>
 </head>
 <body>
 
   <nav>
     <div class="nav-bar">
-      <div class="nav-label" id="song-title">Raccolte</div>
+      <div class="nav-label" id="title">RACCOLTE</div>
       <div>
         <button class="nav-btn"><a href="../index.html">🏠︎</a></button>
       </div>
     </div>
   </nav>
 
-  <main></main>
+  <main>
+    <div class="coming-soon-box">
+      <div class="coming-soon-icon">🛠️</div>
+      <h2>Pagina in lavorazione</h2>
+      <p>Questa sezione è ancora in sviluppo. Torna presto per scoprire le tue raccolte!</p>
+    </div>
+  </main>
 
   <footer></footer>
 
