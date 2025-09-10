@@ -1,16 +1,11 @@
 {
   "type": "canto",
-  "titolo": "TI",
+  "titolo": "AAA",
   "info": {
     "tonalita": {
       "type": "tonalita",
-      "tono": "MIb",
-      "modo": "m"
-    },
-    "metro": "4/4",
-    "tempo": {
-      "velocita": "moderato",
-      "bpm": "64"
+      "tono": "DO",
+      "modo": "M"
     }
   },
   "strofe": [
@@ -23,7 +18,7 @@
           "contenuto": [
             {
               "type": "testo",
-              "testo": "jjjj"
+              "testo": "a"
             }
           ]
         }
