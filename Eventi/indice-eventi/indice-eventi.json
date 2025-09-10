@@ -5,18 +5,18 @@
     "commento": "",
     "canti": [
       {
-        "numero": "1",
-        "name": "ABBRACCIAMI",
-        "versione": "default",
-        "link": "ABBRACCIAMI/abbracciami.json",
-        "tonality": "SOL M"
-      },
-      {
         "numero": "3",
         "name": "OGGI TI CHIAMO",
         "versione": "default",
         "link": "OGGI TI CHIAMO/oggi-ti-chiamo.json",
         "tonality": "DO M"
+      },
+      {
+        "numero": "1",
+        "name": "ABBRACCIAMI",
+        "versione": "default",
+        "link": "ABBRACCIAMI/abbracciami.json",
+        "tonality": "SOL M"
       }
     ]
   },
