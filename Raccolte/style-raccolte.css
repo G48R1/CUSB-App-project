@@ -76,9 +76,10 @@ nav {
 
 .nav-btn {
   padding: 0.4em 0.8em;
+  padding-bottom: 0.1em;
   width: fit-content;
   background-color: var(--button);
-  color: #fff;
+  /* color: #fff; */
   font-size: 1rem;
   font-weight: bold;
   border: none;
@@ -93,6 +94,9 @@ nav {
 }
 .nav-btn a {
   font-size: 1.1rem;
+}
+.nav-btn img {
+  max-width: 1.2rem;
 }
 
 #title {
