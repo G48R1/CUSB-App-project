@@ -1,5 +1,6 @@
 // Percorso cartella schemi
 const AppRepo = "/CUSB-App-project";
+// const AppRepo = "";
 const CANTI_DIR = AppRepo + "/Libretto/canti";
 const dirCantoExample = "Esempio"
 const SCHEMA_DIR = AppRepo + "/validation/schemas";

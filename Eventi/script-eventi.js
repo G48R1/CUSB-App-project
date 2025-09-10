@@ -18,7 +18,7 @@ fetch(joinPath(INDICE_EVENTI_DIR, './indice-eventi.json'))
       eventoDiv.classList.add('evento');
 
       const titolo = document.createElement('h3');
-      titolo.textContent = evento.titolo;
+      titolo.textContent = evento.titolo.charAt(0).toUpperCase() + evento.titolo.slice(1);  // se esistesse capitalize() ...
 
       const data = document.createElement('p');
       data.textContent = `📅 ${evento.data}`;

@@ -3,6 +3,7 @@
   --button: #674fa3;
   --select: #7b69a8;
   --button-sh: #705aa6;
+  --button-sh-op: rgba(112, 90, 166, 0.2);
   --btn-edit: rgb(220, 210, 236);
   --btn-edit-sh: rgb(209, 201, 220);
   --btn-desc: rgb(221, 216, 226);
@@ -169,7 +170,7 @@ nav {
 }
 .filter select:focus {
   border-color: var(--accent, var(--select));
-  box-shadow: 0 0 0 3px rgba(147, 41, 182, 0.132);
+  box-shadow: 0 0 0 3px var(--button-sh-op);
   outline: none;
 }
 
