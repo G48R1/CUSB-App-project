@@ -35,5 +35,19 @@
         "link": "OGGI TI CHIAMO/oggi-ti-chiamo.json"
       }
     ]
+  },
+  {
+    "titolo": "prova",
+    "data": "01/01/2025",
+    "commento": "cmt",
+    "canti": [
+      {
+        "numero": "1",
+        "name": "ABBRACCIAMI",
+        "versione": "default",
+        "link": "ABBRACCIAMI/abbracciami.json",
+        "tonality": "MI M"
+      }
+    ]
   }
 ]
