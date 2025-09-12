@@ -234,15 +234,15 @@ aside.settings .audio-tracks {
 
 aside.dashboard {
   margin-top: 0.5em;
-  padding: 1.5em;
+  padding: .7em;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   column-gap: 1em;
   row-gap: 1em;
-  border: grey 1px solid;
-  border-radius: 12px;
+  border-bottom: grey 1px solid;
+  /* border-radius: 12px; */
 
   max-width: 100%;
   box-sizing: border-box;
