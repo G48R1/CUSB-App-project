@@ -108,9 +108,9 @@ nav {
 } */
 aside.visualize-all-chords {
   margin: 1em;
-  padding: 1em;
-  border: var(--button) solid 3px;
-  border-radius: 25px;
+  padding: 0.7em;
+  border-bottom: var(--button) solid 3px;
+  /* border-radius: 25px; */
 }
 
 #title {
