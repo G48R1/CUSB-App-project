@@ -23,6 +23,25 @@
           ]
         }
       ],
+      "seconde_voci": [
+        {
+          "type": "voce",
+          "righe_testo": [
+            {
+              "ref_riga": 0,
+              "testo": {
+                "type": "riga-voce",
+                "contenuto": [
+                  {
+                    "type": "testo",
+                    "testo": "b"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
       "schema": {
         "type": "struttura-stanza",
         "schema": [
