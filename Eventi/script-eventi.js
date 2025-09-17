@@ -20,10 +20,17 @@ fetch(joinPath(INDICE_EVENTI_DIR, './indice-eventi.json'))
       const titolo = document.createElement('h3');
       titolo.textContent = evento.titolo.charAt(0).toUpperCase() + evento.titolo.slice(1);  // se esistesse capitalize() ...
 
+      eventoDiv.appendChild(titolo);
+
+      if (evento.commento) {
+        const commento = document.createElement('i');
+        commento.textContent = `${evento.commento}`;
+        eventoDiv.appendChild(commento);
+      }
+
       const data = document.createElement('p');
       data.textContent = `📅 ${evento.data}`;
 
-      eventoDiv.appendChild(titolo);
       eventoDiv.appendChild(data);
       link.appendChild(eventoDiv);
 

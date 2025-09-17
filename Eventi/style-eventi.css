@@ -167,7 +167,9 @@ footer {
   font-size: 1.2rem;
   color: var(--button);
 }
-
+.evento i {
+  color: #666;
+}
 .evento p {
   margin: 0.4rem 0 0;
   color: #666;
