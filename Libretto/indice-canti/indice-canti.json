@@ -44,9 +44,7 @@
   },
   {
     "name": "Il Tuo grande amore",
-    "link": {
-      "default": "IL TUO GRANDE AMORE/il-tuo-grande-amore.json"
-    },
+    "numero": 3,
     "type": [
       "EUCARESTIA",
       "FINALE"
@@ -54,7 +52,9 @@
     "time": [
       "ORDINARIO"
     ],
-    "numero": 3
+    "link": {
+      "default": "IL TUO GRANDE AMORE/il-tuo-grande-amore.json"
+    }
   },
   {
     "numero": 4,
