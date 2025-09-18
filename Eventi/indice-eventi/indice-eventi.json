@@ -35,5 +35,33 @@
         "link": "OGGI TI CHIAMO/oggi-ti-chiamo.json"
       }
     ]
+  },
+  {
+    "titolo": "San Rocco",
+    "data": "22/02/2003",
+    "commento": "Ciao",
+    "canti": [
+      {
+        "numero": "3",
+        "name": "OGGI TI CHIAMO",
+        "versione": "default",
+        "link": "OGGI TI CHIAMO/oggi-ti-chiamo.json",
+        "tonality": "DO M"
+      },
+      {
+        "numero": "3",
+        "name": "OGGI TI CHIAMO",
+        "versione": "default",
+        "link": "OGGI TI CHIAMO/oggi-ti-chiamo.json",
+        "tonality": "DO M"
+      },
+      {
+        "numero": "4",
+        "name": "ZZZ canto",
+        "versione": "default",
+        "link": "canto/canto.json",
+        "tonality": "LA m"
+      }
+    ]
   }
 ]
