@@ -43,21 +43,7 @@
     }
   },
   {
-    "name": "Il Tuo grande amore",
     "numero": 3,
-    "type": [
-      "EUCARESTIA",
-      "FINALE"
-    ],
-    "time": [
-      "ORDINARIO"
-    ],
-    "link": {
-      "default": "IL TUO GRANDE AMORE/il-tuo-grande-amore.json"
-    }
-  },
-  {
-    "numero": 4,
     "name": "OGGI TI CHIAMO",
     "type": [
       "eucarestia",
@@ -71,7 +57,7 @@
     }
   },
   {
-    "numero": 5,
+    "numero": 4,
     "name": "ZZZ canto",
     "link": {
       "default": "canto/canto.json"
