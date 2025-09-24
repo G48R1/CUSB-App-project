@@ -45,7 +45,8 @@ async function loadCanto(filepath) {
   if (!checkbox.checked) visualizeChordsBool(false); //visualizeChords(); // default: non visualizzati
   abilitaToggleStrofaBreve();
 
-  document.querySelector(".canto").classList.remove("cols2"); // azzero slider cols2
+  document.getElementById("double-columns-checkbox").checked = false; // azzero slider cols2
+  // document.querySelector(".canto").classList.remove("cols2");
 
   tone.textContent = canto.getTonalita().getTono();
   mode.textContent = canto.getTonalita().getModo();
