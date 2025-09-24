@@ -45,7 +45,7 @@ async function loadCanto(filepath) {
   if (!checkbox.checked) visualizeChordsBool(false); //visualizeChords(); // default: non visualizzati
   abilitaToggleStrofaBreve();
 
-  doubleColumns(false);
+  document.querySelector(".canto").classList.remove("cols2"); // azzero slider cols2
 
   tone.textContent = canto.getTonalita().getTono();
   mode.textContent = canto.getTonalita().getModo();
