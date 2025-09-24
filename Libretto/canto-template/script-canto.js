@@ -45,6 +45,7 @@ async function loadCanto(filepath) {
   if (!checkbox.checked) visualizeChordsBool(false); //visualizeChords(); // default: non visualizzati
   abilitaToggleStrofaBreve();
 
+  doubleColumns(false);
 
   tone.textContent = canto.getTonalita().getTono();
   mode.textContent = canto.getTonalita().getModo();
