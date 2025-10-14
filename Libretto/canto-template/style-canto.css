@@ -231,6 +231,17 @@ aside.settings .audio-tracks {
   flex-wrap: wrap;
 }
 
+.scores-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.score-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 
 aside.dashboard {
   margin-top: 0.5em;

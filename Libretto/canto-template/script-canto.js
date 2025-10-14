@@ -84,6 +84,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         loadCanto(select.value);
       });
 
+      console.log(cantoData);
+
       if (cantoData.audio) {
         const audioEntries = Object.entries(cantoData.audio);
         const audioTracks = document.getElementById("audio-tracks");
@@ -115,13 +117,52 @@ document.addEventListener('DOMContentLoaded', async () => {
         })
       }
 
+      if (cantoData.scores) {
+        const scoreEntries = Object.entries(cantoData.scores);
+        const scoreContainer = document.getElementById("scores");
+
+        scoreEntries.forEach(([label, scorePath]) => {
+          const container = document.createElement("div");
+          container.className = "score-box";
+
+          const labelDiv = document.createElement("label");
+          labelDiv.textContent = label;
+
+          const img = document.createElement("img");
+          img.src = joinPath(CANTI_DIR, scorePath);
+          img.alt = `Partitura: ${label}`;
+          img.className = "score-preview";
+
+          // Anteprima piccola, possiamo limitare la dimensione via CSS o inline:
+          img.style.maxWidth = "150px";
+          img.style.maxHeight = "150px";
+          img.style.objectFit = "cover";
+          img.style.cursor = "pointer";
+          img.style.borderRadius = "8px";
+          img.style.boxShadow = "0 2px 6px rgba(0,0,0,0.2)";
+          img.style.transition = "transform 0.2s ease";
+
+          // Effetto hover
+          img.addEventListener("mouseenter", () => {
+            img.style.transform = "scale(1.05)";
+          });
+          img.addEventListener("mouseleave", () => {
+            img.style.transform = "scale(1)";
+          });
+
+          container.appendChild(labelDiv);
+          container.appendChild(img);
+          scoreContainer.appendChild(container);
+
+          // visualizzazione estesa
+          img.onclick = () => window.open(img.src, "_blank");
+        });
+      }
     })
     .catch(error => {
       console.error('Errore nel caricamento dei canti:', error);
       main.innerHTML = '<p>Errore nel caricamento dei canti.</p>';
     });
-
-  // console.log(path);
 
   const canto = await Canto.loadFromFile(path);
   main.appendChild(canto.toHTML());
