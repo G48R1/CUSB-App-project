@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           audioTracks.appendChild(container);
         })
       }
-
+      
       if (cantoData.scores) {
         const scoreEntries = Object.entries(cantoData.scores);
         const scoreContainer = document.getElementById("scores");
@@ -128,36 +128,116 @@ document.addEventListener('DOMContentLoaded', async () => {
           const labelDiv = document.createElement("label");
           labelDiv.textContent = label;
 
-          const img = document.createElement("img");
-          img.src = joinPath(CANTI_DIR, scorePath);
-          img.alt = `Partitura: ${label}`;
-          img.className = "score-preview";
+          const fullPath = joinPath(CANTI_DIR, scorePath);
+          const ext = scorePath.split('.').pop().toLowerCase();
 
-          // Anteprima piccola, possiamo limitare la dimensione via CSS o inline:
-          img.style.maxWidth = "150px";
-          img.style.maxHeight = "150px";
-          img.style.objectFit = "cover";
-          img.style.cursor = "pointer";
-          img.style.borderRadius = "8px";
-          img.style.boxShadow = "0 2px 6px rgba(0,0,0,0.2)";
-          img.style.transition = "transform 0.2s ease";
+          let previewEl;
 
-          // Effetto hover
-          img.addEventListener("mouseenter", () => {
-            img.style.transform = "scale(1.05)";
-          });
-          img.addEventListener("mouseleave", () => {
-            img.style.transform = "scale(1)";
-          });
+          if (["png", "jpg", "jpeg", "gif", "svg", "webp"].includes(ext)) {
+            // 📸 IMMAGINE
+            const img = document.createElement("img");
+            img.src = fullPath;
+            img.alt = `Partitura: ${label}`;
+            img.className = "score-preview";
+            img.style.maxWidth = "150px";
+            img.style.maxHeight = "150px";
+            img.style.objectFit = "cover";
+            img.style.cursor = "pointer";
+            img.style.borderRadius = "8px";
+            img.style.boxShadow = "0 2px 6px rgba(0,0,0,0.2)";
+            img.style.transition = "transform 0.2s ease";
+
+            img.addEventListener("mouseenter", () => {
+              img.style.transform = "scale(1.05)";
+            });
+            img.addEventListener("mouseleave", () => {
+              img.style.transform = "scale(1)";
+            });
+
+            // clic per aprire in nuova scheda
+            img.addEventListener("click", () => window.open(fullPath, "_blank"));
+            previewEl = img;
+
+          } else if (ext === "pdf") {
+            // 📄 PDF
+            const pdfDiv = document.createElement("div");
+            pdfDiv.className = "pdf-preview";
+            pdfDiv.textContent = "📄 Apri PDF";
+            pdfDiv.style.width = "150px";
+            pdfDiv.style.height = "150px";
+            pdfDiv.style.display = "flex";
+            pdfDiv.style.alignItems = "center";
+            pdfDiv.style.justifyContent = "center";
+            pdfDiv.style.background = "#f3f3f3";
+            pdfDiv.style.borderRadius = "8px";
+            pdfDiv.style.boxShadow = "0 2px 6px rgba(0,0,0,0.2)";
+            pdfDiv.style.cursor = "pointer";
+            pdfDiv.style.transition = "background 0.2s ease";
+
+            pdfDiv.addEventListener("mouseenter", () => {
+              pdfDiv.style.background = "#e8e8e8";
+            });
+            pdfDiv.addEventListener("mouseleave", () => {
+              pdfDiv.style.background = "#f3f3f3";
+            });
+            pdfDiv.addEventListener("click", () => window.open(fullPath, "_blank"));
+
+            previewEl = pdfDiv;
+
+          } else {
+            // Tipo non supportato
+            const unknown = document.createElement("p");
+            unknown.textContent = `Formato non supportato: ${ext}`;
+            previewEl = unknown;
+          }
 
           container.appendChild(labelDiv);
-          container.appendChild(img);
+          container.appendChild(previewEl);
           scoreContainer.appendChild(container);
-
-          // visualizzazione estesa
-          img.onclick = () => window.open(img.src, "_blank");
         });
       }
+
+      // if (cantoData.scores) {
+      //   const scoreEntries = Object.entries(cantoData.scores);
+      //   const scoreContainer = document.getElementById("scores");
+
+      //   scoreEntries.forEach(([label, scorePath]) => {
+      //     const container = document.createElement("div");
+      //     container.className = "score-box";
+
+      //     const labelDiv = document.createElement("label");
+      //     labelDiv.textContent = label;
+
+      //     const img = document.createElement("img");
+      //     img.src = joinPath(CANTI_DIR, scorePath);
+      //     img.alt = `Partitura: ${label}`;
+      //     img.className = "score-preview";
+
+      //     // Anteprima piccola, possiamo limitare la dimensione via CSS o inline:
+      //     img.style.maxWidth = "150px";
+      //     img.style.maxHeight = "150px";
+      //     img.style.objectFit = "cover";
+      //     img.style.cursor = "pointer";
+      //     img.style.borderRadius = "8px";
+      //     img.style.boxShadow = "0 2px 6px rgba(0,0,0,0.2)";
+      //     img.style.transition = "transform 0.2s ease";
+
+      //     // Effetto hover
+      //     img.addEventListener("mouseenter", () => {
+      //       img.style.transform = "scale(1.05)";
+      //     });
+      //     img.addEventListener("mouseleave", () => {
+      //       img.style.transform = "scale(1)";
+      //     });
+
+      //     container.appendChild(labelDiv);
+      //     container.appendChild(img);
+      //     scoreContainer.appendChild(container);
+
+      //     // visualizzazione estesa
+      //     img.onclick = () => window.open(img.src, "_blank");
+      //   });
+      // }
     })
     .catch(error => {
       console.error('Errore nel caricamento dei canti:', error);
