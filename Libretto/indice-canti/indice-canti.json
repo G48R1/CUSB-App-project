@@ -14,10 +14,11 @@
     }
   },
   {
-    "numero": 1,
     "name": "ABBRACCIAMI",
+    "numero": 1,
     "type": [
-      "INGRESSO"
+      "INGRESSO",
+      "EUCARESTIA"
     ],
     "time": [
       "ORDINARIO"
