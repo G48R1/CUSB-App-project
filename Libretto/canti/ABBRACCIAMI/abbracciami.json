@@ -13,6 +13,7 @@
       "label": "0",
       "contenuto": {
         "type": "strumentale",
+        "label": "intro",
         "contenuto": {
           "type": "riga-accordi",
           "contenuto": [
@@ -61,7 +62,7 @@
   "strofe": [
     {
       "type": "strofa",
-      "id": 1,
+      "id": 0,
       "righe_accordi": [
         {
           "type": "riga-accordi",
@@ -168,7 +169,7 @@
           "contenuto": [
             {
               "type": "testo",
-              "testo": " Gesù, parola viva e vera,"
+              "testo": " Ges\u00f9, parola viva e vera,"
             }
           ]
         },
@@ -240,7 +241,7 @@
     },
     {
       "type": "strofa",
-      "id": 3,
+      "id": 1,
       "righe_accordi": [
         {
           "type": "riga-accordi",
@@ -347,7 +348,7 @@
           "contenuto": [
             {
               "type": "testo",
-              "testo": " Gesù, asciuga il nostro pianto,"
+              "testo": " Ges\u00f9, asciuga il nostro pianto,"
             }
           ]
         },
@@ -356,7 +357,7 @@
           "contenuto": [
             {
               "type": "testo",
-              "testo": " Leone vincitore, della tribù di Giuda."
+              "testo": " Leone vincitore, della trib\u00f9 di Giuda."
             }
           ]
         },
@@ -416,261 +417,12 @@
           }
         ]
       }
-    },
-    {
-      "type": "strofa",
-      "id": 5,
-      "righe_accordi": [
-        {
-          "type": "riga-accordi",
-          "contenuto": [
-            {
-              "type": "accordo",
-              "base": "MI"
-            },
-            {
-              "type": "accordo",
-              "base": "SI"
-            },
-            {
-              "type": "accordo",
-              "base": "DO#",
-              "extra": {
-                "alterazione": "-"
-              }
-            },
-            {
-              "type": "accordo",
-              "base": "LA"
-            }
-          ],
-          "spazi": [
-            {
-              "sep": " ",
-              "qta": 5
-            },
-            {
-              "sep": " ",
-              "qta": 13
-            },
-            {
-              "sep": " ",
-              "qta": 5
-            },
-            {
-              "sep": " ",
-              "qta": 13
-            }
-          ]
-        },
-        {
-          "type": "riga-accordi",
-          "contenuto": [
-            {
-              "type": "accordo",
-              "base": "MI"
-            },
-            {
-              "type": "accordo",
-              "base": "SI"
-            },
-            {
-              "type": "accordo",
-              "base": "DO#",
-              "extra": {
-                "alterazione": "-"
-              }
-            },
-            {
-              "type": "accordo",
-              "base": "LA"
-            }
-          ],
-          "spazi": [
-            {
-              "sep": " ",
-              "qta": 1
-            },
-            {
-              "sep": " ",
-              "qta": 16
-            },
-            {
-              "sep": " ",
-              "qta": 6
-            },
-            {
-              "sep": " ",
-              "qta": 9
-            }
-          ]
-        },
-        {
-          "type": "riga-accordi",
-          "contenuto": [
-            {
-              "type": "accordo",
-              "base": "MI"
-            },
-            {
-              "type": "accordo",
-              "base": "SI"
-            },
-            {
-              "type": "accordo",
-              "base": "DO#",
-              "extra": {
-                "alterazione": "-"
-              }
-            },
-            {
-              "type": "accordo",
-              "base": "LA"
-            }
-          ],
-          "spazi": [
-            {
-              "sep": " ",
-              "qta": 5
-            },
-            {
-              "sep": " ",
-              "qta": 13
-            },
-            {
-              "sep": " ",
-              "qta": 5
-            },
-            {
-              "sep": " ",
-              "qta": 13
-            }
-          ]
-        },
-        {
-          "type": "riga-accordi",
-          "contenuto": [
-            {
-              "type": "accordo",
-              "base": "MI"
-            },
-            {
-              "type": "accordo",
-              "base": "SI"
-            },
-            {
-              "type": "accordo",
-              "base": "DO#",
-              "extra": {
-                "alterazione": "-"
-              }
-            },
-            {
-              "type": "accordo",
-              "base": "LA"
-            }
-          ],
-          "spazi": [
-            {
-              "sep": " ",
-              "qta": 1
-            },
-            {
-              "sep": " ",
-              "qta": 16
-            },
-            {
-              "sep": " ",
-              "qta": 6
-            },
-            {
-              "sep": " ",
-              "qta": 9
-            }
-          ]
-        }
-      ],
-      "righe_testo": [
-        {
-          "type": "riga-testo",
-          "contenuto": [
-            {
-              "type": "testo",
-              "testo": " Per sempre io canterò, la Tua immensa fedeltà,"
-            }
-          ]
-        },
-        {
-          "type": "riga-testo",
-          "contenuto": [
-            {
-              "type": "testo",
-              "testo": " il Tuo spirito in me, in eterno ti loderà."
-            }
-          ]
-        },
-        {
-          "type": "riga-testo",
-          "contenuto": [
-            {
-              "type": "testo",
-              "testo": " Per sempre io canterò, la Tua immensa fedeltà,"
-            }
-          ]
-        },
-        {
-          "type": "riga-testo",
-          "contenuto": [
-            {
-              "type": "testo",
-              "testo": " il Tuo spirito in me, in eterno ti loderà."
-            }
-          ]
-        }
-      ],
-      "schema": {
-        "type": "struttura-stanza",
-        "schema": [
-          {
-            "componente": "accordi",
-            "posizione": 0
-          },
-          {
-            "componente": "testo",
-            "posizione": 0
-          },
-          {
-            "componente": "accordi",
-            "posizione": 1
-          },
-          {
-            "componente": "testo",
-            "posizione": 1
-          },
-          {
-            "componente": "accordi",
-            "posizione": 2
-          },
-          {
-            "componente": "testo",
-            "posizione": 2
-          },
-          {
-            "componente": "accordi",
-            "posizione": 3
-          },
-          {
-            "componente": "testo",
-            "posizione": 3
-          }
-        ]
-      }
     }
   ],
   "ritornelli": [
     {
       "type": "ritornello",
-      "id": 2,
+      "id": 0,
       "righe_accordi": [
         {
           "type": "riga-accordi",
@@ -687,11 +439,11 @@
           "spazi": [
             {
               "sep": " ",
-              "qta": 1
+              "qta": 3
             },
             {
               "sep": " ",
-              "qta": 21
+              "qta": 19
             }
           ]
         },
@@ -788,7 +540,7 @@
           "contenuto": [
             {
               "type": "testo",
-              "testo": " Abbracciami, Dio dell'eternità,"
+              "testo": " Abbracciami, Dio dell'eternit\u00e0,"
             }
           ]
         },
@@ -815,7 +567,7 @@
           "contenuto": [
             {
               "type": "testo",
-              "testo": " manda il tuo spirito, Maranathà Gesù."
+              "testo": " manda il tuo spirito, Maranath\u00e0 Ges\u00f9."
             }
           ]
         }
@@ -860,7 +612,7 @@
     },
     {
       "type": "ritornello",
-      "id": 4,
+      "id": 1,
       "righe_accordi": [
         {
           "type": "riga-accordi",
@@ -978,7 +730,7 @@
           "contenuto": [
             {
               "type": "testo",
-              "testo": " Abbracciami, Dio dell'eternità,"
+              "testo": " Abbracciami, Dio dell'eternit\u00e0,"
             }
           ]
         },
@@ -1005,7 +757,7 @@
           "contenuto": [
             {
               "type": "testo",
-              "testo": " manda il tuo spirito, Maranathà Gesù."
+              "testo": " manda il tuo spirito, Maranath\u00e0 Ges\u00f9."
             }
           ]
         }
@@ -1050,7 +802,7 @@
     },
     {
       "type": "ritornello",
-      "id": 6,
+      "id": 2,
       "righe_accordi": [
         {
           "type": "riga-accordi",
@@ -1176,7 +928,7 @@
           "contenuto": [
             {
               "type": "testo",
-              "testo": " Abbracciami, Dio dell'eternità,"
+              "testo": " Abbracciami, Dio dell'eternit\u00e0,"
             }
           ]
         },
@@ -1203,7 +955,258 @@
           "contenuto": [
             {
               "type": "testo",
-              "testo": " manda il tuo spirito, Maranathà Gesù."
+              "testo": " manda il tuo spirito, Maranath\u00e0 Ges\u00f9."
+            }
+          ]
+        }
+      ],
+      "schema": {
+        "type": "struttura-stanza",
+        "schema": [
+          {
+            "componente": "accordi",
+            "posizione": 0
+          },
+          {
+            "componente": "testo",
+            "posizione": 0
+          },
+          {
+            "componente": "accordi",
+            "posizione": 1
+          },
+          {
+            "componente": "testo",
+            "posizione": 1
+          },
+          {
+            "componente": "accordi",
+            "posizione": 2
+          },
+          {
+            "componente": "testo",
+            "posizione": 2
+          },
+          {
+            "componente": "accordi",
+            "posizione": 3
+          },
+          {
+            "componente": "testo",
+            "posizione": 3
+          }
+        ]
+      }
+    }
+  ],
+  "bridge": [
+    {
+      "type": "bridge",
+      "id": 0,
+      "righe_accordi": [
+        {
+          "type": "riga-accordi",
+          "contenuto": [
+            {
+              "type": "accordo",
+              "base": "MI"
+            },
+            {
+              "type": "accordo",
+              "base": "SI"
+            },
+            {
+              "type": "accordo",
+              "base": "DO#",
+              "extra": {
+                "alterazione": "-"
+              }
+            },
+            {
+              "type": "accordo",
+              "base": "LA"
+            }
+          ],
+          "spazi": [
+            {
+              "sep": " ",
+              "qta": 5
+            },
+            {
+              "sep": " ",
+              "qta": 13
+            },
+            {
+              "sep": " ",
+              "qta": 5
+            },
+            {
+              "sep": " ",
+              "qta": 13
+            }
+          ]
+        },
+        {
+          "type": "riga-accordi",
+          "contenuto": [
+            {
+              "type": "accordo",
+              "base": "MI"
+            },
+            {
+              "type": "accordo",
+              "base": "SI"
+            },
+            {
+              "type": "accordo",
+              "base": "DO#",
+              "extra": {
+                "alterazione": "-"
+              }
+            },
+            {
+              "type": "accordo",
+              "base": "LA"
+            }
+          ],
+          "spazi": [
+            {
+              "sep": " ",
+              "qta": 1
+            },
+            {
+              "sep": " ",
+              "qta": 16
+            },
+            {
+              "sep": " ",
+              "qta": 6
+            },
+            {
+              "sep": " ",
+              "qta": 9
+            }
+          ]
+        },
+        {
+          "type": "riga-accordi",
+          "contenuto": [
+            {
+              "type": "accordo",
+              "base": "MI"
+            },
+            {
+              "type": "accordo",
+              "base": "SI"
+            },
+            {
+              "type": "accordo",
+              "base": "DO#",
+              "extra": {
+                "alterazione": "-"
+              }
+            },
+            {
+              "type": "accordo",
+              "base": "LA"
+            }
+          ],
+          "spazi": [
+            {
+              "sep": " ",
+              "qta": 5
+            },
+            {
+              "sep": " ",
+              "qta": 13
+            },
+            {
+              "sep": " ",
+              "qta": 5
+            },
+            {
+              "sep": " ",
+              "qta": 13
+            }
+          ]
+        },
+        {
+          "type": "riga-accordi",
+          "contenuto": [
+            {
+              "type": "accordo",
+              "base": "MI"
+            },
+            {
+              "type": "accordo",
+              "base": "SI"
+            },
+            {
+              "type": "accordo",
+              "base": "DO#",
+              "extra": {
+                "alterazione": "-"
+              }
+            },
+            {
+              "type": "accordo",
+              "base": "LA"
+            }
+          ],
+          "spazi": [
+            {
+              "sep": " ",
+              "qta": 1
+            },
+            {
+              "sep": " ",
+              "qta": 16
+            },
+            {
+              "sep": " ",
+              "qta": 6
+            },
+            {
+              "sep": " ",
+              "qta": 9
+            }
+          ]
+        }
+      ],
+      "righe_testo": [
+        {
+          "type": "riga-testo",
+          "contenuto": [
+            {
+              "type": "testo",
+              "testo": " Per sempre io canter\u00f2, la Tua immensa fedelt\u00e0,"
+            }
+          ]
+        },
+        {
+          "type": "riga-testo",
+          "contenuto": [
+            {
+              "type": "testo",
+              "testo": " il Tuo spirito in me, in eterno ti loder\u00e0."
+            }
+          ]
+        },
+        {
+          "type": "riga-testo",
+          "contenuto": [
+            {
+              "type": "testo",
+              "testo": " Per sempre io canter\u00f2, la Tua immensa fedelt\u00e0,"
+            }
+          ]
+        },
+        {
+          "type": "riga-testo",
+          "contenuto": [
+            {
+              "type": "testo",
+              "testo": " il Tuo spirito in me, in eterno ti loder\u00e0."
             }
           ]
         }
@@ -1259,27 +1262,27 @@
           },
           {
             "componente": "strofa",
+            "posizione": 0
+          },
+          {
+            "componente": "ritornello",
+            "posizione": 0
+          },
+          {
+            "componente": "strofa",
             "posizione": 1
           },
           {
             "componente": "ritornello",
+            "posizione": 1
+          },
+          {
+            "componente": "bridge",
+            "posizione": 0
+          },
+          {
+            "componente": "ritornello",
             "posizione": 2
-          },
-          {
-            "componente": "strofa",
-            "posizione": 3
-          },
-          {
-            "componente": "ritornello",
-            "posizione": 4
-          },
-          {
-            "componente": "strofa",
-            "posizione": 5
-          },
-          {
-            "componente": "ritornello",
-            "posizione": 6
           }
         ]
       }
